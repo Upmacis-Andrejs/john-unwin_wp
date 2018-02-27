@@ -1,0 +1,21 @@
+{
+  "name": "John Unwin",
+  "authors": [
+    "Andrejs Upmacis <andrejs.upmacis@gmail.com>"
+  ],
+  "description": "John Unwin Web Page",
+  "main": "index.php",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
