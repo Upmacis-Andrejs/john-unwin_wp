@@ -11,12 +11,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
-        <meta name="google-site-verification" content="5GV3htbGte-ZaZ8Mp5ubMy2wfShvNOdhl1yn9VQ2cmo" />
+        <!--<meta name="google-site-verification" content="5GV3htbGte-ZaZ8Mp5ubMy2wfShvNOdhl1yn9VQ2cmo" />-->
 
         <?php wp_head(); ?>
 
 	</head>
-	<body <?php body_class('opacity-0'); ?>>
+	<body <?php body_class(); ?>>
 
     <!--[if lte IE 9]>
     <div id="update_browser_fake_body">
@@ -58,40 +58,27 @@
     <![endif]-->
 
 		<!-- wrapper -->
-		<div class="wrapper 
-            <?php if( get_field('full_width_video') ): echo ' video';
-                elseif( get_field('full_width_image') ): echo ' image';
-                else: echo 'header-relative';
-                endif; ?>"
-            id="body-wrapper">
+		<div id="body-wrapper">
 
 			<!-- header -->
-			<header class="z-666 clear flex-vert-c opacity-0" id="site-header">
+			<header class="z-666 clear flex-vert-c" id="site-header">
                 <div class="container">
                     <div class="row flex-vert-c">
-
-                            <a class="visuallyhidden" id="template-dir-uri-img" href="<?php echo get_template_directory_uri(); ?>/img/"></a>
-    						<a id="main-site-logo" href="<?php echo home_url(); ?>">
-    							<img src="<?php echo get_template_directory_uri(); ?>/img/site-logo-black.svg" alt="Site Logo">
-    						</a>
-                            <a id="mobile-menu-icon" href="#">
-                                <div class="inner">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="wrapper-for-mobile-menu">
-                                <div class="inner flex-vert-c">
-                					<nav class="nav">
-                						<?php rkmachinery_nav(); ?>
-                					</nav>
-                                    <div class="lang-switcher-wrapper">
-                                       <?php echo apply_filters('rkmachinery_lang_switcher', ''); ?>
-                                    </div>
-                                </div>
+                        <a id="mobile-menu-icon" href="#">
+                            <div class="inner">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
+                        </a>
+                        <div class="wrapper-for-mobile-menu">
+                            <div class="inner flex-vert-c">
+            					<nav class="nav">
+            						<?php johnunwin_nav(); ?>
+            					</nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
 			</header>
