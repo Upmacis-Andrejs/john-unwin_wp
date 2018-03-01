@@ -1,14 +1,6 @@
 $(document).ready(function() {
 	'use strict';
 
-	// Show content
-	$("body").removeClass("opacity-0").css("opacity", 1);
-	var $timeout_show_header;
-	function show_header() {
-		$("#site-header").removeClass("opacity-0").css("opacity", 1);
-	}
-	$timeout_show_header = setTimeout(show_header, 300);
-
 	// Trigger window resize when DOM has been loaded
 	$(window).trigger('resize');
 	

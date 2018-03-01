@@ -61,7 +61,7 @@
 		<div id="body-wrapper">
 
 			<!-- header -->
-			<header class="z-666 clear flex-vert-c" id="site-header">
+			<header class="z-666 flex-vert-c" id="site-header">
                 <div class="container">
                     <div class="row flex-vert-c">
                         <a id="mobile-menu-icon" href="#">
@@ -73,10 +73,28 @@
                             </div>
                         </a>
                         <div class="wrapper-for-mobile-menu">
-                            <div class="inner flex-vert-c">
-            					<nav class="nav">
-            						<?php johnunwin_nav(); ?>
-            					</nav>
+                            <div class="inner">
+                                <div class="header-contacts-wrapper flex-vert-c">
+                                    <?php if( get_field('phone', 'option') ): ?>
+                                    <div class="phone-wrapper flex-vert-c">
+                                        <span class="icon"></span>
+                                        <h3 class="text"><?php the_field('emergency_phone_text', 'option'); ?></h3>
+                                        <a class="phone" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>"><?php echo $phone; ?></a>
+                                    </div>
+                                    <?php endif; ?>
+
+                                    <?php if( get_field('email', 'option') ): ?>
+                                    <div class="email-wrapper flex-vert-c">
+                                        <span class="icon"></span>
+                                        <a class="email" href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="header-menu-wraper">
+                					<nav class="nav">
+                						<?php johnunwin_header_nav(); ?>
+                					</nav>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -155,10 +155,20 @@ add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
 
 // Add ACF Pro options page
 if( function_exists('acf_add_options_page') ) {  
-    acf_add_options_page(array(
-        'page_title'    => 'Options',
-        'menu_title'    => 'Options',
-    ));   
+    acf_add_options_page();
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'General Options',
+        'menu_title'    => 'General Options',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Quote Block',
+        'menu_title'    => 'Quote Block',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Call Us Block',
+        'menu_title'    => 'Call Us Block',
+    ));
 }
 
 // Automatically set the image Title and Alt-Text upon upload
@@ -254,8 +264,8 @@ function register_johnunwin_menu()
     ));
 }
 
-// Define John Unwin navigation
-function johnunwin_nav()
+// Define John Unwin header navigation
+function johnunwin_header_nav()
 {
     wp_nav_menu(
     array(
