@@ -9,5 +9,5 @@
 	</ul>
 	<?php endif; ?>
 
-	<a class="btn btn-1" href="<?php the_field('quote_btn_link', 'option'); ?>"><?php the_field('quote_btn_text', 'option'); ?></a>
+	<a class="btn btn-1" href="http://google.com"><?php _e('Get a Quote', 'johnunwin'); ?></a>
 </div>

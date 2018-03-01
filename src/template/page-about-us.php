@@ -1,3 +1,5 @@
+<?php /* Template Name: About Us */ ?>
+
 <?php get_header(); ?>
 
 	<main id="site-content">
@@ -16,14 +18,6 @@
 				<div class="section-overlay <?php echo $overlay_class; ?>"></div>
 			<?php endif; ?>
 
-			<?php /* Add map to homepage background */
-				if ( is_front_page() ):
-			?>
-				<div class="background-map">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/background-map.svg" alt="map">
-				</div>
-			<?php endif; ?>
-
 			<div class="container">
 				<div class="row">
 
@@ -35,38 +29,6 @@
 							<?php the_field('page_content'); ?>
 						</div>
 					</div>
-
-					<?php /* Add List Block if it has content */
-						if ( have_rows('list_block') ):
-					?>
-						<div class="above-the-fold-list-wrapper">
-							<?php while ( have_rows('list_block') ) : the_row(); ?>
-							<h6 class="title"><?php the_sub_field('list_block_title'); ?></h6>
-
-							<?php if( have_rows('list_block_list') ): ?>
-							<ul class="list">
-
-								<?php while( have_rows('list_block_list') ) : the_row(); ?>
-								<?php $checkbox = get_sub_field('list_style_li'); ?>
-								<li class="
-								<?php if( in_array('bold', $checkbox) == 'bold' ) {
-									echo 'bold';
-								} elseif( get_sub_field('list_style_li') == 'bold_colored' ) {
-									echo 'bold-colored';
-								} elseif( get_sub_field('list_style_li') == 'light' ) {
-									echo 'light';
-								} elseif( get_sub_field('list_style_li') == 'light_colored' ) {
-									echo 'light-colored';
-								} ?>
-								"><?php the_sub_field('list_li_text'); ?><?php the_sub_field('list_style_li'); ?></li>
-								<?php endwhile; ?>
-
-							</ul>
-							<?php endif; ?>
-
-						<?php endwhile; ?>
-						</div>
-					<?php endif; ?>
 
 					<?php /* Add Get a Free Quote Block if quote_block field is true */
 						if ( get_field('quote_block') == 'true' ) {
@@ -88,7 +50,6 @@
 		<!-- Sections Added With Page Builder -->
 		<?php get_template_part('page-builder-block'); ?>
 		<!-- /Sections Added With Page Builder -->
-
 
 	</main>
 
