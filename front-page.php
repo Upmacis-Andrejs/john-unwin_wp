@@ -52,17 +52,17 @@
 
 								<?php while( have_rows('list_block_list') ) : the_row(); ?>
 								<?php $checkbox = get_sub_field('list_style_li'); ?>
-								<li class="
-								<?php if( in_array('bold', $checkbox) == 'bold' ) {
-									echo 'bold';
-								} elseif( get_sub_field('list_style_li') == 'bold_colored' ) {
-									echo 'bold-colored';
-								} elseif( get_sub_field('list_style_li') == 'light' ) {
-									echo 'light';
-								} elseif( get_sub_field('list_style_li') == 'light_colored' ) {
-									echo 'light-colored';
-								} ?>
-								"><?php the_sub_field('list_li_text'); ?><?php the_sub_field('list_style_li'); ?></li>
+								<li class="<?php if( get_sub_field('list_style_li') ) {
+									if( in_array('bold', $checkbox) ) {
+										echo 'bold';
+									} elseif( in_array('bold_colored', $checkbox) ) {
+										echo 'bold-colored';
+									} elseif( in_array('light', $checkbox) ) {
+										echo 'light';
+									} elseif( in_array('light_colored', $checkbox) ) {
+										echo 'light-colored';
+									}
+								} ?>"><?php the_sub_field('list_li_text'); ?></li>
 								<?php endwhile; ?>
 
 							</ul>
@@ -72,17 +72,7 @@
 						</div>
 					<?php endif; ?>
 
-					<?php /* Add Get a Free Quote Block if quote_block field is true */
-						if ( get_field('quote_block') == 'true' ) {
-							get_template_part('quote-block');
-						}
-					?>
-
-					<?php /* Add Call Us Now Block if quote_block field is true */
-						if ( get_field('call_us_block') == 'true' ) {
-							get_template_part('call-us-block');
-						}
-					?>
+					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
 
 				</div>
 			</div>

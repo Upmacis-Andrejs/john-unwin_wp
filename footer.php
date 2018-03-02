@@ -97,9 +97,22 @@
 			</footer>
 			<!-- /footer -->
 
+			<?php /* Get a Quote Form */
+				if( get_field('get_a_quote_form_shortcode', 'option') ): ?>
+
+				<div class="get-a-quote-form-block hidden">
+					<?php
+						$get_a_quote_form_shortcode = get_field('get_a_quote_form_shortcode', 'option');
+						echo do_shortcode($get_a_quote_form_shortcode, true);
+					?>
+				</div>
+
+			<?php endif; ?>
+
 		</div>
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg1zyNtKtvQZzUCvo6MFXXO5PtCAIeua8&callback=initMap"></script>
 	</body>
 </html>

@@ -35,17 +35,7 @@
 					</div>
 					<?php endif; ?>
 
-					<?php /* Add Get a Free Quote Block if quote_block field is true */
-						if ( get_field('quote_block') == 'true' ) {
-							get_template_part('quote-block');
-						}
-					?>
-
-					<?php /* Add Call Us Now Block if quote_block field is true */
-						if ( get_field('call_us_block') == 'true' ) {
-							get_template_part('call-us-block');
-						}
-					?>
+					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
 
 				</div>
 

@@ -35,19 +35,48 @@
 					</div>
 					<?php endif; ?>
 
-					<?php /* Add Get a Free Quote Block if quote_block field is true */
-						if ( get_field('quote_block') == 'true' ) {
-							get_template_part('quote-block');
-						}
-					?>
-
-					<?php /* Add Call Us Now Block if quote_block field is true */
-						if ( get_field('call_us_block') == 'true' ) {
-							get_template_part('call-us-block');
-						}
-					?>
+					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
 
 				</div>
+
+				<?php if( have_rows('careers') ): ?>
+				<div class="row">
+					<div class="block-wrapper-5">
+					<?php while( have_rows('careers') ) : the_row(); ?>
+						<div class="careers-block">
+							<?php if( have_rows('title_and_text') ): ?>
+								<?php while( have_rows('title_and_text') ) : the_row(); ?>
+								<div class="title-and-text">
+									<h3 class="title"><?php the_sub_field('title'); ?></h3>
+									<p class="text"><?php the_sub_field('text'); ?></p>
+								</div>
+								<?php endwhile; ?>
+							<?php endif; ?>
+
+							<?php if( have_rows('block_with_list') ): ?>
+								<?php while( have_rows('block_with_list') ) : the_row(); ?>
+								<div class="block-with-list">
+									<h4 class="title"><?php the_sub_field('title'); ?></h4>
+
+									<?php if( have_rows('list') ): ?>
+									<ul class="list">
+
+										<?php while( have_rows('list') ) : the_row(); ?>
+										<li <?php if( get_sub_field('highlight_li') == 'true' ) { echo 'class="highlight"'; } ?>><?php the_sub_field('list_li_text'); ?></li>
+										<?php endwhile; ?>
+									
+									</ul>
+									<?php endif; ?>
+
+									<a class="btn btn-1" href="#"><?php _e('Apply for this job', 'johnunwin'); ?></a>
+								</div>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						</div>
+					<?php endwhile; ?>
+					</div>
+				</div>
+				<?php endif; ?>
 			</div>
 		</section>
 		<!-- /Above The Fold Section -->

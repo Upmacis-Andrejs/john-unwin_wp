@@ -169,6 +169,14 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Call Us Block',
         'menu_title'    => 'Call Us Block',
     ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Contact Form Block',
+        'menu_title'    => 'Contact Form Block',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Get a Quote Form Block',
+        'menu_title'    => 'Get a Quote Form Block',
+    ));
 }
 
 // Automatically set the image Title and Alt-Text upon upload
@@ -195,7 +203,7 @@ add_action( 'add_attachment', 'set_img_meta_upon_upload' );
 
 // Register Google Maps API
 function my_acf_init() {   
-    acf_update_setting('google_api_key', 'AIzaSyDMXjNIVNx8XI5O6tzh9whXAxYEdatJQtQ');
+    acf_update_setting('google_api_key', 'AIzaSyAg1zyNtKtvQZzUCvo6MFXXO5PtCAIeua8');
 }
 add_action('acf/init', 'my_acf_init');
 

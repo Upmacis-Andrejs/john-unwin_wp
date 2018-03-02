@@ -35,26 +35,51 @@
 					</div>
 					<?php endif; ?>
 
-					<?php /* Add Get a Free Quote Block if quote_block field is true */
-						if ( get_field('quote_block') == 'true' ) {
-							get_template_part('quote-block');
-						}
-					?>
+					<div class="contacts-wrapper">
+	                    <?php if( get_field('phone', 'option') ): ?>
+	                    <div class="phone-wrapper flex-vert-c">
+	                        <span class="icon"></span>
+	                        <h3 class="text"><?php the_field('emergency_phone_text', 'option'); ?></h3>
+	                        <a class="phone" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>"><?php echo $phone; ?></a>
+	                    </div>
+	                    <?php endif; ?>
 
-					<?php /* Add Call Us Now Block if quote_block field is true */
-						if ( get_field('call_us_block') == 'true' ) {
-							get_template_part('call-us-block');
-						}
-					?>
+	                    <?php if( get_field('email', 'option') ): ?>
+	                    <div class="email-wrapper flex-vert-c">
+	                        <span class="icon"></span>
+	                        <a class="email" href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
+	                    </div>
+	                    <?php endif; ?>
+					</div>
+
+					<div class="address-wrapper">
+						<h3 class="title"><?php _e('Address', 'johnunwin'); ?></h3>
+						<a class="address" href="https://www.google.com/maps/dir/?api=1&destination=
+							<?php $address = get_field('address', 'option');
+							$address = str_replace('<br />', '', $address);
+							$address = str_replace(' ', '+', $address);
+							echo $address ?>" target="_blank" rel="nofollow">
+							<?php the_field('address', 'option'); ?>
+						</a>
+					</div>
+
+					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
 
 				</div>
 			</div>
 		</section>
 		<!-- /Above The Fold Section -->
 
-		<!-- Sections Added With Page Builder -->
-		<?php get_template_part('page-builder-block'); ?>
-		<!-- /Sections Added With Page Builder -->
+		<!-- Map Section -->
+		<?php if( get_field('address_google_maps', 'option') ) ?>
+		<section class="google-maps-section">
+			<div class="acf-map">
+			    <?php $location = get_field('address_google_maps'); ?>
+				<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+			</div>
+		</section>
+		<?php endif; ?>
+		<!-- /Map Section -->
 
 	</main>
 
