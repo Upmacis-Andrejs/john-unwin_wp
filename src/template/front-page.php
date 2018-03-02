@@ -31,9 +31,13 @@
 						<a id="main-site-logo" href="<?php echo home_url(); ?>">
 							<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
 						</a>
-						<div class="editor-wrapper">
-							<?php the_field('page_content'); ?>
-						</div>
+
+						<?php if( have_rows('above_the_fold_main') ): ?>
+							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
+							<h1 class="title"><?php the_sub_field('title'); ?></h1>
+							<p class="text"><?php the_sub_field('page_content'); ?></p>
+							<?php endwhile; ?>
+						<?php endif; ?>
 					</div>
 
 					<?php /* Add List Block if it has content */

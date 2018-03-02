@@ -20,15 +20,20 @@
 
 			<div class="container">
 				<div class="row">
-
-					<div class="page-content">
+					<div class="main-site-logo-wrapper">
 						<a id="main-site-logo" href="<?php echo home_url(); ?>">
 							<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
 						</a>
-						<div class="editor-wrapper">
-							<?php the_field('page_content'); ?>
-						</div>
 					</div>
+
+					<?php if( have_rows('above_the_fold_main') ): ?>
+					<div class="page-content">
+						<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
+						<h1 class="title"><?php the_sub_field('title'); ?></h1>
+						<p class="text"><?php the_sub_field('page_content'); ?></p>
+						<?php endwhile; ?>
+					</div>
+					<?php endif; ?>
 
 					<?php /* Add Get a Free Quote Block if quote_block field is true */
 						if ( get_field('quote_block') == 'true' ) {
