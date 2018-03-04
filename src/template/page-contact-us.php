@@ -71,9 +71,9 @@
 		<!-- /Above The Fold Section -->
 
 		<!-- Map Section -->
-		<?php if( get_field('address_google_maps', 'option') ) ?>
+		<?php if( get_field('address_google_maps', 'option') ): ?>
 		<section class="google-maps-section">
-			<div class="acf-map">
+			<div class="acf-map" style="height: 500px;">
 			    <?php $location = get_field('address_google_maps'); ?>
 				<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 			</div>

@@ -177,6 +177,10 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Get a Quote Form Block',
         'menu_title'    => 'Get a Quote Form Block',
     ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Google Maps API Key',
+        'menu_title'    => 'Google Maps API Key',
+    ));
 }
 
 // Automatically set the image Title and Alt-Text upon upload
@@ -202,8 +206,9 @@ function set_img_meta_upon_upload( $post_ID ) {
 add_action( 'add_attachment', 'set_img_meta_upon_upload' );
 
 // Register Google Maps API
-function my_acf_init() {   
-    acf_update_setting('google_api_key', 'AIzaSyAg1zyNtKtvQZzUCvo6MFXXO5PtCAIeua8');
+function my_acf_init() {
+    $google_maps_api_key = get_field('google_maps_api_key', 'option');  
+    acf_update_setting('google_api_key', $google_maps_api_key);
 }
 add_action('acf/init', 'my_acf_init');
 

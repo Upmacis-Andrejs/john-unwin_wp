@@ -245,5 +245,49 @@
 		    </section>
 			<?php endif; ?>
 
+			<?php /* History Section */
+		    if( get_row_layout() == 'history_section' ): ?>
+		    <section class="<?php echo get_row_layout(); ?>">
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class="title-block">
+		    				<h4 class="title"><?php the_sub_field('title'); ?></h4>
+		    			</div>
+
+						<?php if( have_rows('section_content') ): ?>
+		    			<div class="section-content">
+							<?php while( have_rows('section_content') ) : the_row(); ?>
+							<h2 class="title"><?php the_sub_field('title'); ?></h2>
+
+							<?php if( have_rows('history_blocks') ): ?>
+							<div class="block-wrapper-6">
+								<?php while( have_rows('history_blocks') ) : the_row(); ?>
+								<div class="history-block">
+
+									<?php if( get_row_layout() == 'event' ): ?>
+									<h3 class="date">
+										<span class="month"><?php the_sub_field('month'); ?></span>
+										<span class="year"><?php the_sub_field('year'); ?></span>
+									</h3>
+									<p class="text"><?php the_sub_field('contents'); ?></p>
+									<?php endif; ?>
+
+									<?php if( get_row_layout() == 'year_block' ): ?>
+									<h3 class="year"><?php the_sub_field('year'); ?></h3>
+									<?php endif; ?>
+
+								</div>
+								<?php endwhile; ?>
+							</div>
+							<?php endif; ?>
+
+							<?php endwhile; ?>
+						</div>
+						<?php endif; ?>
+		    		</div>
+		    	</div>
+		    </section>
+			<?php endif; ?>
+
 			<?php endwhile; ?>	
 		<?php endif; ?>
