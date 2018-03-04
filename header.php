@@ -11,6 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="<?php bloginfo('description'); ?>">
 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i" rel="stylesheet">
+
         <!--<meta name="google-site-verification" content="5GV3htbGte-ZaZ8Mp5ubMy2wfShvNOdhl1yn9VQ2cmo" />-->
 
         <?php wp_head(); ?>

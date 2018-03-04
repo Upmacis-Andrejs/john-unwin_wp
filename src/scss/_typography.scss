@@ -1,72 +1,49 @@
 //FONTS
-@font-face {
-    font-family: 'Calibri';
-    src: url('fonts/Calibri-Light.eot');
-    src: url('fonts/Calibri-Light.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Calibri-Light.woff') format('woff'),
-        url('fonts/Calibri-Light.ttf') format('truetype'),
-        url('fonts/Calibri-Light.svg#Calibri-Light') format('svg');
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Calibri';
-    src: url('fonts/Calibri.eot');
-    src: url('fonts/Calibri.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Calibri.woff') format('woff'),
-        url('fonts/Calibri.ttf') format('truetype'),
-        url('fonts/Calibri.svg#Calibri') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
 p, .p, body {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 21px;
-  font-weight: 300;
-  line-height: 1.39;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.666;
 }
 h6, .h6 {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 23px;
-  //font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
   font-weight: 400;
-  //line-height: 1.39;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 h5, .h5 {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 2.08;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 2;
 }
 h4, .h4 {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 1.2;
-  //color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.025em;
 }
 h3, .h3 {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-  //color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 1.14;
 }
 h2, .h2 {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.025em;
 }
 h1, .h1 {
-  font-family: 'Calibri', 'Source Sans Pro', serif, sans-serif;
-  font-size: 41px;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.025em;
 }
 
 @media (max-width: 1199px) {
