@@ -42,11 +42,15 @@
 						<?php endif; ?>
 
 						<h6 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h6>
+
+						<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
+
 						<?php endwhile; ?>
 					</div>
 					<?php endif; ?>
 					
 					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
+					<?php /* Add Media Block */ get_template_part('media-in-extra-blocks'); ?>
 
 				</div>
 			</div>

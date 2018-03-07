@@ -31,11 +31,15 @@
 						<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 						<h1 class="title"><?php the_sub_field('title'); ?></h1>
 						<p class="text"><?php the_sub_field('page_content'); ?></p>
+
+						<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
+						
 						<?php endwhile; ?>
 					</div>
 					<?php endif; ?>
 
 					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
+					<?php /* Add Media Block */ get_template_part('media-in-extra-blocks'); ?>
 
 				</div>
 
@@ -50,7 +54,19 @@
 					<?php endwhile; ?>
 					</div>
 				</div>
-			<?php endif; ?>
+				<?php endif; ?>
+
+				<?php if ( get_field('feedback_form_shortcode') ): ?>
+				<div class="row">
+					<div class="feedback-form-block">
+						<?php
+							$contact_form_shortcode = get_field('feedback_form_shortcode');
+							echo do_shortcode($contact_form_shortcode, true);
+						?>
+					</div>
+				</div>
+				<?php endif; ?>
+
 			</div>
 		</section>
 		<!-- /Above The Fold Section -->

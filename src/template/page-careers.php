@@ -31,11 +31,15 @@
 						<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 						<h1 class="title"><?php the_sub_field('title'); ?></h1>
 						<p class="text"><?php the_sub_field('page_content'); ?></p>
+
+						<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
+
 						<?php endwhile; ?>
 					</div>
 					<?php endif; ?>
 
 					<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
+					<?php /* Add Media Block */ get_template_part('media-in-extra-blocks'); ?>
 
 				</div>
 
@@ -44,34 +48,44 @@
 					<div class="block-wrapper-5">
 					<?php while( have_rows('careers') ) : the_row(); ?>
 						<div class="careers-block">
-							<?php if( have_rows('title_and_text') ): ?>
-								<?php while( have_rows('title_and_text') ) : the_row(); ?>
-								<div class="title-and-text">
-									<h3 class="title"><?php the_sub_field('title'); ?></h3>
-									<p class="text"><?php the_sub_field('text'); ?></p>
-								</div>
+							<div class="title-wrapper">
+								<h3 class="title"><?php the_sub_field('title'); ?></h3>
+							</div>
+
+							<?php if( have_rows('contents') ): ?>
+								<div class="content-wrapper">
+								<?php while( have_rows('contents') ) : the_row(); ?>
+
+								    <?php /* Block With Text */
+								    	if( get_row_layout() == 'block_with_text' ): ?>
+								    	<div class="block block-with-text">
+								    		<h3 class="title"><?php the_sub_field('title'); ?></h3>
+								    		<p class="text"><?php the_sub_field('contents'); ?></p>
+								    	</div>
+								    <?php endif; ?>
+
+								    <?php /* Block With List */
+								    	if( get_row_layout() == 'block_with_list' ): ?>
+								    	<div class="block block-with-list">
+								    		<h3 class="title"><?php the_sub_field('title'); ?></h3>
+								    		<?php if( have_rows('list') ): ?>
+								    		<ul class="list">
+								    			<?php while( have_rows('list') ) : the_row(); ?>
+												<li <?php if( get_sub_field('highlight_li') == 'true' ) { echo 'class="highlight"'; } ?>><?php the_sub_field('list_li_text'); ?></li>
+								    			<?php endwhile; ?>
+								    		</ul>
+								    		<?php endif; ?>
+								    	</div>
+								    <?php endif; ?>
+
 								<?php endwhile; ?>
+									<div class="footnote-wrapper">
+										<p class="text"><?php _e('Please apply with your CV via email', 'johnunwin'); ?></p>
+		                                <a class="email" href="mailto:<?php the_field('human_resources_email', 'option'); ?>"><?php the_field('human_resources_email', 'option'); ?></a>
+									</div>
+								</div>
 							<?php endif; ?>
 
-							<?php if( have_rows('block_with_list') ): ?>
-								<?php while( have_rows('block_with_list') ) : the_row(); ?>
-								<div class="block-with-list">
-									<h4 class="title"><?php the_sub_field('title'); ?></h4>
-
-									<?php if( have_rows('list') ): ?>
-									<ul class="list">
-
-										<?php while( have_rows('list') ) : the_row(); ?>
-										<li <?php if( get_sub_field('highlight_li') == 'true' ) { echo 'class="highlight"'; } ?>><?php the_sub_field('list_li_text'); ?></li>
-										<?php endwhile; ?>
-									
-									</ul>
-									<?php endif; ?>
-
-									<a class="btn btn-1" href="#"><?php _e('Apply for this job', 'johnunwin'); ?></a>
-								</div>
-								<?php endwhile; ?>
-							<?php endif; ?>
 						</div>
 					<?php endwhile; ?>
 					</div>

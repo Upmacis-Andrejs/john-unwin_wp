@@ -149,6 +149,9 @@
 								<?php while( have_rows('section_content') ) : the_row(); ?>
 								<h3 class="title"><?php the_sub_field('title'); ?></h1>
 								<p class="text"><?php the_sub_field('contents'); ?></p>
+
+								<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
+
 								<?php endwhile; ?>
 							</div>
 							<?php endif; ?>
