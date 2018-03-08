@@ -2,6 +2,7 @@
 			<footer class="footer z-99" id="site-footer">
 				<div class="container">
 					<div class="row" id="footer-row-1">
+					<div class="container-inner">
 						<?php if( have_rows('footer_menu', 'option') ): ?>
 						<div class="footer-menu-wrapper">
 							<ul class="footer-menu">
@@ -52,7 +53,9 @@
 
 						</div>
 					</div>
+					</div>
 					<div class="row" id="footer-row-2">
+					<div class="container-inner">
 						<div class="copyrights-wrapper">
 
 							<div class="copyrights">
@@ -92,6 +95,7 @@
 								<img class="logo" src="<?php echo get_template_directory_uri(); ?>/img/sintec.svg" alt="Sintec Logo">
 							</a>
 						</div>
+					</div>
 					</div>
 				</div>
 			</footer>

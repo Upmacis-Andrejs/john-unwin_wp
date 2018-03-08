@@ -1,4 +1,21 @@
-//FONTS
+// VARIABLES
+    // Colors
+$color_hc_1: #FAA634;
+$color_hc_2: #134294;
+$color_hc_3: #A4AAD6;
+$color_hc_4: #717BAF;
+$color_hc_5: #586499;
+
+$color_ac_1: #FF0000;
+$color_ac_2: #F9C138;
+$color_ac_3: #000;
+$color_ac_4: #fff;
+
+$color_bg_1: #0B2644;
+$color_bg_2: #214C89;
+$color_bg_3: #BEC6D3;
+
+// FONTS
 
 p, .p, body {
   font-family: 'Montserrat', sans-serif;
@@ -46,53 +63,19 @@ h1, .h1 {
   letter-spacing: 0.025em;
 }
 
-@media (max-width: 1199px) {
-  h4, .h4 { font-size: 28px; }
-  h2, .h2 { font-size: 23px; }
-  h1, .h1 { font-size: 36px; }
-}
-
-@media (max-width: 767px) {
-  p, .p, body { font-size: 18px; }
-  h4, .h4 { font-size: 26px; }
-  h2, .h2 { font-size: 21px; }
-  h1, .h1 { font-size: 30px; }
-}
-
+// Icon Font
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?n5jgm5');
-  src:  url('fonts/icomoon.eot?n5jgm5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?n5jgm5') format('truetype'),
-    url('fonts/icomoon.woff?n5jgm5') format('woff'),
-    url('fonts/icomoon.svg?n5jgm5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?avnj3a');
+  src:  url('fonts/icomoon.eot?avnj3a#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?avnj3a') format('truetype'),
+    url('fonts/icomoon.woff?avnj3a') format('woff'),
+    url('fonts/icomoon.svg?avnj3a#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?32hikc');
-  src:  url('fonts/icomoon.eot?32hikc#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?32hikc') format('truetype'),
-    url('fonts/icomoon.woff?32hikc') format('woff'),
-    url('fonts/icomoon.svg?32hikc#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?mml4lz');
-  src:  url('fonts/icomoon.eot?mml4lz#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?mml4lz') format('truetype'),
-    url('fonts/icomoon.woff?mml4lz') format('woff'),
-    url('fonts/icomoon.svg?mml4lz#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-.icon:before,
+.icon,
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -108,80 +91,60 @@ h1, .h1 {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-popup-play:before {
-  content: "\e912";
-  color: #f6c55b;
-}
-.icon-directions:before {
-  content: "\e911";
-  color: #e2231a;
-}
-.icon-arrow-down:before {
-  content: "\e900";
-}
 .icon-arrow-right:before {
+  content: "\e900";
+  color: #134294;
+}
+.icon-arrow-slider:before {
   content: "\e901";
   color: #fff;
 }
-.icon-bc-arrow:before {
+.icon-bulb:before {
   content: "\e902";
-  color: #787c82;
+  color: #134294;
 }
-.icon-center:before {
+.icon-check:before {
   content: "\e903";
-  color: #f8c853;
-}
-.icon-cf-close:before {
-  content: "\e904";
-}
-.icon-cf-open:before {
-  content: "\e905";
   color: #fff;
 }
 .icon-close:before {
+  content: "\e904";
+}
+.icon-down:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-history:before {
   content: "\e906";
+  color: #134294;
 }
-.icon-error:before {
+.icon-mail:before {
   content: "\e907";
-  color: #db1915;
+  color: #faa634;
 }
-.icon-fb:before {
+.icon-minus:before {
   content: "\e908";
-  color: #c2c0c2;
+  color: #fff;
 }
-.icon-instagram:before {
+.icon-phone:before {
   content: "\e909";
-  color: #c2c0c2;
+  color: #faa634;
 }
-.icon-linkedin:before {
+.icon-plus:before {
   content: "\e90a";
-  color: #c2c0c2;
+  color: #717baf;
 }
-.icon-play:before {
+.icon-services:before {
   content: "\e90b";
   color: #fff;
 }
-.icon-slide-arrow-left:before {
+.icon-shield:before {
   content: "\e90c";
-  color: #fff;
+  color: #134294;
 }
-.icon-slide-arrow-right:before {
+.icon-team:before {
   content: "\e90d";
-  color: #fff;
+  color: #134294;
 }
-.icon-success:before {
-  content: "\e90e";
-  color: #26ab67;
-}
-.icon-tweet-share:before {
-  content: "\e90f";
-  color: #fff;
-}
-.icon-youtube:before {
-  content: "\e910";
-  color: #c2c0c2;
-}
-
-
 
 //END OF FONTS

@@ -3,43 +3,65 @@
 // CONTAINERS
 
 .container {
-  max-width: 1302px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
-
-@media (min-width: 1362px) {
-  .container {
-    width: 1302px;
-  }
+.container-inner {
+	position: static!important;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-@media (max-width: 1361px) {
+//grid
+.col,
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10, {
+	float: left;
+	padding-right: 0.95%;
+	padding-left: 0.95%;
+}
+.col-1 {
+	width: 10%;
+}
+.col-2 { width: 20%; }
+.col-3 { width: 30%; }
+.col-4 { width: 40%; }
+.col-5 { width: 50%; }
+.col-6 { width: 60%; }
+.col-7 { width: 70%; }
+.col-8 { width: 80%; }
+.col-9 { width: 90%; }
+.col-10 { width: 100%; }
+
+@media (min-width: 1200px) {
   .container {
-    width: 1170px;    
-  }   
+    width: calc(100% - 30px);
+  }
+  .container-inner {
+  	width: calc(100% - (100% / 6));
+  }
 }
 
 @media (max-width: 1199px) {
   body .container {
-    width: 696px;
-    padding-right: 45px;
-    padding-left: 45px;
-  }
-  body #site-header .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    width: 750px;
   }
 }
 
 @media (max-width: 767px) {
   body .container {
-    width: calc(100% - 25px * 2);
-    max-width: 696px;
-    padding-right: 15px;
-    padding-left: 15px;
+    width: calc(100% - 20px * 2);
+    max-width: 750px;
   }   
 }
 
@@ -98,21 +120,22 @@ fieldset[disabled] a.btn {
 // END OF MODIFIED BOOTSTRAP CODE
 /* ---------------------------------------------------------------------------------------------------------------------------- */
 
-// COLORS
-$highlight_1: #FAA634;
-$highlight_2: #134294;
-$highlight_3: #A4AAD6;
-$highlight_4: #717BAF;
-$highlight_5: #717BAF;
+// VARIABLES
+    // Colors
+$color_hc_1: #FAA634;
+$color_hc_2: #134294;
+$color_hc_3: #A4AAD6;
+$color_hc_4: #717BAF;
+$color_hc_5: #586499;
 
-$additional_1: #FF0000;
-$additional_2: #F9C138;
-$additional_3: #000;
-$additional_4: #fff;
+$color_ac_1: #FF0000;
+$color_ac_2: #F9C138;
+$color_ac_3: #000;
+$color_ac_4: #fff;
 
-$bg_1: #0B2644;
-$bg_2: #214C89;
-$bg_3: #BEC6D3;
+$color_bg_1: #0B2644;
+$color_bg_2: #214C89;
+$color_bg_3: #BEC6D3;
 
 // RESETS
 * {
@@ -176,16 +199,13 @@ a *:visited {
   text-decoration-skip-ink: none!important;
 }
 a {
-  color: $highlight_1;
   outline: none;
   &:visited {
-    color: $highlight_1;
     outline: none;
   }
   &:hover,
   &:active,
   &:focus {
-    color: $highlight_2;
     outline: none;
   }
 }
@@ -303,40 +323,53 @@ input[type="submit"]:hover {
 
 // BUTTONS
 .btn-1 {
-  height: 50px!important;
-  line-height: 50px!important;
+  height: 50px;
+  line-height: 50px;
   min-width: 194px;
-  padding-right: 8px!important;
-  padding-left: 8px!important;
+  padding-right: 8px;
+  padding-left: 8px;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-decoration: uppercase;
-  overflow: hidden;
   text-decoration: none;
-  color: $bg_1;
-  background-color: $highlight_1;
+  color: $color_bg_1!important;
+  background: linear-gradient(to top, $color_ac_2, $color_hc_1)!important;
+  border-radius: 4px;
+  &:before,
   &:after {
     content: "";
     position: absolute;
     display: block;
     top: auto;
-    right: auto;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%,100%);
-    width: calc(100% - 8px);
     height: 4px;
+    transform: translateY(100%);
+    opacity: 0.5;
+  }
+  &:before {
+  	left: 8px;
+  	right: 50%;
     background: scrim-gradient(
-      black,
-      transparent
+      to right,
+      transparent,
+      #231f20
+    );
+  }
+  &:after {
+    right: 8px;
+    left: 50%;
+    background: scrim-gradient(
+      to left,
+      transparent,
+      #231f20
     );
   }
   &:hover,
   &:active,
-  &:focus,
-  &:visited {
-    color: $bg_1;
+  &:focus {
+  	color: $color_bg_1!important;
+    background: linear-gradient(to top, $color_ac_2, $color_ac_2)!important;
   }
 }
 
@@ -637,8 +670,8 @@ span[role="alert"] {
 }
 span[role="alert"]:after {
   //content: '';
-  @extend .icon:before;
-  @extend .icon-error:before;
+  @extend .icon;
+  //@extend .icon-error:before;
   position: absolute;
   display: block;
   top: 11.5px;

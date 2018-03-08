@@ -65,7 +65,8 @@
             <!-- header -->
             <header class="z-666 flex-vert-c" id="site-header">
                 <div class="container">
-                    <div class="row flex-vert-c">
+                    <div class="row">
+                        <div class="container-inner flex-vert-c">
                         <a id="mobile-menu-icon" href="#">
                             <div class="inner">
                                 <span></span>
@@ -99,6 +100,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </header>

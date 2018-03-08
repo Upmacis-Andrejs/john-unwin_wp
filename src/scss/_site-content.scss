@@ -1,0 +1,128 @@
+// VARIABLES
+    // Colors
+$color_hc_1: #FAA634;
+$color_hc_2: #134294;
+$color_hc_3: #A4AAD6;
+$color_hc_4: #717BAF;
+$color_hc_5: #586499;
+
+$color_ac_1: #FF0000;
+$color_ac_2: #F9C138;
+$color_ac_3: #000;
+$color_ac_4: #fff;
+
+$color_bg_1: #0B2644;
+$color_bg_2: #214C89;
+$color_bg_3: #BEC6D3;
+
+// Section Background Images and Overlays
+section,
+.section {
+	@extend .section-bg;
+}
+.section-overlay {
+	@extend .block-fit-parent;
+	&.light { background: rgba($color_bg_2, 0.9); }
+	&.dark { background: rgba($color_bg_1, 0.9); }
+}
+body #body-wrapper .no-background { color: $color_ac_3; }
+
+// Above The Fold Section
+.page-template-default {
+	#above-the-fold-section {
+		padding-bottom: 125px;
+	}
+}
+
+// Background Map
+.background-map-wrapper {
+	width: 100%;
+	min-height: 967px;
+	.background-map-inner { display: flex; }
+}
+
+// Page Content Block
+.page-template-default {
+	.page-content {
+		padding: 42px 22px 22px;
+		margin-top: 173px;
+		background: $color_bg_1;
+		color: $color_ac_4;
+		text-align: center;
+		#main-site-logo { margin-bottom: 48px; }
+		.title { margin-bottom: 15px; }
+	}
+}
+
+// Add Blocks Wrapper
+.add-blocks-wrapper {
+	@extend .col-3;
+	margin-top: 55px;
+	float: right;
+	.block {
+		padding: 24px;
+		border: 1px solid $color_ac_4;
+		border-radius: 4px;
+		color: $color_ac_4;
+	}
+}
+.no-background {
+	.add-blocks-wrapper {
+		.block {
+			color: $color_ac_3;
+		}
+	}
+}
+.page-template-default {
+	.add-blocks-wrapper {
+		margin-top: calc(55px + 173px);
+	}
+}
+
+	// Quote Block
+.quote-block {
+	ul {
+		margin-top: 15px;
+		margin-bottom: -10px;
+		li {
+			padding-left: 20px;
+			margin-bottom: 10px;
+			&:before {
+				@extend .icon;
+				@extend .icon-check;
+				position: absolute;
+				display: block;
+				top: 7px;
+				right: auto;
+				bottom: auto;
+				left: 0;
+				font-size: 10px;
+			}
+		}
+	}
+	.btn { margin-top: 20px; }
+}
+
+// List Blocks
+li.highlight {
+	color: $color_hc_1;
+	&:before,
+	&:after {
+		color: $color_hc_1!important;
+	}
+}
+
+	// Above The Fold List Wrapper
+.above-the-fold-list-wrapper {
+	width: 166px;
+	float: right;
+	margin-top: 250px;
+	margin-bottom: 15px;
+	color: $color_ac_4;
+	title { margin-bottom: 10px; }
+	ul {
+		padding-right: 16px;
+		padding-left: 10px;
+	}
+}
+
