@@ -15,7 +15,107 @@ $color_bg_1: #0B2644;
 $color_bg_2: #214C89;
 $color_bg_3: #BEC6D3;
 
+#site-content { margin-top: 60px; }
 // Site Header
 #site-header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: auto;
+	left: 0;
+	width: 100%;
+	#mobile-menu-icon { display: none; }
+	// Header Contacts
+	.header-contacts-wrapper {
+		min-height: 60px;
+		color: $color_ac_4;
+		background-color: $color_bg_1;
+		a {
+			color: $color_ac_4;
+			@extend .text-decor-none;
+		}
+		.bold {
+			margin-right: 10px;
+			font-size: 28px;
+			letter-spacing: 0;
+		}
+		.normal {
+			margin-right: 8px;
+			font-size: 18px;
+			letter-spacing: 0;
+		}
+		.icon-phone:before,
+		.phone,
+		.icon-mail:before,
+		.email {
+		  transition: color 0.1s ease-in-out!important;
+		 }
+		.phone-wrapper {
+			margin-right: 40px;
+			.icon-phone {
+				margin-right: 10px;
+				font-size: 30px;
+			}
+			.phone { color: $color_hc_1; }
+			&:hover,
+			&:active {
+				.icon-phone:before,
+				.phone {
+					color: $color_hc_4!important;
+				}
+			}
+		}
+		.email-wrapper {
+			margin-left: auto;
+			.icon-mail {
+				margin-right: 10px;
+				font-size: 24px;
+			}
+			&:hover,
+			&:active {
+				.icon-mail:before,
+				.email {
+					color: $color_hc_4!important;
+				}
+			}
+		}
+	}
 
+	// Header Menu
+	.header-menu-wrapper {
+		transition: background-color 0.15s ease-in-out;
+		#menu-header-menu {
+			@extend .flex-vert-c;
+			min-height: 60px;
+			list-style: none;
+			margin-left: auto;
+			a {
+				padding: 10px;
+				@extend .text-decor-none;
+				@extend .h5;
+				color: $color_ac_4;
+				font-size: 16px;
+				line-height: 1.56;
+				&:hover,
+				&:active {
+					color: $color_hc_1;
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					display: block;
+					top: calc(10px + 5px);
+					right: 0;
+					bottom: calc(10px + 2px);
+					left: auto;
+					border: 1px solid $color_hc_1;
+				}
+			}
+			li:last-of-type a:after { content: none; }
+		}
+	}
+}
+
+.not--top #site-header .header-menu-wrapper {
+	background-color: rgba($color_bg_2, 0.9);
 }

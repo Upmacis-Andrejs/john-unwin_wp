@@ -141,6 +141,10 @@ $color_bg_3: #BEC6D3;
 * {
   position: relative;
   box-sizing: border-box;
+  *:before,
+  *:after {
+  	box-sizing: border-box;
+  }
 }
 p, .p,
 h6, .h6,
@@ -331,7 +335,7 @@ input[type="submit"]:hover {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  text-decoration: uppercase;
+  text-transform: uppercase;
   text-decoration: none;
   color: $color_bg_1!important;
   background: linear-gradient(to top, $color_ac_2, $color_hc_1)!important;
@@ -470,6 +474,7 @@ input[type="submit"]:hover {
   align-items: center;
   flex-direction: column;    
 }
+.flex-right { margin-left: auto; }
 .flex-grow { flex-grow: 1; }
 .inline-hor-c { text-align: center; }
 .inline-hor-r { text-align: right; }

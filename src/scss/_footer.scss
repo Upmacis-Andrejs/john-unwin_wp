@@ -17,5 +17,76 @@ $color_bg_3: #BEC6D3;
 
 // Site Footer
 #site-footer {
+	padding-top: 50px;
+	padding-bottom: 10px;
+	color: $color_ac_4;
+	ul { list-style-type: none; }
+	a {
+		@extend .text-decor-none;
+		color: $color_ac_4;
+	}
 
+	// Footer Menu
+	.footer-menu-wrapper {
+		a {
+			padding: 5px;
+			&:hover,
+			&:active {
+				color: $color_hc_1;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				display: block;
+				top: 3px;
+				right: 0;
+				bottom: 3px;
+				left: auto;
+				border-right: 1px solid $color_ac_4;
+			}
+		}
+		li:last-of-type > a:after { content: none; }
+	}
+
+	// Footer Contacts Blocks
+	.footer-contacts-wrapper {
+		padding-left: 80px;
+		margin-left: auto;
+		.block {
+			max-width: calc(100% / 3);
+			padding-right: 30px;
+			margin-bottom: 36px;
+			a {
+				color: $color_hc_1;
+				&:hover,
+				&:active {
+					color: $color_hc_2;
+				}
+			}
+			.title { font-weight: 700; }
+			&:last-of-type { padding-right: 0; }
+		}
+		.phone-block { min-width: 210px; }
+		.email-block { min-width: 260px; }
+		.address-block { min-width: 290px; }
+	}
+
+	// Copyrights Block
+	.copyrights { margin-right: 38px; }
+
+	// Social Links
+	.socials-wrapper {
+		margin-right: -5px;
+		margin-left: auto;
+		.link {
+			margin-right: 5px;
+			margin-left: 5px;
+			.logo {
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
+
+	.sintec-wrapper { margin-left: 50px; }
 }

@@ -3,10 +3,10 @@
 	<main id="site-content">
 
 		<!-- Above The Fold Section -->
-		<section <?php if( get_field('overlay_color') == 'none' ) { echo 'class="no-background"'; } ?> id="above-the-fold-section" style="background-image: url(<?php echo get_field('bg_img')['url']; ?>);">
+		<section class="arrow-bottom <?php if( get_field('overlay_color') == 'none' ) { echo "no-background"; } ?>" id="above-the-fold-section" style="background-image: url(<?php echo get_field('bg_img')['url']; ?>);">
 
 			<?php /* Set section overlay color */
-				if( get_sub_field('overlay_color') == 'dark' ) {
+				if( get_field('overlay_color') == 'dark' ) {
 					$overlay_class = 'dark';
 				} elseif ( get_field('overlay_color') == 'light' ) {
 					$overlay_class = 'light';
@@ -21,17 +21,21 @@
 				<div class="row">
 					<div class="container-inner">
 					<div class="col-3">
-						<div class="page-content">
-							<a id="main-site-logo" href="<?php echo home_url(); ?>">
-								<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
-							</a>
+						<div class="page-content-wrapper">
+							<div class="page-content z-6">
+								<a id="main-site-logo" href="<?php echo home_url(); ?>">
+									<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
+								</a>
 
-							<?php if( have_rows('above_the_fold_main') ): ?>
-								<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-								<h1 class="title"><?php the_sub_field('title'); ?></h1>
-								<p class="text"><?php the_sub_field('page_content'); ?></p>
-								<?php endwhile; ?>
-							<?php endif; ?>
+								<?php if( have_rows('above_the_fold_main') ): ?>
+									<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
+									<h1 class="title"><?php the_sub_field('title'); ?></h1>
+									<p class="text"><?php the_sub_field('page_content'); ?></p>
+									<?php endwhile; ?>
+								<?php endif; ?>
+							</div>
+
+							<div class="shadow"></div>
 						</div>
 					</div>
 
@@ -51,16 +55,16 @@
 									<ul class="list list-style-none">
 
 										<?php while( have_rows('list_block_list') ) : the_row(); ?>
-										<?php $checkbox = get_sub_field('list_style_li'); ?>
-										<li class="h6 <?php if( get_sub_field('list_style_li') ) {
-											if( in_array('bold', $checkbox) ) {
+										<?php $select = get_sub_field('list_style_li'); ?>
+										<li class="h6 <?php if( $select ) {
+											if( $select == 'bold' ) {
 												echo 'bold';
-											} elseif( in_array('bold_colored', $checkbox) ) {
-												echo 'bold-colored';
-											} elseif( in_array('light', $checkbox) ) {
+											} elseif( $select == 'bold_colored' ) {
+												echo 'bold colored';
+											} elseif( $select == 'light' ) {
 												echo 'light';
-											} elseif( in_array('light_colored', $checkbox) ) {
-												echo 'light-colored';
+											} elseif( $select == 'light_colored' ) {
+												echo 'light colored';
 											}
 										} ?>"><?php the_sub_field('list_li_text'); ?></li>
 										<?php endwhile; ?>
