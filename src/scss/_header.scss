@@ -38,11 +38,13 @@ $color_bg_3: #BEC6D3;
 			margin-right: 10px;
 			font-size: 28px;
 			letter-spacing: 0;
+			text-transform: none;
 		}
 		.normal {
 			margin-right: 8px;
 			font-size: 18px;
 			letter-spacing: 0;
+			text-transform: none;
 		}
 		.icon-phone:before,
 		.phone,
@@ -53,7 +55,7 @@ $color_bg_3: #BEC6D3;
 		.phone-wrapper {
 			margin-right: 40px;
 			.icon-phone {
-				margin-right: 10px;
+				margin-right: 15px;
 				font-size: 30px;
 			}
 			.phone { color: $color_hc_1; }
@@ -66,6 +68,7 @@ $color_bg_3: #BEC6D3;
 			}
 		}
 		.email-wrapper {
+			margin-right: 5px;
 			margin-left: auto;
 			.icon-mail {
 				margin-right: 10px;
@@ -86,11 +89,13 @@ $color_bg_3: #BEC6D3;
 		transition: background-color 0.15s ease-in-out;
 		#menu-header-menu {
 			@extend .flex-vert-c;
-			min-height: 60px;
+			min-height: 80px;
 			list-style: none;
+			margin-right: -11.5px;
 			margin-left: auto;
+			transition: min-height 0.15s ease-in-out;
 			a {
-				padding: 10px;
+				padding: 11.5px;
 				@extend .text-decor-none;
 				@extend .h5;
 				color: $color_ac_4;
@@ -104,9 +109,9 @@ $color_bg_3: #BEC6D3;
 					content: "";
 					position: absolute;
 					display: block;
-					top: calc(10px + 5px);
+					top: calc(11px + 5px);
 					right: 0;
-					bottom: calc(10px + 2px);
+					bottom: calc(11px + 2px);
 					left: auto;
 					border: 1px solid $color_hc_1;
 				}
@@ -118,4 +123,5 @@ $color_bg_3: #BEC6D3;
 
 .not--top #site-header .header-menu-wrapper {
 	background-color: rgba($color_bg_2, 0.9);
+	#menu-header-menu { min-height: 60px; }
 }

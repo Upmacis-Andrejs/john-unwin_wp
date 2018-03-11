@@ -20,8 +20,8 @@
 				<div class="container">
 					<div class="row" id="footer-row-1">
 						<div class="container-inner">
+							<div class="col-10 flex">
 							<?php if( have_rows('footer_menu', 'option') ): ?>
-							<div class="col-4">
 								<div class="footer-menu-wrapper">
 									<ul class="footer-menu flex-vert-c">
 										<?php while( have_rows('footer_menu', 'option') ) : the_row(); ?>
@@ -36,10 +36,8 @@
 										<?php endwhile; ?>
 									</ul>
 								</div>
-							</div>
 							<?php endif; ?>
 
-							<div class="col-6 flex">
 								<div class="footer-contacts-wrapper flex">
 
 									<?php if( get_field('phone', 'option') ): ?>
@@ -75,7 +73,7 @@
 					</div>
 					<div class="row" id="footer-row-2">
 						<div class="container-inner">
-							<div class="col-4">
+							<div class="col-10 flex-vert-c">
 								<div class="copyrights-wrapper flex">
 									<div class="copyrights flex-vert-c">
 										<h6 class="text">&copy;<?php _e('John Unwin Electrical Contractors Ltd. All rights reserved.', 'johnunwin'); ?></h6>
@@ -88,9 +86,7 @@
 										</a>
 									</div>
 								</div>
-							</div>
 
-							<div class="col-6 flex-vert-c">
 								<div class="socials-wrapper">
 									<?php if( get_field('twitter_link', 'option') ): ?>
 									<a class="link" href="<?php the_field('twitter_link', 'option'); ?>" target="_blank" rel="nofollow">

@@ -21,18 +21,25 @@
 		    	<div class="container">
 		    		<div class="row">
 		    			<div class="container-inner">
-		    				<div class="title-block-wrapper">
-				    			<div class="title-block">
-				    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
-				    			</div>
-								<div class="shadow"></div>
-								<div class="decor-wrapper">
-				    				<div class="decor-1"></div>
-				    				<div class="decor-2"></div>
-				    			</div>
-			    				<div class="decor-line-1"></div>
-			    				<div class="decor-line-2"></div>
+		    				<div class="col-10">
+			    				<div class="title-block-wrapper">
+					    			<div class="title-block">
+					    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
+					    			</div>
+									<div class="shadow"></div>
+									<div class="decor-wrapper">
+					    				<div class="decor-1"></div>
+					    				<div class="decor-2"></div>
+					    			</div>
+				    				<div class="decor-line-1"></div>
+				    				<div class="decor-line-2"></div>
+								</div>
 							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="container-inner">
 		    				<div class="services-wrapper flex flex-wrap">
 
 							<!-- loop through page_id=51 data (Services Page) -->
@@ -42,22 +49,27 @@
 								<?php if( have_rows('above_the_fold_main') ): ?>
 								<div class="col-5">
 									<div class="page-content">
-										<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-										<h4 class="title"><?php the_sub_field('page_content'); ?></h4>
+			    						<div class="icon-wrapper">
+			    							<span class="icon"></span>
+			    						</div>
+			    						<div class="content-wrapper">
+											<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
+											<h4 class="title"><?php the_sub_field('page_content'); ?></h4>
 
-										<?php if( have_rows('above_the_fold_list') ): ?>
-										<ul class="list list-style-none">
+											<?php if( have_rows('above_the_fold_list') ): ?>
+											<ul class="list list-style-none">
 
-											<?php while( have_rows('above_the_fold_list') ) : the_row(); ?>
-											<li <?php if( get_sub_field('atf_highlight_li', 'option') == 'true' ) { echo 'class="highlight"'; } ?>><?php the_sub_field('atf_li_text'); ?></li>
+												<?php while( have_rows('above_the_fold_list') ) : the_row(); ?>
+												<li <?php if( get_sub_field('atf_highlight_li', 'option') == 'true' ) { echo 'class="highlight"'; } ?>><?php the_sub_field('atf_li_text'); ?></li>
+												<?php endwhile; ?>
+
+											</ul>
+											<?php endif; ?>
+
+											<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
 											<?php endwhile; ?>
-
-										</ul>
-										<?php endif; ?>
-
-										<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
-										<?php endwhile; ?>
-										<a class="btn btn-1" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
+											<a class="btn btn-1" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
+										</div>
 									</div>
 								</div>
 								<?php endif; ?>
@@ -110,19 +122,25 @@
 		    	<div class="container">
 		    		<div class="row">
 		    			<div class="container-inner">
-		    				<div class="title-block-wrapper">
-				    			<div class="title-block">
-				    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
-				    			</div>
-								<div class="shadow"></div>
-								<div class="decor-wrapper">
-				    				<div class="decor-1"></div>
-				    				<div class="decor-2"></div>
-				    			</div>
-			    				<div class="decor-line-1"></div>
-			    				<div class="decor-line-2"></div>
+		    				<div class="col-10">
+			    				<div class="title-block-wrapper">
+					    			<div class="title-block">
+					    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
+					    			</div>
+									<div class="shadow"></div>
+									<div class="decor-wrapper">
+					    				<div class="decor-1"></div>
+					    				<div class="decor-2"></div>
+					    			</div>
+				    				<div class="decor-line-1"></div>
+				    				<div class="decor-line-2"></div>
+								</div>
 							</div>
+						</div>
+					</div>
 
+					<div class="row">
+						<div class="container-inner">
 			    			<?php if( have_rows('section_content') ): ?>
 			    			<div class="about-us-wrapper flex flex-wrap">
 			    				<?php while( have_rows('section_content') ) : the_row(); ?>
@@ -131,9 +149,11 @@
 				    						<div class="icon-wrapper">
 				    							<span class="icon"></span>
 				    						</div>
-				    						<div class="block-content-wrapper">
-												<h3 class="title"><?php the_sub_field('title'); ?></h3>
-												<p class="text"><?php the_sub_field('contents'); ?></p>
+				    						<div class="content-wrapper">
+				    							<div class="upper-block">
+													<h3 class="title"><?php the_sub_field('title'); ?></h3>
+													<p class="text"><?php the_sub_field('contents'); ?></p>
+				    							</div>
 			    								<a class="link" href="<?php the_sub_field('link') ?>" rel="nofollow"><?php the_sub_field('link_text'); ?></a>
 				    						</div>
 				    					</div>

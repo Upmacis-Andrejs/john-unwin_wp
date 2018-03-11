@@ -3,7 +3,7 @@
 	<main id="site-content">
 
 		<!-- Above The Fold Section -->
-		<section class="arrow-bottom <?php if( get_field('overlay_color') == 'none' ) { echo "no-background"; } ?>" id="above-the-fold-section" style="background-image: url(<?php echo get_field('bg_img')['url']; ?>);">
+		<section class="arrow-down <?php if( get_field('overlay_color') == 'none' ) { echo "no-background"; } ?>" id="above-the-fold-section" style="background-image: url(<?php echo get_field('bg_img')['url']; ?>);">
 
 			<?php /* Set section overlay color */
 				if( get_field('overlay_color') == 'dark' ) {
