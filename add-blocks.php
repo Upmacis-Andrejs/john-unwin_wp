@@ -2,7 +2,7 @@
 	<div class="add-blocks-wrapper">
     <?php while ( have_rows('add_blocks') ) : the_row(); ?>
 
-	<?php if ( get_sub_field('quote_block') == 'true' ): ?>
+	<?php /* Get a Quote Block */ if ( get_sub_field('quote_block') == 'true' ): ?>
 	<div class="block quote-block">
 		<h4 class="title"><?php the_field('quote_title', 'option'); ?></h4>
 
@@ -18,17 +18,18 @@
 	</div>
 	<?php endif; ?>
 
-	<?php if ( get_sub_field('call_us_block') == 'true' ): ?>
+	<?php /* Call Us Block */ if ( get_sub_field('call_us_block') == 'true' ): ?>
 	<div class="block call-us-block">
 		<h4 class="title"><?php the_field('call_us_title', 'option'); ?></h4>
-
-		<a class="phone" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>"><?php echo $phone; ?></a>
-		
+        <a class="phone-wrapper flex-vert-c text-decor-none" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>">
+            <span class="icon icon-phone"></span>
+            <h4 class="phone"><?php echo $phone; ?></h4>
+        </a>
 		<p class="additional-text"><?php the_field('call_us_additional_text', 'option'); ?></p>
 	</div>
 	<?php endif; ?>
 
-	<?php if ( get_sub_field('contact_form_block') == 'true' ): ?>
+	<?php /* Contact Form Block */ if ( get_sub_field('contact_form_block') == 'true' ): ?>
 	<div class="block contact-form-block">
 		<?php
 			$contact_form_shortcode = get_field('contact_form_shortcode', 'option');

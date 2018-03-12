@@ -237,7 +237,10 @@ function johnunwin_scripts()
         wp_deregister_script('jquery');
         wp_register_script('jquery', get_template_directory_uri() . '/bower_components/jquery/jquery.min.js', array(), '3.2.1', true); // jQuery
         wp_enqueue_script('jquery'); // Enqueue it!
-        
+
+        wp_register_script('jquery-nicescroll', get_template_directory_uri() . '/bower_components/jquery.nicescroll/jquery.nicescroll.min.js', array(), '3.7.6', true); // jQuery NiceScroll
+        wp_enqueue_script('jquery-nicescroll'); // Enqueue it!
+
         wp_register_script('johnunwin_scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.4', true); // Custom scripts
         wp_enqueue_script('johnunwin_scripts'); // Enqueue it!
     }

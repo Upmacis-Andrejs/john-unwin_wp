@@ -182,7 +182,7 @@
 		    				<div class="decor-line-2"></div>
 						</div>
 
-		    			<div class="block-wrapper-3">
+		    			<div class="default-content-wrapper flex-vert-t">
 							<?php if( have_rows('section_content') ): ?>
 							<div class="section-content">
 								<?php while( have_rows('section_content') ) : the_row(); ?>
@@ -202,7 +202,7 @@
 							    <?php /* Block With List */
 							    	if( get_row_layout() == 'block_with_list' ): ?>
 							    	<div class="block block-with-list">
-							    		<h3 class="title"><?php the_sub_field('title'); ?></h3>
+							    		<h4 class="title"><?php the_sub_field('title'); ?></h4>
 							    		<?php if( have_rows('list') ): ?>
 							    		<ul class="list">
 							    			<?php while( have_rows('list') ) : the_row(); ?>
@@ -216,7 +216,7 @@
 							    <?php /* Block With Text */
 							    	if( get_row_layout() == 'block_with_text' ): ?>
 							    	<div class="block block-with-text">
-							    		<h3 class="title"><?php the_sub_field('title'); ?></h3>
+							    		<h4 class="title"><?php the_sub_field('title'); ?></h4>
 							    		<p class="text"><?php the_sub_field('contents'); ?></p>
 							    	</div>
 							    <?php endif; ?>
@@ -263,23 +263,28 @@
 						<?php if( have_rows('section_content') ): ?>
 		    			<div class="section-content">
 							<?php while( have_rows('section_content') ) : the_row(); ?>
-							<h2 class="title"><?php the_sub_field('title'); ?></h2>
+							<div class="title-wrapper">
+								<div class="icon"></div>
+								<h3 class="title"><?php the_sub_field('title'); ?></h3>
+							</div>
 
 							<?php if( have_rows('team_member_blocks') ): ?>
-							<div class="block-wrapper-4">
+							<div class="team-wrapper flex-hor-c">
 								<?php while( have_rows('team_member_blocks') ) : the_row(); ?>
 								<div class="team-block">
+									<?php if( get_sub_field('image') ): ?>
 									<div class="img-wrapper">
-										<img src="<?php the_sub_field('image')['url']; ?>" alt="<?php the_sub_field('image')['alt']; ?>">
+										<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>">
 									</div>
-									<h3 class="name"><?php the_sub_field('name'); ?></h3>
+									<?php endif; ?>
+									<h5 class="name"><?php the_sub_field('name'); ?></h5>
 									<p class="position"><?php the_sub_field('position'); ?></p>
 									<p class="phone-wrapper">
-										<span class="label"><?php _e('Phone', 'johnunwin'); ?></span>
+										<span class="label"><?php _e('Phone:', 'johnunwin'); ?></span>
 										<a class="phone" href="tel:<?php $phone = get_sub_field('phone'); echo str_replace(' ', '', $phone); ?>"><?php echo $phone; ?></a>
 									</p>
 									<p class="email-wrapper">
-										<span class="label"><?php _e('E-mail', 'johnunwin'); ?></span>
+										<span class="label"><?php _e('E-mail:', 'johnunwin'); ?></span>
 										<a class="email" href="mailto:<?php the_sub_field('email'); ?>"><?php the_sub_field('email'); ?></a>
 									</p>
 								</div>
@@ -317,27 +322,40 @@
 						<?php if( have_rows('section_content') ): ?>
 		    			<div class="section-content">
 							<?php while( have_rows('section_content') ) : the_row(); ?>
-							<h2 class="title"><?php the_sub_field('title'); ?></h2>
+							<div class="title-wrapper">
+								<div class="icon"></div>
+								<h3 class="title"><?php the_sub_field('title'); ?></h3>
+							</div>
 
 							<?php if( have_rows('history_blocks') ): ?>
-							<div class="block-wrapper-6">
-								<?php while( have_rows('history_blocks') ) : the_row(); ?>
-								<div class="history-block">
+							<div class="history-wrapper">
+								<div class="decor-line"></div>
+								<div class="history-inner" id="history-inner">
+									<div class="history-inner-wrapper" id="history-inner-wrapper">
+										<?php while( have_rows('history_blocks') ) : the_row(); ?>
 
-									<?php if( get_row_layout() == 'event' ): ?>
-									<h3 class="date">
-										<span class="month"><?php the_sub_field('month'); ?></span>
-										<span class="year"><?php the_sub_field('year'); ?></span>
-									</h3>
-									<p class="text"><?php the_sub_field('contents'); ?></p>
-									<?php endif; ?>
+											<?php if( get_row_layout() == 'event' ): ?>
+											<div class="history-block">
+												<h5 class="date">
+													<span class="month"><?php the_sub_field('month'); ?></span>
+													<span class="year"><?php the_sub_field('year'); ?></span>
+												</h5>
+												<p class="text"><?php the_sub_field('contents'); ?></p>
+												<div class="decor-vert-line"></div>
+											</div>
+											<?php endif; ?>
+											
+											<?php if( get_row_layout() == 'year_block' ): ?>
+											<div class="main-year-block">
+												<h3 class="main-year"><?php the_sub_field('year'); ?></h3>
+											</div>
+											<?php endif; ?>
 
-									<?php if( get_row_layout() == 'year_block' ): ?>
-									<h3 class="year"><?php the_sub_field('year'); ?></h3>
-									<?php endif; ?>
-
+										<?php endwhile; ?>
+									</div>
+						            <div class="gradient gradient-right"></div>
+						            <div class="gradient gradient-left"></div>
 								</div>
-								<?php endwhile; ?>
 							</div>
 							<?php endif; ?>
 
