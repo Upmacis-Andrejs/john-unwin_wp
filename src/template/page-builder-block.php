@@ -35,7 +35,7 @@
 					</div>
 
 					<div class="row">
-	    				<div class="services-wrapper flex flex-wrap">
+	    				<div class="services-wrapper flex-vert-c">
 
 						<!-- loop through page_id=51 data (Services Page) -->
 						<?php $the_query_51 = new WP_Query('page_id=51');
@@ -74,7 +74,10 @@
 							<?php /* Default Content Section */
 						    if( get_row_layout() == 'default_content_section' ): ?>
 						    <div class="default-content-section-block">
-						    	<a class="title h4" href="#"><?php the_sub_field('title'); ?></a>
+						    	<div class="title-wrapper" href="#">
+							    	<h4 class="title"><?php the_sub_field('title'); ?></h4>
+							    	<div class="decor"></div>
+							    </div>
 								<?php while( have_rows('section_content') ) : the_row(); ?>
 									<p class="text"><?php the_sub_field('contents'); ?></p>
 								<?php endwhile; ?>
@@ -166,7 +169,6 @@
 
 		    	<div class="container">
 		    		<div class="row">
-		    			<div class="container-inner">
 	    				<div class="title-block-wrapper">
 			    			<div class="title-block">
 			    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
@@ -224,7 +226,6 @@
 		    				<?php endif; ?>
 		    			</div>
 		    		</div>
-		    		</div>
 		    	</div>
 		    </section>
 			<?php endif; ?>
@@ -246,7 +247,6 @@
 
 		    	<div class="container">
 		    		<div class="row">
-		    			<div class="container-inner">
 	    				<div class="title-block-wrapper">
 			    			<div class="title-block">
 			    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
@@ -292,7 +292,6 @@
 						<?php endif; ?>
 
 					</div>
-		    		</div>
 		    	</div>
 		    </section>
 			<?php endif; ?>
@@ -302,7 +301,6 @@
 		    <section class="<?php echo get_row_layout(); ?>">
 		    	<div class="container">
 		    		<div class="row">
-		    			<div class="container-inner">
 	    				<div class="title-block-wrapper">
 			    			<div class="title-block">
 			    				<h5 class="title"><?php the_sub_field('title'); ?></h5>
@@ -347,7 +345,6 @@
 						</div>
 						<?php endif; ?>
 					</div>
-		    		</div>
 		    	</div>
 		    </section>
 			<?php endif; ?>

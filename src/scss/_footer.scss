@@ -50,7 +50,7 @@ $color_bg_3: #BEC6D3;
 
 	// Footer Contacts Blocks
 	.footer-contacts-wrapper {
-		padding-left: 50px;
+		padding-left: 80px;
 		margin-left: auto;
 		.block {
 			max-width: calc(100% / 3);
@@ -71,12 +71,15 @@ $color_bg_3: #BEC6D3;
 		.address-block { min-width: 290px; }
 	}
 
+	.right-wrapper {
+		margin-left: auto;
+		padding-left: 80px; 
+	}
 	// Copyrights Block
 	.copyrights { margin-right: 45px; }
 
 	// Social Links
 	.socials-wrapper {
-		padding-left: 50px; 
 		margin-right: -5px;
 		margin-left: auto;
 		.link {

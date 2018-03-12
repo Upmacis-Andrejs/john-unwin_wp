@@ -19,25 +19,25 @@
 
 				<div class="container">
 					<div class="row" id="footer-row-1">
-						<?php if( have_rows('footer_menu', 'option') ): ?>
-							<div class="footer-menu-wrapper">
-								<ul class="footer-menu flex-vert-c">
-									<?php while( have_rows('footer_menu', 'option') ) : the_row(); ?>
-									<li>
-										<a class="h6" href="<?php if( get_sub_field('footer_menu_item_file', 'option') ) {
-											the_sub_field('footer_menu_item_file', 'option');
-										} else {
-											the_sub_field('footer_menu_item_link', 'option'); } ?>">
-											<?php the_sub_field('footer_menu_item_text', 'option'); ?>
-										</a>
-									</li>
-									<?php endwhile; ?>
-								</ul>
-							</div>
-						<?php endif; ?>
+						<div class="footer-row-wrapper flex">
+							<?php if( have_rows('footer_menu', 'option') ): ?>
+								<div class="footer-menu-wrapper">
+									<ul class="footer-menu flex-vert-c flex-wrap">
+										<?php while( have_rows('footer_menu', 'option') ) : the_row(); ?>
+										<li>
+											<a class="h6" href="<?php if( get_sub_field('footer_menu_item_file', 'option') ) {
+												the_sub_field('footer_menu_item_file', 'option');
+											} else {
+												the_sub_field('footer_menu_item_link', 'option'); } ?>">
+												<?php the_sub_field('footer_menu_item_text', 'option'); ?>
+											</a>
+										</li>
+										<?php endwhile; ?>
+									</ul>
+								</div>
+							<?php endif; ?>
 
 							<div class="footer-contacts-wrapper flex">
-
 								<?php if( get_field('phone', 'option') ): ?>
 								<div class="block phone-block">
 									<p class="title"><?php _e('Telephone', 'johnunwin'); ?></p>
@@ -64,46 +64,50 @@
 									</a>
 								</div>
 								<?php endif; ?>
-
+							</div>
 						</div>
 					</div>
 					<div class="row" id="footer-row-2">
-						<div class="copyrights-wrapper flex">
-							<div class="copyrights flex-vert-c">
-								<h6 class="text">&copy;<?php _e('John Unwin Electrical Contractors Ltd. All rights reserved.', 'johnunwin'); ?></h6>
+						<div class="footer-row-wrapper flex-vert-b">
+							<div class="left-wrapper flex">
+								<div class="copyrights flex-vert-c">
+									<h6 class="text">&copy;&nbsp;<?php _e('John Unwin Electrical Contractors Ltd. All rights reserved.', 'johnunwin'); ?></h6>
+								</div>
+
+								<div class="developer flex-vert-c">
+									<h6 class="text nbsp-after"><?php _e('Developed by:', 'johnunwin'); ?></h6>
+									<a class="link" href="https://sem.lv/" target="_blank">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sem.svg" style="width: 61px; height: 24px;" alt="sem.lv Logo">
+									</a>
+								</div>
 							</div>
 
-							<div class="developer flex-vert-c">
-								<h6 class="text nbsp-after"><?php _e('Developed by:', 'johnunwin'); ?></h6>
-								<a class="link" href="https://sem.lv/" target="_blank">
-									<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sem.svg" style="width: 61px; height: 24px;" alt="sem.lv Logo">
-								</a>
+							<div class="right-wrapper flex-vert-c">
+								<div class="socials-wrapper">
+									<?php if( get_field('twitter_link', 'option') ): ?>
+									<a class="link" href="<?php the_field('twitter_link', 'option'); ?>" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/twitter.svg" alt="Twitter Logo">
+									</a>
+									<?php endif; ?>
+
+									<?php if( get_field('facebook_link', 'option') ): ?>
+									<a class="link" href="<?php the_field('facebook_link', 'option'); ?>" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/facebook.svg" alt="Facebook Logo">
+									</a>
+									<?php endif; ?>
+
+									<?php if( get_field('yell_link', 'option') ): ?>
+									<a class="link" href="<?php the_field('yell_link', 'option'); ?>" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/yell.svg" alt="Yell Logo">
+									</a>
+									<?php endif; ?>
+								</div>
+								<div class="sintec-wrapper">
+									<a class="link" href="http://google.com" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sintec.svg" style="width: 107px; height: 20px;" alt="Sintec Logo">
+									</a>
+								</div>
 							</div>
-						</div>
-
-						<div class="socials-wrapper">
-							<?php if( get_field('twitter_link', 'option') ): ?>
-							<a class="link" href="<?php the_field('twitter_link', 'option'); ?>" target="_blank" rel="nofollow">
-								<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/twitter.svg" alt="Twitter Logo">
-							</a>
-							<?php endif; ?>
-
-							<?php if( get_field('facebook_link', 'option') ): ?>
-							<a class="link" href="<?php the_field('facebook_link', 'option'); ?>" target="_blank" rel="nofollow">
-								<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/facebook.svg" alt="Facebook Logo">
-							</a>
-							<?php endif; ?>
-
-							<?php if( get_field('yell_link', 'option') ): ?>
-							<a class="link" href="<?php the_field('yell_link', 'option'); ?>" target="_blank" rel="nofollow">
-								<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/yell.svg" alt="Yell Logo">
-							</a>
-							<?php endif; ?>
-						</div>
-						<div class="sintec-wrapper">
-							<a class="link" href="http://google.com" target="_blank" rel="nofollow">
-								<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sintec.svg" style="width: 107px; height: 20px;" alt="Sintec Logo">
-							</a>
 						</div>
 					</div>
 				</div>

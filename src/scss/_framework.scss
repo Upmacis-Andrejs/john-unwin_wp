@@ -3,52 +3,24 @@
 // CONTAINERS
 
 .container {
+  max-width: 1540px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
-.container-inner {
-	position: static!important;
-	margin-right: auto;
-	margin-left: auto;
-}
 
-//grid
-.col,
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10, {
-	float: left;
-	padding-right: 0.95%;
-	padding-left: 0.95%;
-}
-.col-1 {
-	width: 10%;
-}
-.col-2 { width: 20%; }
-.col-3 { width: 30%; }
-.col-4 { width: 40%; }
-.col-5 { width: 50%; }
-.col-6 { width: 60%; }
-.col-7 { width: 70%; }
-.col-8 { width: 80%; }
-.col-9 { width: 90%; }
-.col-10 { width: 100%; }
-
-@media (min-width: 1200px) {
+@media (min-width: 1920px) {
   .container {
-    width: calc(100% - 30px);
+    width: 1540px;
   }
-  .container-inner {
-  	width: calc(100% - (100% / 6));
+}
+
+@media (max-width: 1919px) {
+  .container {
+    width: 100%;
+    padding-right: 45px;
+    padding-left: 45px;
   }
 }
 
