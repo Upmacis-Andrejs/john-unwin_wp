@@ -65,49 +65,43 @@
             <!-- header -->
             <header class="z-666" id="site-header">
                 <div class="container">
-                    <div class="row">
-                        <div class="container-inner flex-vert-c">
-                            <a id="mobile-menu-icon" href="#">
-                                <div class="inner">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="row flex-vert-c">
+                        <a id="mobile-menu-icon" href="#">
+                            <div class="inner">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="wrapper-for-mobile-menu">
                     <div class="inner">
                         <div class="header-contacts-wrapper flex-vert-c w-100">
                             <div class="container">
-                                <div class="row">
-                                    <div class="container-inner">
-                                        <div class="col-10 flex-vert-c">
-                                            <?php if( get_field('phone', 'option') ): ?>
-                                            <a class="phone-wrapper flex-vert-c" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>">
-                                                <span class="icon icon-phone"></span>
-                                                <?php if( have_rows('emergency_phone_text', 'option') ): ?>
-                                                <h4 class="text flex-vert-c">
-                                                    <?php while( have_rows('emergency_phone_text', 'option') ) : the_row(); ?>
-                                                    <span class="bold"><?php the_sub_field('bold_text', 'option'); ?></span>
-                                                    <span class="normal"><?php the_sub_field('normal_text', 'option'); ?></span>
-                                                    <?php endwhile;?>
-                                                </h4>
-                                                <?php endif; ?>
-                                                <h4 class="phone bold"><?php echo $phone; ?></h4>
-                                            </a>
-                                            <?php endif; ?>
+                                <div class="row flex-vert-c">
+                                    <?php if( get_field('phone', 'option') ): ?>
+                                    <a class="phone-wrapper flex-vert-c" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>">
+                                        <span class="icon icon-phone"></span>
+                                        <?php if( have_rows('emergency_phone_text', 'option') ): ?>
+                                        <h4 class="text flex-vert-c">
+                                            <?php while( have_rows('emergency_phone_text', 'option') ) : the_row(); ?>
+                                            <span class="bold"><?php the_sub_field('bold_text', 'option'); ?></span>
+                                            <span class="normal"><?php the_sub_field('normal_text', 'option'); ?></span>
+                                            <?php endwhile;?>
+                                        </h4>
+                                        <?php endif; ?>
+                                        <h4 class="phone bold"><?php echo $phone; ?></h4>
+                                    </a>
+                                    <?php endif; ?>
 
-                                            <?php if( get_field('email', 'option') ): ?>
-                                            <a class="email-wrapper flex-vert-c" href="mailto:<?php the_field('email', 'option'); ?>">
-                                                <span class="icon icon-mail"></span>
-                                                <h4 class="email normal"><?php the_field('email', 'option'); ?></h4>
-                                            </a>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
+                                    <?php if( get_field('email', 'option') ): ?>
+                                    <a class="email-wrapper flex-vert-c" href="mailto:<?php the_field('email', 'option'); ?>">
+                                        <span class="icon icon-mail"></span>
+                                        <h4 class="email normal"><?php the_field('email', 'option'); ?></h4>
+                                    </a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -115,13 +109,9 @@
                         <div class="header-menu-wrapper w-100">
                             <div class="container">
                                 <div class="row">
-                                    <div class="container-inner">
-                                        <div class="col-10">
-                                            <nav class="nav flex-vert-c">
-                                                <?php johnunwin_header_nav(); ?>
-                                            </nav>
-                                        </div>
-                                    </div>
+                                    <nav class="nav flex-vert-c">
+                                        <?php johnunwin_header_nav(); ?>
+                                    </nav>
                                 </div>
                             </div>
                         </div>

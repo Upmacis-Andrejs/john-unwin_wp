@@ -190,7 +190,7 @@ body #body-wrapper .no-background { color: $color_ac_3; }
 
 // Add Blocks Wrapper
 .add-blocks-wrapper {
-	@extend .col-3;
+	//@extend .col-3;
 	margin-top: 55px;
 	float: right;
 	.block {
