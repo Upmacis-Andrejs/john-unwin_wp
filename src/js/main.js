@@ -8,6 +8,50 @@ $(document).ready(function() {
 	var $tablet_width = 1199;
 	var $mobile_width = 767;
 
+	// Add class to section if it's height is over the limit
+	$('section').each(function() {
+		var $this = $(this);
+		var $this_height = $this.innerHeight();
+		alert($this_height);
+		if( $this_height > 916 ) {
+			alert('yes');
+			$this.addClass('huge');
+		}
+	});
+
+	// Add class "required" to fieldset elements in form, where necessary
+	$('.wpcf7-validates-as-required').parents('fieldset').addClass('add-required');
+
+	// Add "Close" buttom to "Get a Quote" form
+	$('.get-a-quote-form-block form').prepend('<a id="close-quote-form" href="#"></a>');
+
+	// Toggl contact form
+	$(".get-a-quote-form, a[href='#get-a-quote-form']").click(function() {
+		$(".get-a-quote-form-block").toggleClass('hidden');
+		$("body").toggleClass("get-a-quote-form-open");
+		return false;
+	});
+
+	$("#close-quote-form").click(function() {
+		$(".get-a-quote-form-block").addClass('hidden');	
+		$("body").removeClass("get-a-quote-form-open");        
+		return false;
+	});
+
+	$(document).mouseup(function(e) {
+	    var container_1 = $(".get-a-quote-form-block form");
+	    var container_2 = $("a[href='#get-a-quote-form']");
+
+	    if (!container_1.is(e.target) // if the target of the click isn't the container...
+	        && container_1.has(e.target).length === 0 // ... nor a descendant of the container
+	        && !container_2.is(e.target) // and if the target of the click isn't the container...
+	        && container_2.has(e.target).length === 0) // ... nor a descendant of the container
+	    {
+			$(".get-a-quote-form-block").addClass('hidden');	
+			$("body").removeClass("get-a-quote-form-open");        
+	    }
+	});
+
 	// Toggle mobile menu
 	$("#mobile-menu-icon").click(function(e) {
 		var $this = $(this);
@@ -21,7 +65,7 @@ $(document).ready(function() {
 		return false;
 	});
 
-	//hide mobile menu when clicked outside of it
+	// Hide mobile menu when clicked outside of it
 	$(document).mouseup(function (e) {
 		if ( $("#mobile-menu-icon").hasClass('open') ) {
 		    var container = $("#site-header");	
@@ -36,31 +80,6 @@ $(document).ready(function() {
 				return false;
 		    }
 		}
-	});
-
-	// Toggl contact form
-	$(".contact-form-btn").click(function() {
-		$(".contact-form-outer").toggleClass('hidden');
-		$("body").toggleClass("contact-form-open");
-	});
-
-	$(".contact-form-close").click(function() {
-		$(".contact-form-outer").addClass('hidden');
-		$("body").toggleClass("contact-form-open");
-	});
-
-	$(document).mouseup(function(e) {
-	    var container_1 = $(".contact-form-wrapper");
-	    var container_2 = $(".contact-form-btn");
-
-	    if (!container_1.is(e.target) // if the target of the click isn't the container...
-	        && container_1.has(e.target).length === 0 // ... nor a descendant of the container
-	        && !container_2.is(e.target) // and if the target of the click isn't the container...
-	        && container_2.has(e.target).length === 0) // ... nor a descendant of the container
-	    {
-			$(".contact-form-outer").addClass('hidden');	
-			$("body").removeClass("contact-form-open");        
-	    }
 	});
 
 	// Add CSS class to Site Header when scrollTop position of the document is not 0
@@ -98,7 +117,7 @@ $(document).ready(function() {
 
 	});
 
-	// History section custom horizontal scrollbat
+	// History section custom horizontal scrollbar
 	$("#history-inner").niceScroll("#history-inner-wrapper",{
 	    autohidemode: false,
 	    cursorcolor: "#134294",

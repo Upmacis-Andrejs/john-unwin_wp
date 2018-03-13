@@ -291,10 +291,8 @@
 			  var map = null;
 
 			  function initMap() {
-			    $('.acf-map').each(function(){
 			    // create map
-			      map = new_map( $(this) );
-			    });
+			      map = new_map( $('#acf-map') );
 			  }
 
 			/* -------------------------------------------------------------------------------------- */

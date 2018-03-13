@@ -14,7 +14,7 @@
 		</ul>
 		<?php endif; ?>
 
-		<a class="btn btn-1" href="http://google.com"><?php _e('Get a Quote', 'johnunwin'); ?></a>
+		<a class="btn btn-1 get-a-quote-form" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
 	</div>
 	<?php endif; ?>
 

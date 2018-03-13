@@ -5,18 +5,9 @@
 
 		    /* Services Section */
 		    if( get_row_layout() == 'services_section' ): ?>
-		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>" style="background-image: url(<?php echo get_sub_field('bg_img')['url']; ?>);">
+		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Set section overlay color */
-				if( get_sub_field('overlay_color') == 'dark' ) {
-					$overlay_class = 'dark';
-				} elseif ( get_sub_field('overlay_color') == 'light' ) {
-					$overlay_class = 'light';
-				}
-			?>
-			<?php if( get_sub_field('overlay_color') != 'none' ): ?>
-				<div class="section-overlay <?php echo $overlay_class; ?>"></div>
-			<?php endif; ?>
+			<?php /* Add Section Background */ get_template_part('section_background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
@@ -99,18 +90,9 @@
 
 			<?php /* About Us Section */
 		    if( get_row_layout() == 'about_us_section' ): ?>
-		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>" style="background-image: url(<?php echo get_sub_field('bg_img')['url']; ?>);">
+		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Set section overlay color */
-				if( get_sub_field('overlay_color') == 'dark' ) {
-					$overlay_class = 'dark';
-				} elseif ( get_sub_field('overlay_color') == 'light' ) {
-					$overlay_class = 'light';
-				}
-			?>
-			<?php if( get_sub_field('overlay_color') != 'none' ): ?>
-				<div class="section-overlay <?php echo $overlay_class; ?>"></div>
-			<?php endif; ?>
+			<?php /* Add Section Background */ get_template_part('section_background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
@@ -154,18 +136,9 @@
 
 			<?php /* Default Content Section */
 		    if( get_row_layout() == 'default_content_section' ): ?>
-		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>" style="background-image: url(<?php echo get_sub_field('bg_img')['url']; ?>);">
+		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Set section overlay color */
-				if( get_sub_field('overlay_color') == 'dark' ) {
-					$overlay_class = 'dark';
-				} elseif ( get_sub_field('overlay_color') == 'light' ) {
-					$overlay_class = 'light';
-				}
-			?>
-			<?php if( get_sub_field('overlay_color') != 'none' ): ?>
-				<div class="section-overlay <?php echo $overlay_class; ?>"></div>
-			<?php endif; ?>
+			<?php /* Add Section Background */ get_template_part('section_background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
@@ -232,18 +205,9 @@
 
 			<?php /* Team Section */
 		    if( get_row_layout() == 'team_section' ): ?>
-		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>" style="background-image: url(<?php echo get_sub_field('bg_img')['url']; ?>);">
+		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Set section overlay color */
-				if( get_sub_field('overlay_color') == 'dark' ) {
-					$overlay_class = 'dark';
-				} elseif ( get_sub_field('overlay_color') == 'light' ) {
-					$overlay_class = 'light';
-				}
-			?>
-			<?php if( get_sub_field('overlay_color') != 'none' ): ?>
-				<div class="section-overlay <?php echo $overlay_class; ?>"></div>
-			<?php endif; ?>
+			<?php /* Add Section Background */ get_template_part('section_background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
