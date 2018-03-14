@@ -153,9 +153,6 @@ $(document).ready(function() {
 	});
 	$(".nicescroll-cursors").wrapInner("<div class='cursor-inner'></div>");
 
-	// Initialize lightbox
-	$('a[data-rel^=lightcase]').lightcase();
-
 	// Initialize slider
 	$(".lightslider").each(function() {
 	var $this = $(this);
@@ -170,6 +167,27 @@ $(document).ready(function() {
 	      		$('.lightslider').removeClass('cS-hidden');
 	        },
 	  });     
+	});
+
+	// Initialize lightbox
+	$('a[data-rel^=lightcase]').lightcase({
+	    onStart : {
+	      bar: function() {
+	        alert('Lightcase process is started');
+	        $('body').addClass('this-is-the-class');
+	      }
+	    }
+	});
+	
+	$(document).mouseup(function(e) {
+	    var container_1 = $(".lightbox-contents");
+
+	    if ( !container_1.is(e.target) // if the target of the click isn't the container...
+	        && container_1.has(e.target).length === 0
+	        && $('html').hasClass('lightcase-open') ) // ... nor a descendant of the container
+	    {
+	    	lightcase.close();
+	    }
 	});
 
     // Script for deprecated browser notification

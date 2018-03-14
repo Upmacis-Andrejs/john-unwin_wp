@@ -23,8 +23,12 @@
 						<?php if( have_rows('above_the_fold_main') ): ?>
 						<div class="page-content">
 							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-								<h1 class="title"><?php the_sub_field('title'); ?></h1>
-								<p class="text"><?php the_sub_field('page_content'); ?></p>
+								<?php if( get_sub_field('title') ): ?>
+									<h1 class="title"><?php the_sub_field('title'); ?></h1>
+								<?php endif; ?>
+								<?php if( get_sub_field('page_content') ): ?>
+									<p class="text"><?php the_sub_field('page_content'); ?></p>
+								<?php endif; ?>
 								<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
 							<?php endwhile; ?>
 						</div>

@@ -33,7 +33,9 @@
 							</div>
 							<div class="content-wrapper">
 								<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-								<h4 class="title"><?php the_sub_field('page_content'); ?></h4>
+								<?php if( get_sub_field('page_content') ): ?>
+									<h4 class="title"><?php the_sub_field('page_content'); ?></h4>
+								<?php endif; ?>
 
 								<?php if( have_rows('above_the_fold_list') ): ?>
 								<ul class="list list-style-none">
@@ -44,8 +46,9 @@
 
 								</ul>
 								<?php endif; ?>
-
-								<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
+								<?php get_sub_field('atf_additional_text'): ?>
+									<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
+								<?php endif; ?>
 
 								<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
 								<?php endwhile; ?>

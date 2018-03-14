@@ -18,8 +18,12 @@
 
 								<?php if( have_rows('above_the_fold_main') ): ?>
 									<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-									<h1 class="title"><?php the_sub_field('title'); ?></h1>
-									<p class="text"><?php the_sub_field('page_content'); ?></p>
+									<?php if( get_sub_field('title') ): ?>
+										<h1 class="title"><?php the_sub_field('title'); ?></h1>
+									<?php endif; ?>
+									<?php if( get_sub_field('page_content') ): ?>
+										<p class="text"><?php the_sub_field('page_content'); ?></p>
+									<?php endif; ?>
 									<?php endwhile; ?>
 								<?php endif; ?>
 							</div>

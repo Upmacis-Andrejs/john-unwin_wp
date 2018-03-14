@@ -238,6 +238,22 @@ body .main-site-logo-wrapper {
 	}
 }
 
+.media-block,
+.media {
+	width: 100%;
+	.wrapper {
+		width: 100%;
+		padding-top: 56%;
+		iframe,
+		object,
+		embed,
+		video {
+			@extend .block-fit-parent;
+			@extend .fit-parent;
+		}
+		video { background-color: rgba($color_ac_3, 0.95); }
+	}
+}
 
 // Above The Fold Section
 #above-the-fold-section {
@@ -252,7 +268,6 @@ body .main-site-logo-wrapper {
 			}
 		}
 		.media {
-			width: 100%;
 			margin-top: 30px;
 		}
 	}
@@ -1654,7 +1669,7 @@ body .main-site-logo-wrapper {
 		max-height: none!important;
 	}
 }
-//.lightcase-icon-close { display: none!important; }
+.lightcase-icon-close { display: none!important; }
 #lightcase-overlay {
 	background-color: #000!important;
 	opacity: 0.7!important;

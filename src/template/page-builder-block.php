@@ -39,7 +39,9 @@
     						</div>
     						<div class="content-wrapper">
 								<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-								<h4 class="title"><?php the_sub_field('page_content'); ?></h4>
+								<?php if( get_sub_field('page_content') ): ?>
+									<h4 class="title"><?php the_sub_field('page_content'); ?></h4>
+								<?php endif; ?>
 
 								<?php if( have_rows('above_the_fold_list') ): ?>
 								<ul class="list list-style-none">
@@ -51,7 +53,9 @@
 								</ul>
 								<?php endif; ?>
 
-								<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
+								<?php get_sub_field('atf_additional_text'): ?>
+									<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
+								<?php endif; ?>
 								<?php endwhile; ?>
 								<a class="btn btn-1" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
 							</div>
@@ -159,9 +163,12 @@
 							<?php if( have_rows('section_content') ): ?>
 							<div class="section-content">
 								<?php while( have_rows('section_content') ) : the_row(); ?>
-								<h3 class="title"><?php the_sub_field('title'); ?></h3>
-								<p class="text"><?php the_sub_field('contents'); ?></p>
-
+									<?php if( get_sub_field('title') ): ?>
+										<h3 class="title"><?php the_sub_field('title'); ?></h3>
+									<?php endif; ?>
+									<?php if( get_sub_field('contents') ): ?>
+										<p class="text"><?php the_sub_field('contents'); ?></p>
+									<?php endif; ?>
 								<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
 
 								<?php endwhile; ?>

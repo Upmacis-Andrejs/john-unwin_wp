@@ -38,24 +38,33 @@
 	</div>
 	<?php endif; ?>
 
+
 	<?php /* Media Block */ if( have_rows('media_block') ): ?>
-	<div class="block media-block">
 		<?php while( have_rows('media_block') ) : the_row(); ?>
-			<?php if( get_sub_field('image') ): ?>
-			<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>">
+			<?php if( get_sub_field('image') && get_sub_field('choose_media_type') == 'image' ): ?>
+			<div class="block media-block">
+				<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>">
+			</div>
 			<?php endif; ?>
 
-			<?php if( get_sub_field('video_from_external_resources') ): ?>
-			<?php the_sub_field('video_from_external_resources'); ?>
+			<?php if( get_sub_field('video_from_external_resources') && get_sub_field('choose_media_type') == 'video_external' ): ?>
+			<div class="block media-block">
+				<div class="wrapper">
+					<?php the_sub_field('video_from_external_resources'); ?>
+				</div>
+			</div>
 			<?php endif; ?>
 
-			<?php if( get_sub_field('video_from_local_library') ): ?>
-			<video preload="metadata">
-				<source src="<?php the_field('video_from_local_library'); ?>#t=0.5">
-			</video>
+			<?php if( get_sub_field('video_from_local_library') && get_sub_field('choose_media_type') == 'video_local' ): ?>
+			<div class="block media-block">
+				<div class="wrapper">
+					<video preload="metadata" controls>
+						<source src="<?php echo get_sub_field('video_from_local_library')['url']; ?>#t=0.5">
+					</video>
+				</div>
+			</div>
 			<?php endif; ?>
 		<?php endwhile; ?>
-	</div>
 	<?php endif; ?>
 
 
