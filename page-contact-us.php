@@ -7,7 +7,7 @@
 		<!-- Above The Fold Section -->
 		<section <?php if( get_field('overlay_color') == 'none' ) { echo 'class="no-background"'; } ?> id="above-the-fold-section">
 			
-			<?php /* Add Section Background */ get_template_part('section_background'); ?>
+			<?php /* Add Section Background */ get_template_part('section-background'); ?>
 
 			<div class="container">
 				<div class="row">

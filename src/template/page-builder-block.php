@@ -7,7 +7,7 @@
 		    if( get_row_layout() == 'services_section' ): ?>
 		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Add Section Background */ get_template_part('section_background'); ?>
+			<?php /* Add Section Background */ get_template_part('section-background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
@@ -92,7 +92,7 @@
 		    if( get_row_layout() == 'about_us_section' ): ?>
 		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Add Section Background */ get_template_part('section_background'); ?>
+			<?php /* Add Section Background */ get_template_part('section-background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
@@ -138,7 +138,7 @@
 		    if( get_row_layout() == 'default_content_section' ): ?>
 		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Add Section Background */ get_template_part('section_background'); ?>
+			<?php /* Add Section Background */ get_template_part('section-background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">
@@ -207,7 +207,7 @@
 		    if( get_row_layout() == 'team_section' ): ?>
 		    <section class="<?php echo get_row_layout(); if( get_sub_field('overlay_color') == 'none' ) { echo " no-background"; } ?>">
 
-			<?php /* Add Section Background */ get_template_part('section_background'); ?>
+			<?php /* Add Section Background */ get_template_part('section-background'); ?>
 
 		    	<div class="container">
 		    		<div class="row">

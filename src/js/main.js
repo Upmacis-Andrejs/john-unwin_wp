@@ -8,15 +8,29 @@ $(document).ready(function() {
 	var $tablet_width = 1199;
 	var $mobile_width = 767;
 
-	// Add class to section if it's height is over the limit
-	$('section').each(function() {
+	// Add class "active" to clicked career item and slide-toggle contents
+	$('.careers-block .title-wrapper').click(function() {
 		var $this = $(this);
-		var $this_height = $this.innerHeight();
-		alert($this_height);
-		if( $this_height > 916 ) {
-			alert('yes');
-			$this.addClass('huge');
+		var $this_block = $this.parents('.careers-block');
+		$this_block.toggleClass('active');
+		$this_block.siblings('.active').not(this).removeClass('active').find('.content-wrapper').stop(true, true).slideUp();
+		$this.siblings('.content-wrapper').stop(true, true).slideToggle();
+
+		var $this_section = $this.parents('section');;
+		var $this_height = $this_section.innerHeight();
+		var $timeout_section_height;
+		function remove_huge() {
+			$this_section.removeClass("huge");
 		}
+		function add_huge() {
+			$this_section.addClass("huge");
+		}
+		if( $this_height > 916 ) {
+			$timeout_section_height = setTimeout(add_huge, 500);
+		} else {
+			$timeout_section_height = setTimeout(remove_huge, 500);
+		}
+		return false;
 	});
 
 	// Add class "required" to fieldset elements in form, where necessary
@@ -158,6 +172,19 @@ $(document).ready(function() {
 
 $(window).resize(function() {
 
+	// Add class to section if it's height is over the limit
+	$('section').each(function() {
+		var $this = $(this);
+		var $this_height = $this.innerHeight();
+		alert($this_height);
+		if( $this_height > 916 ) {
+			alert('yes');
+			$this.addClass('huge');
+		} else {
+			$this.removeClass('huge');
+		}
+	});
+
 	// Calculate div width for horizontal scrollable content
 	var totalWidth = 0;
 	$('.history-block,.main-year-block').each(function(index) {
@@ -167,5 +194,33 @@ $(window).resize(function() {
 	var $history_padding_l = parseFloat($("#history-inner").css("padding-left"));
 	var $setWidth = totalWidth + $history_padding_r + $history_padding_l;
 	$("#history-inner-wrapper").css("width", $setWidth);
+
+	// Calculate div width for vertical multi column layout
+	var totalHeight = 0;
+	$('.testimonial-block').each(function() {
+	    totalHeight += parseInt($(this).outerHeight(true), 10);
+	});
+	var halfHeight = totalHeight / 2;
+	//alert(halfHeight);
+
+	var setHeight = 0;
+	$('.testimonial-block').each(function() {
+	    setHeight += parseInt($(this).outerHeight(true), 10);
+	    if ( setHeight > halfHeight ) { return false; }
+	});
+	//alert(setHeight);
+
+	var setHeightReverse = 0;
+	$($('.testimonial-block').get().reverse()).each(function() {
+	    setHeightReverse += parseInt($(this).outerHeight(true), 10);
+	    if ( setHeightReverse > halfHeight ) { return false; }
+	});
+	//alert(setHeightReverse);
+
+	if ( setHeight < setHeightReverse ) {
+		$('.testimonials-wrapper').css('height', setHeight);
+	} else {
+		$('.testimonials-wrapper').css('height', setHeightReverse);
+	}
 
 });
