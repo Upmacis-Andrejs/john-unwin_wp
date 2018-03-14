@@ -153,6 +153,25 @@ $(document).ready(function() {
 	});
 	$(".nicescroll-cursors").wrapInner("<div class='cursor-inner'></div>");
 
+	// Initialize lightbox
+	$('a[data-rel^=lightcase]').lightcase();
+
+	// Initialize slider
+	$(".lightslider").each(function() {
+	var $this = $(this);
+	  $this.lightSlider({
+	        item      : 1,
+	        auto      : true,
+	        loop      : true,
+	        speed: 600,
+	        pause: 3000,
+	        pager: true,
+	        onSliderLoad: function() {
+	      		$('.lightslider').removeClass('cS-hidden');
+	        },
+	  });     
+	});
+
     // Script for deprecated browser notification
     $('#close_announcement').click(function(e) {
         e.preventDefault();

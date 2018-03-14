@@ -241,6 +241,12 @@ function johnunwin_scripts()
         wp_register_script('jquery-nicescroll', get_template_directory_uri() . '/bower_components/jquery.nicescroll/jquery.nicescroll.min.js', array(), '3.7.6', true); // jQuery NiceScroll
         wp_enqueue_script('jquery-nicescroll'); // Enqueue it!
 
+        wp_register_script('lightcase', get_template_directory_uri() . '/bower_components/lightcase/src/js/lightcase.js', array('jquery'), '2.4.2', true); // Lightcase Lightbox Plugin
+        wp_enqueue_script('lightcase'); // Enqueue it!
+
+        wp_register_script('lightslider', get_template_directory_uri() . '/bower_components/lightslider/dist/js/lightslider.min.js', array('jquery'), '1.1.6', true); // Lightslider Plugin
+        wp_enqueue_script('lightslider'); // Enqueue it!
+
         wp_register_script('johnunwin_scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.4', true); // Custom scripts
         wp_enqueue_script('johnunwin_scripts'); // Enqueue it!
     }
@@ -251,6 +257,12 @@ function johnunwin_styles()
 {
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.min.css', array(), '8.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
+
+    wp_register_style('lightcase', get_template_directory_uri() . '/bower_components/lightcase/src/css/lightcase.css', array(), '2.4.2', 'all'); // Lightslider Plugin
+    wp_enqueue_style('lightcase'); // Enqueue it!
+
+    wp_register_style('lightslider', get_template_directory_uri() . '/bower_components/lightslider/dist/css/lightslider.min.css', array(), '1.1.6', 'all'); // Lightslider Plugin
+    wp_enqueue_style('lightslider'); // Enqueue it!
 
     wp_register_style('johnunwin', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('johnunwin'); // Enqueue it!
