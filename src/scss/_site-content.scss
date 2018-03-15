@@ -254,6 +254,24 @@ body .main-site-logo-wrapper {
 		video { background-color: rgba($color_ac_3, 0.95); }
 	}
 }
+.page-content {
+	.text {
+		br {
+			content: "";
+			display: block;
+			height: 18px;
+		}
+	}
+}
+.testimonial-block {
+	.text {
+		br {
+			content: "";
+			display: block;
+			height: 15px;
+		}
+	}
+}
 
 // Above The Fold Section
 #above-the-fold-section {
@@ -261,11 +279,6 @@ body .main-site-logo-wrapper {
 		color: $color_ac_4;
 		.text {
 			margin-top: 15px;
-			br {
-				content: "";
-				display: block;
-				height: 18px;
-			}
 		}
 		.media {
 			margin-top: 30px;
@@ -325,12 +338,13 @@ body .main-site-logo-wrapper {
 	// Services Template
 .page-template-page-services {
 	#above-the-fold-section {
-		padding-bottom: 148px;
+		padding-bottom: 145px;
+		.main-site-logo-wrapper { margin-bottom: 50px; }
 	}
 }
 .above-the-fold-wrapper.services-wrapper {
 	.add-blocks-wrapper {
-		margin-top: -140px;
+		margin-top: -134px;
 	}
 }
 
@@ -406,7 +420,7 @@ body .main-site-logo-wrapper {
 	// Testimonials Template
 .page-template-page-testimonials {
 	#above-the-fold-section {
-		padding-bottom: 87px;
+		padding-bottom: 84px;
 		.page-content {
 			width: 598px;
 		}
@@ -425,7 +439,7 @@ body .main-site-logo-wrapper {
 	// Careers Template
 .page-template-page-careers {
 	#above-the-fold-section {
-		padding-bottom: 108px;
+		padding-bottom: 98px;
 		.page-content {
 			width: 598px;
 			max-width: 100%;
@@ -459,7 +473,7 @@ body .main-site-logo-wrapper {
 	}
 	#above-the-fold-section {
 		flex-grow: 1;
-		padding-bottom: 90px;
+		padding-bottom: 93px;
 		.page-content { width: 598px; }
 	}
 }
@@ -651,12 +665,22 @@ body .main-site-logo-wrapper {
 		}
 	}
 }
+body .block-with-list {
+	.list {
+		margin-bottom: -15px;
+		li { margin-bottom: 15px; }
+	}
+}
 
 
 // About Us Section
 .about_us_section { padding-bottom: 95px; }
 .about-us-wrapper {
 	margin-top: 18px;
+	.icon-wrapper {
+		min-width: 110px;
+		max-width: 110px;
+	}
 	.block {
 		display: flex;
 		width: 597px;
@@ -729,8 +753,6 @@ body .main-site-logo-wrapper {
 .about-us-wrapper,
 .services-wrapper {
 	.icon-wrapper {
-		min-width: 110px;
-		max-width: 110px;
 		padding-right: 20px;
 		.icon {
 			max-width: 100%;
@@ -751,17 +773,22 @@ body .main-site-logo-wrapper {
 	.right-block {
 		margin-bottom: 90px;
 	}
+	.icon-wrapper {
+		min-width: 115px;
+		max-width: 115px;
+	}
 	.page-content {
 		display: flex;
 		width: 597px;
 		margin-right: 60px;
 		margin-bottom: 90px;
+		.content-wrapper { margin-top: 4px; }
 		.title {
 			color: $color_ac_4;
 			margin-bottom: 15px;
 		}
 		.list {
-			margin-bottom: 0;
+			margin-bottom: -2px;;
 			li {
 				margin-bottom: 11px;
 				color: $color_hc_3;
@@ -877,7 +904,10 @@ body .main-site-logo-wrapper {
 }
 
 // Default Content Section
-.default_content_section { padding-bottom: 100px; }
+.default_content_section {
+	padding-bottom: 111px;
+	.title-block-wrapper { margin-bottom: 88px; }
+}
 .default-content-wrapper {
 	color: $color_ac_4;	
 	.section-content,
@@ -885,10 +915,10 @@ body .main-site-logo-wrapper {
 		width: 440px;
 	}
 	.section-content {
-		.text { margin-top: 15px; }
+		.text { margin-top: 12px; }
 		.media {
 			width: 100%;
-			margin-top: 25px; 
+			margin-top: 27px; 
 		}
 	}
 	.right-block {
@@ -898,7 +928,7 @@ body .main-site-logo-wrapper {
 		border: 1px solid $color_ac_4;
 		border-radius: 4px;
 		.block {
-			margin-bottom: 35px;
+			margin-bottom: 50px;
 			&:last-of-type { margin-bottom: 0; }
 			.title {
 				font-size: 25px;
@@ -907,7 +937,7 @@ body .main-site-logo-wrapper {
 			}
 			.text,
 			.list {
-				margin-top: 15px;
+				margin-top: 12px;
 			}
 		}
 		.block-with-list {
@@ -1291,10 +1321,10 @@ body .main-site-logo-wrapper {
 	flex-direction: column;
 	flex-wrap: wrap;
 	margin: -15px;
-	margin-top: calc(50px - 15px);
+	margin-top: calc(55px - 15px);
 	.testimonial-block {
 		width: calc(50% - 30px);
-		padding: 30px 30px 25px;
+		padding: 27px 29px 22px;
 		margin: 15px;
 		color: $color_ac_4;
 		border: 1px solid $color_ac_4;
@@ -1310,7 +1340,7 @@ body .main-site-logo-wrapper {
 
 // Leave Your Feedback Form
 .feedback-form-block {
-	margin-top: 80px;
+	margin-top: 70px;
 	margin-bottom: 68px;
 	.decor {
 		position: absolute;
@@ -1339,7 +1369,7 @@ body .main-site-logo-wrapper {
 			text-align: center;
 			max-width: 598px;
 			@extend .margin-auto;
-			margin-bottom: 30px;
+			margin-bottom: 32px;
 		}
 		.form-contents {
 			display: flex;
@@ -1352,6 +1382,7 @@ body .main-site-logo-wrapper {
 			width: calc(100% - 30px);
 			margin-right: 15px;
 			margin-left: 15px;
+			margin-bottom: 15px!important;
 			&.half { width: calc(50% - 30px); }
 		    &.add-required {
 		      label span:after,
@@ -1388,7 +1419,9 @@ body .main-site-logo-wrapper {
 		label,
 		.label {
 			padding-left: 0;
+			margin-bottom: 10px;
 			color: #808080;
+			&>span { min-height: 0!important; }
 		}
 		fieldset,
 		.fieldset,
@@ -1402,6 +1435,7 @@ body .main-site-logo-wrapper {
 		.wpcf7-form-control-wrap {
 			width: 100%;
 		}
+		.wpcf7-form-control-wrap { margin-bottom: 0!important; }
 	}
 }
 
@@ -1421,7 +1455,7 @@ body .main-site-logo-wrapper {
 	width: 100%;
 	margin-top: 75px;
 	.careers-block {
-		margin-bottom: 30px;
+		margin-bottom: 24px;
 		color: $color_ac_4;
 		&.active {
 			.title-wrapper {
@@ -1444,11 +1478,13 @@ body .main-site-logo-wrapper {
 			.title {
 				margin-left: 47px;
 				text-transform: none;
+				letter-spacing: 0;
+				line-height: 1.2;
 				&:before {
 					@extend .icon;
 					@extend .icon-plus:before;
 					position: absolute;
-					top: -1px;
+					top: 2px;
 					right: auto;
 					left: -47px;
 					bottom: auto;
@@ -1474,20 +1510,28 @@ body .main-site-logo-wrapper {
 		}
 		.content-wrapper {
 			display: none;
-			padding-top: 10px;
+			padding-top: 16px;
+			padding-right: 1px;
 			border-bottom: 1px solid $color_ac_4;
-			.title { font-weight: 700; }
+			.title {
+				font-weight: 700;
+				text-transform: uppercase;
+			}
 			.text,
 			.list {
-				margin-top: 12px;
+				margin-top: 10px;
 			}
-			.list { list-style-type: none; }
+			.list {
+				list-style-type: none;
+				margin-bottom: 0;
+				li { margin-bottom: 10px; }
+			}
 		}
 		.footnote-wrapper {
 			display: flex;
 			flex-wrap: wrap;
-			margin-top: 25px;
-			margin-bottom: 30px;
+			margin-top: 45px;
+			margin-bottom: 26px;
 			.text {
 				margin-top: 0;
 				@extend .nbsp-after;
@@ -1507,14 +1551,14 @@ body .main-site-logo-wrapper {
 
 // Projects Section
 .projects-wrapper {
-	margin: 0 -15px -15px;
+	margin: 6px -12px -15px;
 	.projects-block {
 		width: calc(20% - 30px);
-		margin: 15px;
+		margin: 12px 15px;
 		@extend .text-decor-none;
 		.inner {
 			width: 100%;
-			padding-top: 72%;
+			padding-top: 71.2%;
 		}
 		&:hover,
 		&:active {
@@ -1537,12 +1581,12 @@ body .main-site-logo-wrapper {
 		.contents-wrapper {
 			@extend .flex-vert-b;
 			display: flex!important;
-			padding: 20px;
+			padding: 19px 23px;
 			color: $color_ac_4;
 			.icon {
 				position: absolute;
 				top: 20px;
-				right: 20px;
+				right: 23px;
 				bottom: auto;
 				left: auto;
 				&:before {

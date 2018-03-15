@@ -12,9 +12,17 @@
 			<div class="container">
 				<div class="row">
 					<div class="main-site-logo-wrapper">
-						<a id="main-site-logo" href="<?php echo home_url(); ?>">
-							<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
-						</a>
+						<div class="title-block">
+							<a id="main-site-logo" href="<?php echo home_url(); ?>">
+								<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
+							</a>
+						</div>
+						<div class="decor-wrapper">
+		    				<div class="decor-1"></div>
+		    				<div class="decor-2"></div>
+		    			</div>
+	    				<div class="decor-line-1"></div>
+	    				<div class="decor-line-2"></div>
 					</div>
 
 					<div class="above-the-fold-wrapper flex-vert-t">
