@@ -369,7 +369,7 @@ body .main-site-logo-wrapper {
 	// Contact Us Template
 .page-template-page-contact-us {
 	#above-the-fold-section {
-		padding-bottom: 70px;
+		padding-bottom: 73px;
 		.page-content-wrapper {
 			width: 756px;
 			.page-content,
@@ -378,19 +378,20 @@ body .main-site-logo-wrapper {
 			}
 			.contacts-wrapper {
 				width: 100%;
-				padding: 35px 40px 33px;
+				padding: 35px 40px 40px 32px;
 				margin-top: 60px;
 				border: 1px solid $color_ac_4;
 				border-radius: 4px;
 				a:last-of-type { margin-top: 33px; }
 			}
 			.address-wrapper {
-				margin-top: 26px;
+				margin-top: 28px;
 				color: $color_ac_4;
 				.title {
 					text-transform: uppercase;
 					font-weight: 700;
 				}
+				.address { margin-top: 10px; }
 				a {
 					color: $color_ac_4;
 					@extend .text-decor-none;
@@ -1217,6 +1218,9 @@ body .block-with-list {
 	padding-top: 26%;
 	#acf-map {
 		@extend .block-fit-parent;
+		img {
+			max-height: none!important;
+		}
 	}
 }
 @media (max-width: 1439px) {
@@ -1243,8 +1247,8 @@ body .block-with-list {
 	z-index: 999;
 	#close-quote-form {
 		position: absolute;
-		top: 5px;
-		right: 5px;
+		top: 15px;
+		right: 15px;
 		@extend .icon;
 		width: 24px;
 		height: 24px;
@@ -1263,7 +1267,7 @@ body .block-with-list {
 	&.hidden form { opacity: 0; }
 	form {
 		max-width: 912px;
-		padding: 25px 30px 30px;
+		padding: 30px 30px 34px;
 		background-color: $color_ac_4;
 		border-radius: 4px;
 		opacity: 1;
@@ -1282,6 +1286,14 @@ body .block-with-list {
 			.fieldset-wrapper { margin-right: 55px; }
 		}
 		fieldset { width: 384px; }
+		fieldset.textarea-fieldset {
+			width: 414px;
+			label,
+			.label {
+				width: 76px;
+			}
+			.wpcf7-form-control-wrap { width: calc(100% - 76px); }
+		}
 		input,
 		.input,
 		textarea,
@@ -1658,7 +1670,8 @@ body .block-with-list {
 }
 
 .lightbox-contents {
-	width: 934px;
+	width: 100%;
+	max-width: 1112px;
 	padding: 40px 100px;
 	background-color: $color_ac_4;
 	border-radius: 10px;
@@ -1671,11 +1684,11 @@ body .block-with-list {
 	.location {
 		text-align: center;
 	}
-	.location { margin-top: 8px; }
-	.description { margin-top: 22px; }
+	.location { margin-top: 6px; }
+	.description { margin-top: 20px; }
 	.slider-wrapper {
-		width: 100%;
-		padding-top: 72%;
+		width: 912px;
+		padding-top: 71%;
 		margin-top: 18px;
 		.lSSlideOuter { @extend .block-fit-parent; }
 		.lSSlideWrapper {
@@ -1696,7 +1709,29 @@ body .block-with-list {
 			right: auto;
 			bottom: 0;
 			left: 50%;
+			padding-bottom: 22px;
 			transform: translateX(-50%);
+			line-height: 1;
+			li {
+				padding-right: 3px;
+				padding-left: 3px;
+				line-height: 1;
+				a {
+					width: 12px;
+					height: 12px;
+					background-color: rgba($color_ac_4, 0.5);
+					line-height: 1;
+					transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out;
+				}
+			}
+			li.active,
+			li:hover,
+			li:active {
+				a {
+					border: 1px solid $color_ac_4;
+					background-color: rgba($color_hc_1, 1);
+				}
+			}
 		}
 	}
 }

@@ -55,7 +55,7 @@
 								$gallery = get_sub_field('image_gallery');
 								$first_image = $gallery[0]['url'];
 							?>
-							<a class="projects-block" href="#contents-<?php echo $block_no; ?>" data-rel="lightcase">
+							<a class="projects-block" href="#contents-<?php echo $block_no; ?>" data-rel="lightcase:projects">
 								<div class="inner">
 									<div class="image" style="background-image: url(<?php echo $first_image; ?>);"></div>
 									<div class="contents-wrapper">
