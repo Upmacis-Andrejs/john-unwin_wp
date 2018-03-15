@@ -53,7 +53,7 @@
 								</ul>
 								<?php endif; ?>
 
-								<?php get_sub_field('atf_additional_text'): ?>
+								<?php if( get_sub_field('atf_additional_text') ): ?>
 									<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
 								<?php endif; ?>
 								<?php endwhile; ?>

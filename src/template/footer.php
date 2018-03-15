@@ -68,7 +68,7 @@
 						</div>
 					</div>
 					<div class="row" id="footer-row-2">
-						<div class="footer-row-wrapper flex-vert-b">
+						<div class="footer-row-wrapper flex-vert-c">
 							<div class="left-wrapper flex">
 								<div class="copyrights flex-vert-c">
 									<h6 class="text">&copy;&nbsp;<?php _e('John Unwin Electrical Contractors Ltd. All rights reserved.', 'johnunwin'); ?></h6>
