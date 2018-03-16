@@ -36,9 +36,6 @@ $(document).ready(function() {
 	// Add class "required" to fieldset elements in form, where necessary
 	$('.wpcf7-validates-as-required').parents('fieldset').addClass('add-required');
 
-	// Add "Close" buttom to "Get a Quote" form
-	$('.get-a-quote-form-block form').prepend('<a id="close-quote-form" href="#"></a>');
-
 	// Toggl contact form
 	$(".get-a-quote-form, a[href='#get-a-quote-form']").click(function() {
 		$(".get-a-quote-form-block").toggleClass('hidden');
@@ -53,7 +50,7 @@ $(document).ready(function() {
 	});
 
 	$(document).mouseup(function(e) {
-	    var container_1 = $(".get-a-quote-form-block form");
+	    var container_1 = $(".get-a-quote-form-inner");
 	    var container_2 = $("a[href='#get-a-quote-form']");
 
 	    if (!container_1.is(e.target) // if the target of the click isn't the container...
@@ -65,6 +62,21 @@ $(document).ready(function() {
 			$("body").removeClass("get-a-quote-form-open");        
 	    }
 	});
+
+	// Contact Form Success Message for 'Get a Quote' form
+	var $get_quote_form = document.querySelector('.get-a-quote-form-block');
+	$get_quote_form.addEventListener( 'wpcf7submit', function(e) {
+		var $form = $('.get-a-quote-form-block');
+		var $form_inner = $form.find('.get-a-quote-form-inner');
+		var $form_inner_width = $form_inner.innerWidth();
+		var $form_inner_height = $form_inner.innerHeight();
+		$form_inner.css({
+			'min-width' : $form_inner_width,
+			'min-height': $form_inner_height
+		});
+	    $form.find('.wpcf7').addClass('hidden');
+	    $form.find('.success-message').removeClass('hidden');
+	}, false );
 
 	// Toggle mobile menu
 	$("#mobile-menu-icon").click(function(e) {
@@ -171,6 +183,12 @@ $(document).ready(function() {
 
 	// Initialize lightbox
 	$('a[data-rel^=lightcase]').lightcase({
+		maxWidth: 1112,
+		maxHeight: 934,
+		showSequenceInfo: false,
+		showTitle: false,
+		showCaption: false,
+		overlayOpacity: 0.7,
 	    onStart : {
 	      bar: function() {
 	        alert('Lightcase process is started');
@@ -179,16 +197,18 @@ $(document).ready(function() {
 	    }
 	});
 	
-	$(document).mouseup(function(e) {
+	/*$(document).mouseup(function(e) {
 	    var container_1 = $(".lightbox-contents");
+	    var container_2 = $("#lightcase-nav");
 
 	    if ( !container_1.is(e.target) // if the target of the click isn't the container...
 	        && container_1.has(e.target).length === 0
-	        && $('html').hasClass('lightcase-open') ) // ... nor a descendant of the container
-	    {
+	        && $('html').hasClass('lightcase-open') // ... nor a descendant of the container
+			&& !container_2.is(e.target) // if the target of the click isn't the container...
+	        && container_2.has(e.target).length === 0 ) {
 	    	lightcase.close();
 	    }
-	});
+	});*/
 
     // Script for deprecated browser notification
     $('#close_announcement').click(function(e) {

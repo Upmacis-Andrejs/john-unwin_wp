@@ -118,10 +118,19 @@
 				if( get_field('get_a_quote_form_shortcode', 'option') ): ?>
 
 				<div class="get-a-quote-form-block hidden">
-					<?php
-						$get_a_quote_form_shortcode = get_field('get_a_quote_form_shortcode', 'option');
-						echo do_shortcode($get_a_quote_form_shortcode, true);
-					?>
+					<div class="get-a-quote-form-inner">
+						<a id="close-quote-form" href="#"></a>
+						<?php
+							$get_a_quote_form_shortcode = get_field('get_a_quote_form_shortcode', 'option');
+							echo do_shortcode($get_a_quote_form_shortcode, true);
+						?>
+						<div class="success-message hidden">
+							<h4 class="title"><?php the_field('success_message_title', 'option'); ?></h4>
+							<?php if( get_field('success_message_content', 'option') ): ?>
+								<p class="text"><?php the_field('success_message_content', 'option'); ?></p>
+							<?php endif; ?>
+						</div>
+					</div>
 				</div>
 
 			<?php endif; ?>
