@@ -544,12 +544,48 @@ img,
   max-height: 100%;
 }
 
-// DISABLE SCROLLING PAGE
-.no-scroll {
-    position: fixed;
-    overflow-y: scroll;
-    width: 100%
+// POPUP
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  background-color: rgba($color_ac_3, 0.7);
+  z-index: 999;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .popup-table {
+    display: table;
+    width: 100%;
+    min-height: 100vh;
+  }
+  .popup-cell {
+    display: table-cell;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    text-align: center;
+    padding: 30px;
+  }
 }
+
+// DISABLE SCROLLING PAGE
+/*.no-scroll {
+    position: fixed;
+    width: 100%;
+    &.with-scrollbar {
+      overflow-y: scroll;
+    }
+    &.without-scrollbar {
+      overflow-y: hidden;
+    }
+}*/
+.scrollbar { overflow-y: scroll; }
 
 // TABLES
 .table,

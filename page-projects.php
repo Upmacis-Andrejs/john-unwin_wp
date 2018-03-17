@@ -55,7 +55,7 @@
 								$gallery = get_sub_field('image_gallery');
 								$first_image = $gallery[0]['url'];
 							?>
-							<a class="projects-block" href="#contents-<?php echo $block_no; ?>" data-rel="lightcase:projects">
+							<a class="projects-block" href="#project-<?php echo $block_no; ?>">
 								<div class="inner">
 									<div class="image" style="background-image: url(<?php echo $first_image; ?>);"></div>
 									<div class="contents-wrapper">
@@ -63,23 +63,6 @@
 										<span class="hover-bg"></span>
 										<span class="icon"></span>
 									</div>
-								</div>
-								<div class="lightbox-contents" id="contents-<?php echo $block_no; ?>">
-									<h4 class="title"><?php the_sub_field('title'); ?></h4>
-									<p class="location"><?php the_sub_field('location'); ?></p>
-
-									<?php
-										$images = get_sub_field('image_gallery');
-										if( $images ): ?>
-										<div class="slider-wrapper">
-										    <ul class="lightslider cS-hidden">
-										        <?php foreach( $images as $image ): ?>
-										            <li class="lightslider-item section-bg" style="background-image: url(<?php echo $image['url']; ?>)";></li>
-										        <?php endforeach; ?>
-										    </ul>
-										</div>
-									<?php endif; ?>
-									<p class="description"><?php the_sub_field('description'); ?></p>
 								</div>
 							</a>
 						<?php endwhile; ?>
@@ -91,5 +74,39 @@
 		<!-- /Above The Fold Section -->
 
 	</main>
+
+<!-- Projects Popup Contents -->
+<?php if( have_rows('projects') ): ?>
+	<div id="projects-popup-wrapper" class="popup-wrapper">
+		<div id="projects-popup-table" class="popup-table">
+			<div id="projects-popup-cell" class="popup-cell">
+				<?php
+					$block_no = 0;
+					while( have_rows('projects') ) : the_row(); $block_no++; ?>
+					<div class="projects-popup" id="project-<?php echo $block_no; ?>">
+						<a class="arrow arrow-right" href="#"></a>
+						<a class="arrow arrow-left" href="#"></a>
+						<h4 class="title"><?php the_sub_field('title'); ?></h4>
+						<p class="location"><?php the_sub_field('location'); ?></p>
+
+						<?php
+							$images = get_sub_field('image_gallery');
+							if( $images ): ?>
+							<div class="slider-wrapper">
+							    <ul class="lightslider cS-hidden" id="lightslider-<?php echo $block_no; ?>">
+							        <?php foreach( $images as $image ): ?>
+							            <li class="lightslider-item section-bg" style="background-image: url(<?php echo $image['url']; ?>)";></li>
+							        <?php endforeach; ?>
+							    </ul>
+							</div>
+						<?php endif; ?>
+						<p class="description"><?php the_sub_field('description'); ?></p>
+					</div>
+				<?php endwhile; ?>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
+<!-- /Projects Popup Contents -->
 
 <?php get_footer(); ?>

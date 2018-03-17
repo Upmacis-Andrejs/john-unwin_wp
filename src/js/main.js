@@ -166,49 +166,91 @@ $(document).ready(function() {
 	$(".nicescroll-cursors").wrapInner("<div class='cursor-inner'></div>");
 
 	// Initialize slider
+  	var $slider = 0;
 	$(".lightslider").each(function() {
-	var $this = $(this);
-	  $this.lightSlider({
-	        item      : 1,
-	        auto      : true,
-	        loop      : true,
-	        speed: 600,
-	        pause: 3000,
-	        pager: true,
-	        onSliderLoad: function() {
-	      		$('.lightslider').removeClass('cS-hidden');
-	        },
-	  });     
+	    $slider += 1;
+		var $this = $(this);
+    	var $this_slider = $('#lightslider-'+$slider);
+		if ( $this_slider.find('li').length < 2 ) {
+			$this_slider.addClass('one-item');
+			$this_slider.lightSlider({
+		        item      : 1,
+		        auto      : false,
+		        loop      : false,
+		        enableTouch: false,
+		        enableDrag: false,
+		        freeMove: false,
+		        pager: false,
+		        onSliderLoad: function() {
+		          $this_slider.removeClass('cS-hidden');
+		        },
+		  	});
+		} else {
+		  $this_slider.lightSlider({
+		        item      : 1,
+		        auto      : true,
+		        loop      : true,
+	        	pauseOnHover  : true,
+		        speed: 600,
+		        pause: 3000,
+		        pager: true,
+		        onSliderLoad: function() {
+		          $this_slider.removeClass('cS-hidden');
+		        },
+		  });
+		}  
 	});
 
-	// Initialize lightbox
-	$('a[data-rel^=lightcase]').lightcase({
-		maxWidth: 1112,
-		maxHeight: 934,
-		showSequenceInfo: false,
-		showTitle: false,
-		showCaption: false,
-		overlayOpacity: 0.7,
-	    onStart : {
-	      bar: function() {
-	        alert('Lightcase process is started');
-	        $('body').addClass('this-is-the-class');
-	      }
-	    }
-	});
-	
-	/*$(document).mouseup(function(e) {
-	    var container_1 = $(".lightbox-contents");
-	    var container_2 = $("#lightcase-nav");
+	// Open, Close and Switch Projects Popups
+	$(document).mouseup(function(e) {
+	    var container_1 = $(".projects-popup");
+	    var container_2 = $(".projects-block");
 
 	    if ( !container_1.is(e.target) // if the target of the click isn't the container...
-	        && container_1.has(e.target).length === 0
-	        && $('html').hasClass('lightcase-open') // ... nor a descendant of the container
-			&& !container_2.is(e.target) // if the target of the click isn't the container...
-	        && container_2.has(e.target).length === 0 ) {
-	    	lightcase.close();
+	        && container_1.has(e.target).length === 0 // ... nor a descendant of the container
+	        && !container_2.is(e.target) // if the target of the click isn't the container...
+	        && container_2.has(e.target).length === 0 // ... nor a descendant of the container
+	        && $('html').hasClass('projects-popups-open') ) 
+	   	{     
+        	var $html_top = Math.abs(parseInt($('html').css('top'), 10));
+            $('html').css("top",  '');
+	    	$('#projects-popup-wrapper').removeClass('active');
+	    	$('.projects-popup').removeClass('active-project');
+	    	$('html').removeClass('projects-popups-open scrollbar');
+            $(window).scrollTop( $html_top );
 	    }
-	});*/
+	});
+
+	$('.projects-block').click(function() {
+        $('html').css("top",  - $(window).scrollTop() );
+		var $this_id = $(this).attr('href');
+		$('html').addClass('projects-popups-open scrollbar');
+	    $('#projects-popup-wrapper').addClass('active');
+	    $($this_id).addClass('active-project');
+	    return false;
+	});
+	$('.projects-popup .arrow-right').click(function() {
+		var $this_project = $(this).parents('.projects-popup');
+	    $('.projects-popup').removeClass('active-project');
+
+		if( $this_project.is(':last-child') ) {
+	    	$('.projects-popup:first-child').addClass('active-project');
+		} else {
+			$this_project.next().addClass('active-project');
+		}
+		return false;
+	});
+	$('.projects-popup .arrow-left').click(function() {
+		var $this_project = $(this).parents('.projects-popup');
+	    $('.projects-popup').removeClass('active-project');
+	    
+		if( $this_project.is(':first-child') ) {
+	    	$('.projects-popup:last-child').addClass('active-project');
+		} else {
+			$this_project.prev().addClass('active-project');
+		}
+		return false;
+	});
 
     // Script for deprecated browser notification
     $('#close_announcement').click(function(e) {

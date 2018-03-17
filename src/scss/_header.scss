@@ -52,19 +52,20 @@ $color_bg_3: #BEC6D3;
 					content: "";
 					position: absolute;
 					display: block;
-					top: calc(11px + 5px);
+					top: calc(11px + 4px);
 					right: 0;
-					bottom: calc(11px + 2px);
+					bottom: calc(11px + 3px);
 					left: auto;
 					border: 1px solid $color_hc_1;
 				}
 				a {
-					padding: 11.5px;
+					padding: 10px;
 					@extend .text-decor-none;
 					@extend .h5;
 					color: $color_ac_4;
 					font-size: 16px;
 					line-height: 1.56;
+					letter-spacing: -0.025em;
 					&:hover,
 					&:active {
 						color: $color_hc_1;
@@ -86,13 +87,13 @@ $color_bg_3: #BEC6D3;
 	.bold {
 		margin-right: 8px;
 		font-size: 28px;
-		letter-spacing: 0;
+		letter-spacing: -0.06em;
 		text-transform: none;
 	}
 	.normal {
 		margin-right: 8px;
 		font-size: 18px;
-		letter-spacing: 0;
+		letter-spacing: -0.025em;
 		text-transform: none;
 	}
 	.icon-phone:before,
@@ -107,7 +108,10 @@ $color_bg_3: #BEC6D3;
 			margin-right: 15px;
 			font-size: 30px;
 		}
-		.phone { color: $color_hc_1; }
+		.phone {
+			letter-spacing: 0;
+			color: $color_hc_1;
+		}
 		&:hover,
 		&:active {
 			.icon-phone:before,
@@ -117,6 +121,7 @@ $color_bg_3: #BEC6D3;
 		}
 	}
 	.email-wrapper {
+		margin-right: 10px;
 		margin-left: auto;
 		.icon-mail {
 			margin-right: 10px;
