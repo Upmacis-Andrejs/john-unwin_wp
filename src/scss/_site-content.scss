@@ -1008,6 +1008,9 @@ body .block-with-list {
 		.position {
 			color: $color_hc_2;
 		}
+		.contact-info-wrapper {
+			margin-top: 15px;
+		}
 		.phone,
 		.email {
 			@extend .text-decor-none;
@@ -1019,9 +1022,6 @@ body .block-with-list {
 		}
 		.name {
 			line-height: 1.25;
-		}
-		.phone-wrapper {
-			margin-top: 15px;
 		}
 	}
 }

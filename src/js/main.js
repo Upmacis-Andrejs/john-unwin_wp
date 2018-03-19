@@ -1,3 +1,15 @@
+window.onload = function() {
+	//add class to body element after page has loaded (including pictures)
+	$("body").addClass('content-loaded');
+	
+	//animate elements
+	AOS.init({
+		easing: 'ease-in-out-quart',
+		offset: 70,
+	    once: true
+	});
+}
+
 $(document).ready(function() {
 	'use strict';
 

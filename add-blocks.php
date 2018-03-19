@@ -1,5 +1,5 @@
 <?php if( have_rows('add_blocks') ): ?>
-	<div class="add-blocks-wrapper">
+	<div class="add-blocks-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
     <?php while ( have_rows('add_blocks') ) : the_row(); ?>
 
 	<?php /* Get a Quote Block */ if ( get_sub_field('quote_block') == 'true' ): ?>

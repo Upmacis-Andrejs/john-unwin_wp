@@ -10,7 +10,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="above-the-fold-wrapper flex-vert-t">
-						<div class="page-content-wrapper">
+						<div class="page-content-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
 							<div class="page-content z-6">
 								<a id="main-site-logo" href="<?php echo home_url(); ?>">
 									<img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
@@ -32,13 +32,13 @@
 						</div>
 
 						<div class="background-map-wrapper">
-							<div class="background-map-inner block-fit-parent flex-c-column">
+							<div class="background-map-inner block-fit-parent flex-c-column" data-aos="fade" data-aos-delay="0" data-aos-duration="1500">
 								<img src="<?php echo get_template_directory_uri(); ?>/images/map-2.svg" alt="map">
 							</div>
 							<?php /* Add List Block if it has content */
 								if ( have_rows('list_block') ):
 							?>
-								<div class="above-the-fold-list-wrapper">
+								<div class="above-the-fold-list-wrapper" data-aos="fade" data-aos-delay="100" data-aos-duration="800">
 									<?php while ( have_rows('list_block') ) : the_row(); ?>
 									<h5 class="title"><?php the_sub_field('list_block_title'); ?></h5>
 

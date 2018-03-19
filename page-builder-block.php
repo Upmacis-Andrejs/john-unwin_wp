@@ -250,14 +250,22 @@
 									<?php endif; ?>
 									<h5 class="name"><?php the_sub_field('name'); ?></h5>
 									<p class="position"><?php the_sub_field('position'); ?></p>
-									<p class="phone-wrapper">
-										<span class="label"><?php _e('Phone:', 'johnunwin'); ?></span>
-										<a class="phone" href="tel:<?php $phone = get_sub_field('phone'); echo str_replace(' ', '', $phone); ?>"><?php echo $phone; ?></a>
-									</p>
-									<p class="email-wrapper">
-										<span class="label"><?php _e('E-mail:', 'johnunwin'); ?></span>
-										<a class="email" href="mailto:<?php the_sub_field('email'); ?>"><?php the_sub_field('email'); ?></a>
-									</p>
+									<?php if( get_sub_field('phone') || get_sub_field('email') ): ?>
+									<div class="contact-info-wrapper">
+										<?php if( get_sub_field('phone') ): ?>
+										<p class="phone-wrapper">
+											<span class="label"><?php _e('Phone:', 'johnunwin'); ?></span>
+											<a class="phone" href="tel:<?php $phone = get_sub_field('phone'); echo str_replace(' ', '', $phone); ?>"><?php echo $phone; ?></a>
+										</p>
+										<?php endif; ?>
+										<?php if( get_sub_field('email') ): ?>
+										<p class="email-wrapper">
+											<span class="label"><?php _e('E-mail:', 'johnunwin'); ?></span>
+											<a class="email" href="mailto:<?php the_sub_field('email'); ?>"><?php the_sub_field('email'); ?></a>
+										</p>
+										<?php endif; ?>
+									</div>
+									<?php endif; ?>
 								</div>
 								<?php endwhile; ?>
 							</div>
