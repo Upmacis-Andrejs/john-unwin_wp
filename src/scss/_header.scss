@@ -19,6 +19,9 @@ $color_bg_3: #BEC6D3;
 @media (max-width: 1919px) {
 	#site-content { margin-top: calc(60px * 0.85); }
 }
+@media( max-width: 1199px ) {
+	#site-content { margin-top: 47px; }
+}
 
 // Site Header
 #site-header {
@@ -103,7 +106,7 @@ $color_bg_3: #BEC6D3;
 	  transition: color 0.1s ease-in-out!important;
 	 }
 	.phone-wrapper {
-		margin-right: 40px;
+		padding-right: 40px;
 		.icon-phone {
 			margin-right: 15px;
 			font-size: 30px;
@@ -171,6 +174,74 @@ $color_bg_3: #BEC6D3;
 		.email-wrapper {
 			.icon-mail {
 				font-size: calc(24px * 0.85);
+			}
+		}
+	}
+}
+
+@media( max-width: 1199px ) {
+	body #site-header {
+		// Header Contacts
+		.header-contacts-wrapper {
+			height: 47px;
+		}
+
+		// Header Menu
+		.header-menu-wrapper {
+			#menu-header-menu {
+				//height: calc(80px * 0.85);
+				a {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	.header-contacts-wrapper,
+	#above-the-fold-section .contacts-wrapper {
+		.bold {
+			font-size: 20px;
+		}
+		.normal {
+			font-size: 14px;
+		}
+		.phone-wrapper {
+			padding-right: 20px;
+			.icon-phone {
+				font-size: 16px;
+			}
+		}
+		.email-wrapper {
+			margin-right: 0;
+			.icon-mail {
+				font-size: 13px;
+			}
+		}
+	}
+}
+
+@media( max-width: 767px ) {
+	body #site-header {
+		.header-contacts-wrapper {
+			padding-top: 10px;
+			height: auto!important;
+			min-height: 47px;
+		}
+
+		.header-contacts-wrapper>.container>.row {
+			flex-wrap: wrap;
+		}
+		.header-contacts-wrapper,
+		#above-the-fold-section .contacts-wrapper {
+			.phone-wrapper {
+				padding-right: 0;
+				.phone-contents-wrapper {
+					flex-wrap: wrap;
+				}
+			}
+			.phone-wrapper,
+			.email-wrapper {
+				width: 100%;
+				margin-bottom: 10px;
 			}
 		}
 	}

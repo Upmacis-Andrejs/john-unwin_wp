@@ -27,7 +27,7 @@
 
 					<div class="above-the-fold-wrapper flex-vert-t">
 						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content">
+						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
 							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 								<?php if( get_sub_field('title') ): ?>
 									<h1 class="title"><?php the_sub_field('title'); ?></h1>
@@ -55,7 +55,7 @@
 								$gallery = get_sub_field('image_gallery');
 								$first_image = $gallery[0]['url'];
 							?>
-							<a class="projects-block" href="#project-<?php echo $block_no; ?>">
+							<a class="projects-block" href="#project-<?php echo $block_no; ?>" data-aos="fade-down" data-aos-duration="1100">
 								<div class="inner">
 									<div class="image" style="background-image: url(<?php echo $first_image; ?>);"></div>
 									<div class="contents-wrapper">

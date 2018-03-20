@@ -27,7 +27,7 @@
 
 					<div class="above-the-fold-wrapper flex-vert-t">
 						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content">
+						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
 							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 								<?php if( get_sub_field('title') ): ?>
 									<h1 class="title"><?php the_sub_field('title'); ?></h1>
@@ -49,7 +49,7 @@
 				<div class="row">
 					<div class="testimonials-wrapper">
 					<?php while( have_rows('testimonials') ) : the_row(); ?>
-						<div class="testimonial-block">
+						<div class="testimonial-block" data-aos="fade-down" data-aos-duration="1100">
 							<p class="text"><?php the_sub_field('contents'); ?></p>
 							<p class="footnote"><?php the_sub_field('footnote'); ?></p>
 						</div>
@@ -61,7 +61,7 @@
 				<?php if ( get_field('feedback_form_shortcode') ): ?>
 				<div class="row">
 					<div class="feedback-form-wrapper flex-hor-c">
-						<div class="feedback-form-block">
+						<div class="feedback-form-block" data-aos="fade-up" data-aos-duration="1300">
 							<?php
 								$contact_form_shortcode = get_field('feedback_form_shortcode');
 								echo do_shortcode($contact_form_shortcode, true);
@@ -109,7 +109,7 @@
 			    			<?php if( have_rows('section_content') ): ?>
 			    			<div class="about-us-wrapper flex flex-wrap">
 			    				<?php while( have_rows('section_content') ) : the_row(); ?>
-			    					<div class="block">
+			    					<div class="block" data-aos="fade-down" data-aos-duration="1200">
 			    						<div class="icon-wrapper">
 			    							<span class="icon"></span>
 			    						</div>

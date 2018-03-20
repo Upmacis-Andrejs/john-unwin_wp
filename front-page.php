@@ -32,7 +32,7 @@
 						</div>
 
 						<div class="background-map-wrapper">
-							<div class="background-map-inner block-fit-parent flex-c-column" data-aos="fade" data-aos-delay="0" data-aos-duration="1500">
+							<div class="background-map-inner block-fit-parent flex-c-column" data-aos="fade" data-aos-duration="1500">
 								<img src="<?php echo get_template_directory_uri(); ?>/images/map-2.svg" alt="map">
 							</div>
 							<?php /* Add List Block if it has content */

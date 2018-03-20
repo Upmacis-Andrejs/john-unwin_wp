@@ -29,7 +29,7 @@
 
 						<div class="left-block">
 						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content">
+						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
 							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 								<?php if( get_sub_field('title') ): ?>
 									<h1 class="title"><?php the_sub_field('title'); ?></h1>
@@ -45,7 +45,7 @@
 						<?php if( have_rows('careers') ): ?>
 							<div class="careers-wrapper">
 							<?php while( have_rows('careers') ) : the_row(); ?>
-								<div class="careers-block">
+								<div class="careers-block" data-aos="fade-down" data-aos-duration="1100">
 									<a class="title-wrapper" href="#">
 										<h4 class="title"><?php the_sub_field('title'); ?></h4>
 									</a>
@@ -131,7 +131,7 @@
 			    			<?php if( have_rows('section_content') ): ?>
 			    			<div class="about-us-wrapper flex flex-wrap">
 			    				<?php while( have_rows('section_content') ) : the_row(); ?>
-			    					<div class="block">
+			    					<div class="block" data-aos="fade-down" data-aos-duration="1200">
 			    						<div class="icon-wrapper">
 			    							<span class="icon"></span>
 			    						</div>

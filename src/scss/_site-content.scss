@@ -177,6 +177,16 @@ section.huge {
 		);
 	}
 }
+@media( max-width: 767px ) {
+	.title-block-wrapper,
+	.main-site-logo-wrapper {
+		.title-block {
+			.title {
+				font-size: 11px;
+			}
+		}
+	}
+}
 body .title-block-wrapper {
 	width: 167px;
 	height: 160px;
@@ -211,6 +221,15 @@ body .title-block-wrapper {
 			line-height: 1.25;
 			color: $color_bg_1;
 			text-align: center;
+		}
+	}
+}
+@media( max-width: 767px ) {
+	body .title-block-wrapper {
+		.title-block {
+			.title {
+				font-size: 11px;
+			}
 		}
 	}
 }
@@ -304,8 +323,20 @@ body .main-site-logo-wrapper {
 		left: 50%;
 		transform: translateX(-50%);
 		font-size: 16px;
+		animation: bounce 1.5s infinite;
+		animation-timing-function: ease-in-out;
 	}
 }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-30%);
+  }
+  50% {
+    transform: translateY(30%);
+  }
+}
+
 .page-template-default {
 	#above-the-fold-section {
 		padding-top: 175px;
@@ -338,6 +369,13 @@ body .main-site-logo-wrapper {
 				width: calc(440px * 0.85);
 			}
 		}
+	}
+}
+
+	// Simple Template
+.page-template-page-simple {
+	#above-the-fold-section {
+		padding-bottom: 95px;
 	}
 }
 
@@ -758,6 +796,50 @@ body .block-with-list {
 		}
 	}
 }
+@media( max-width: 1199px ) {
+	.about-us-wrapper {
+		.block {
+			width: 100%;
+			max-width: 560px;
+			&:nth-of-type(2n+2) {
+				margin-left: 0;
+			}
+			&:nth-of-type(n+0) {
+				.icon-wrapper {
+					.icon:before {
+						font-size: 86px;
+					}
+				}
+			}
+			.icon-wrapper {
+			    min-width: 92px;
+			    max-width: 92px;
+			}
+		}
+	}
+}
+@media( max-width: 767px ) {
+	.about-us-wrapper {
+		.block {
+			flex-wrap: wrap;
+			&:nth-of-type(n+0) {
+				.icon-wrapper {
+					padding: 0 0 17px;
+					.icon:before {
+						font-size: 43px;
+					}
+				}
+			}
+			.icon-wrapper,
+			.content-wrapper {
+			    min-width: 100%;
+			    max-width: 100%;
+			    width: 100%
+			}
+		}
+	}
+}
+
 .about-us-wrapper,
 .services-wrapper {
 	.icon-wrapper {
@@ -1032,11 +1114,35 @@ body .block-with-list {
 		}
 	}
 }
+@media( max-width: 1119px ) {
+	.team-wrapper {
+		.team-block {
+			width: calc(100% / 3 - 30px);
+		}
+	}
+}
+@media( max-width: 767px ) {
+	.team-wrapper {
+		.team-block {
+			width: calc(50% - 30px);
+		}
+	}
+}
+@media( max-width: 479px ) {
+	.team-wrapper {
+		.team-block {
+			width: 100%;
+			max-width: 284px;
+		}
+	}
+}
+
 
 // History Section
 .history_section {
 	padding-bottom: 177px;
 	background-color: $color_bg_3;
+	[data-aos] { transform: translateY(15px); }
 	.title-block-wrapper {
 		margin-bottom: 115px;
 	}

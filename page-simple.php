@@ -1,4 +1,4 @@
-<?php /* Template Name: About Us */ ?>
+<?php /* Template Name: Simple */ ?>
 
 <?php get_header(); ?>
 
@@ -26,31 +26,17 @@
 					</div>
 
 					<div class="above-the-fold-wrapper flex-vert-t">
-						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
-							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
-								<?php if( get_sub_field('title') ): ?>
-									<h1 class="title"><?php the_sub_field('title'); ?></h1>
-								<?php endif; ?>
-								<?php if( get_sub_field('page_content') ): ?>
-									<p class="text"><?php the_sub_field('page_content'); ?></p>
-								<?php endif; ?>
-								<?php /* Add Media Block */ get_template_part('media-in-page-content'); ?>
-							<?php endwhile; ?>
+						<?php if( get_field('page_content') ): ?>
+						<div class="page-content editor-wrapper" data-aos="fade-up" data-aos-duration="1300">
+							<?php the_field('page_content'); ?>
 						</div>
 						<?php endif; ?>
-
-						<?php /* Add Selected Blocks */ get_template_part('add-blocks'); ?>
-						<?php /* Add Media Block */ get_template_part('media-in-extra-blocks'); ?>
 					</div>
 				</div>
+
 			</div>
 		</section>
 		<!-- /Above The Fold Section -->
-
-		<!-- Sections Added With Page Builder -->
-		<?php get_template_part('page-builder-block'); ?>
-		<!-- /Sections Added With Page Builder -->
 
 	</main>
 

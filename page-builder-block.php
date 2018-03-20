@@ -33,7 +33,7 @@
 							while ($the_query_51->have_posts()) : $the_query_51->the_post(); ?>
 
 						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content">
+						<div class="page-content" data-aos="fade-down" data-aos-duration="1100">
     						<div class="icon-wrapper">
     							<span class="icon"></span>
     						</div>
@@ -62,13 +62,13 @@
 						</div>
 						<?php endif; ?>
 
-						<?php if( have_rows('page_builder') ): ?>
+						<?php if( have_rows('page_builder') ): $services_count = -1; ?>
 							<div class="right-block">
-						    <?php while ( have_rows('page_builder') ) : the_row(); ?>
+						    <?php while ( have_rows('page_builder') ) : the_row(); $services_count++ ?>
 
 							<?php /* Default Content Section */
 						    if( get_row_layout() == 'default_content_section' ): ?>
-						    <div class="default-content-section-block">
+						    <div class="default-content-section-block" data-aos="fade-left" data-aos-delay="<?php echo (100 + $services_count * 150) ?>" data-aos-duration="600" data-aos-offset="10">
 						    	<div class="title-wrapper" href="#">
 							    	<h4 class="title"><?php the_sub_field('title'); ?></h4>
 							    	<div class="decor"></div>
@@ -118,7 +118,7 @@
 		    			<?php if( have_rows('section_content') ): ?>
 		    			<div class="about-us-wrapper flex flex-wrap">
 		    				<?php while( have_rows('section_content') ) : the_row(); ?>
-		    					<div class="block">
+		    					<div class="block" data-aos="fade-down" data-aos-duration="1200">
 		    						<div class="icon-wrapper">
 		    							<span class="icon"></span>
 		    						</div>
@@ -159,7 +159,7 @@
 		    				<div class="decor-line-2"></div>
 						</div>
 
-		    			<div class="default-content-wrapper flex-vert-t">
+		    			<div class="default-content-wrapper flex-vert-t" data-aos="fade-down" data-aos-duration="1100">
 							<?php if( have_rows('section_content') ): ?>
 							<div class="section-content">
 								<?php while( have_rows('section_content') ) : the_row(); ?>
@@ -242,7 +242,7 @@
 							<?php if( have_rows('team_member_blocks') ): ?>
 							<div class="team-wrapper flex-hor-c">
 								<?php while( have_rows('team_member_blocks') ) : the_row(); ?>
-								<div class="team-block">
+								<div class="team-block" data-aos="fade-down" data-aos-duration="1100">
 									<?php if( get_sub_field('image') ): ?>
 									<div class="img-wrapper">
 										<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>">
@@ -299,7 +299,7 @@
 						</div>
 
 						<?php if( have_rows('section_content') ): ?>
-		    			<div class="section-content">
+		    			<div class="section-content" data-aos="fade-down" data-aos-duration="1100">
 							<?php while( have_rows('section_content') ) : the_row(); ?>
 							<div class="title-wrapper">
 								<div class="icon"></div>
@@ -307,7 +307,7 @@
 							</div>
 
 							<?php if( have_rows('history_blocks') ): ?>
-							<div class="history-wrapper">
+							<div class="history-wrapper" >
 								<div class="decor-line"></div>
 								<div class="history-inner" id="history-inner">
 									<div class="history-inner-wrapper" id="history-inner-wrapper">

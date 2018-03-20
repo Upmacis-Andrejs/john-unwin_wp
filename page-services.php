@@ -27,7 +27,7 @@
 
 					<div class="above-the-fold-wrapper services-wrapper flex-vert-t">
 						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content">
+						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
 							<div class="icon-wrapper">
 								<span class="icon"></span>
 							</div>
