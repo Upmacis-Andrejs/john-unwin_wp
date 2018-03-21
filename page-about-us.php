@@ -2,8 +2,7 @@
 
 <?php get_header(); ?>
 
-	<main id="site-content">
-
+    <main id="site-content">
 		<!-- Above The Fold Section -->
 		<section <?php if( get_field('overlay_color') == 'none' ) { echo 'class="no-background"'; } ?> id="above-the-fold-section">
 
@@ -11,6 +10,7 @@
 
 			<div class="container">
 				<div class="row">
+					<?php /* Add Wrapper for Mobile Menu */ get_template_part('wrapper-for-mobile-menu'); ?>
 					<div class="main-site-logo-wrapper">
 						<div class="title-block">
 							<a id="main-site-logo" href="<?php echo home_url(); ?>">

@@ -371,6 +371,13 @@ body .main-site-logo-wrapper {
 		}
 	}
 }
+@media (max-width: 1199px) {
+	.page-template-default {
+		#above-the-fold-section {
+			padding-top: 68px;
+		}
+	}
+}
 
 	// Simple Template
 .page-template-page-simple {

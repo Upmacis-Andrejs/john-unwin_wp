@@ -11,6 +11,7 @@
 
 			<div class="container">
 				<div class="row">
+					<?php /* Add Wrapper for Mobile Menu */ get_template_part('wrapper-for-mobile-menu'); ?>
 					<div class="main-site-logo-wrapper">
 						<div class="title-block">
 							<a id="main-site-logo" href="<?php echo home_url(); ?>">

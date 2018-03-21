@@ -10,6 +10,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="above-the-fold-wrapper flex-vert-t">
+						<?php /* Add Wrapper for Mobile Menu */ get_template_part('wrapper-for-mobile-menu'); ?>
 						<div class="page-content-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
 							<div class="page-content z-6">
 								<a id="main-site-logo" href="<?php echo home_url(); ?>">

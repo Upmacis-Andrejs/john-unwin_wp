@@ -15,6 +15,8 @@ $color_bg_1: #0B2644;
 $color_bg_2: #214C89;
 $color_bg_3: #BEC6D3;
 
+
+// Site Content CSS, which depends on header size
 #site-content { margin-top: 60px; }
 @media (max-width: 1919px) {
 	#site-content { margin-top: calc(60px * 0.85); }
@@ -32,55 +34,92 @@ $color_bg_3: #BEC6D3;
 	left: 0;
 	width: 100%;
 	#mobile-menu-icon { display: none; }
-	// Header Contacts
-	.header-contacts-wrapper {
-		height: 60px;
-		color: $color_ac_4;
-		background-color: $color_bg_1;
-	}
+}
 
-	// Header Menu
-	.header-menu-wrapper {
-		transition: background-color 0.15s ease-in-out;
-		#menu-header-menu {
-			@extend .flex-vert-c;
-			height: 80px;
-			list-style: none;
-			margin-right: -11.5px;
-			margin-left: auto;
-			transition: height 0.15s ease-in-out;
-			.current-menu-item a { opacity: 0.25; }
-			li {
-				&:after {
-					content: "";
-					position: absolute;
-					display: block;
-					top: calc(11px + 3px);
-					right: 0;
-					bottom: calc(11px + 4px);
-					left: auto;
-					border: 1px solid $color_hc_1;
-				}
-				a {
-					padding: 10px;
-					@extend .text-decor-none;
-					@extend .h5;
-					color: $color_ac_4;
-					font-size: 16px;
-					line-height: 1.56;
-					letter-spacing: -0.025em;
-					&:hover,
-					&:active {
-						color: $color_hc_1;
-						opacity: 1!important;
-					}
+// Header Menu
+.wrapper-for-mobile-menu {
+	position: fixed;
+	top: 60px;
+	right: 0;
+	bottom: auto;
+	left: 0;
+}
+.header-menu-wrapper {
+	transition: background-color 0.15s ease-in-out;
+	&>.container>.row {
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	#menu-header-menu {
+		@extend .flex-vert-c;
+		height: 80px;
+		list-style: none;
+		margin-right: -11.5px;
+		margin-left: auto;
+		transition: height 0.15s ease-in-out;
+		.current-menu-item a { opacity: 0.25; }
+		li {
+			&:after {
+				content: "";
+				position: absolute;
+				display: block;
+				top: calc(11px + 3px);
+				right: 0;
+				bottom: calc(11px + 4px);
+				left: auto;
+				border: 1px solid $color_hc_1;
+			}
+			a {
+				padding: 10px;
+				@extend .text-decor-none;
+				@extend .h5;
+				color: $color_ac_4;
+				font-size: 16px;
+				line-height: 1.56;
+				letter-spacing: -0.025em;
+				&:hover,
+				&:active {
+					color: $color_hc_1;
+					opacity: 1!important;
 				}
 			}
-			li:last-of-type:after { content: none; }
+		}
+		li:last-of-type:after { content: none; }
+	}
+}
+@media( max-width: 1919px ) {
+	.header-menu-wrapper {
+		#menu-header-menu {
+			height: calc(80px * 0.85);
+			li a {
+				font-size: calc(16px * 0.85);
+			}
+		}
+	}
+}
+@media( max-width: 1199px ) {
+	.wrapper-for-mobile-menu {
+		top: 47px;
+		z-index: 666;
+	}
+	.header-menu-wrapper {
+		#menu-header-menu {
+			//height: calc(80px * 0.85);
+			margin-right: -10px;
+			li {
+				a { font-size: 14px; }
+				&:first-of-type { margin-left: -10px; }
+			}
 		}
 	}
 }
 
+// Contacts Wrapper
+.header-contacts-wrapper {
+	height: 60px;
+	color: $color_ac_4;
+	background-color: $color_bg_1;
+}
 .header-contacts-wrapper,
 #above-the-fold-section .contacts-wrapper {
 	a {
@@ -139,24 +178,9 @@ $color_bg_3: #BEC6D3;
 		}
 	}
 }
-
-
 @media (max-width: 1919px) {
-	#site-header {
-		// Header Contacts
-		.header-contacts-wrapper {
-			height: calc(60px * 0.85);
-		}
-
-		// Header Menu
-		.header-menu-wrapper {
-			#menu-header-menu {
-				height: calc(80px * 0.85);
-				a {
-					font-size: calc(16px * 0.85);
-				}
-			}
-		}
+	.header-contacts-wrapper {
+		height: calc(60px * 0.85);
 	}
 	.header-contacts-wrapper,
 	#above-the-fold-section .contacts-wrapper {
@@ -178,23 +202,9 @@ $color_bg_3: #BEC6D3;
 		}
 	}
 }
-
 @media( max-width: 1199px ) {
-	body #site-header {
-		// Header Contacts
-		.header-contacts-wrapper {
-			height: 47px;
-		}
-
-		// Header Menu
-		.header-menu-wrapper {
-			#menu-header-menu {
-				//height: calc(80px * 0.85);
-				a {
-					font-size: 14px;
-				}
-			}
-		}
+	.header-contacts-wrapper {
+		height: 47px;
 	}
 	.header-contacts-wrapper,
 	#above-the-fold-section .contacts-wrapper {
@@ -218,41 +228,41 @@ $color_bg_3: #BEC6D3;
 		}
 	}
 }
-
 @media( max-width: 767px ) {
-	body #site-header {
-		.header-contacts-wrapper {
-			padding-top: 10px;
-			height: auto!important;
-			min-height: 47px;
-		}
-
-		.header-contacts-wrapper>.container>.row {
-			flex-wrap: wrap;
-		}
-		.header-contacts-wrapper,
-		#above-the-fold-section .contacts-wrapper {
-			.phone-wrapper {
-				padding-right: 0;
-				.phone-contents-wrapper {
-					flex-wrap: wrap;
-				}
+	.header-contacts-wrapper {
+		padding-top: 10px;
+		height: auto!important;
+		min-height: 47px;
+	}
+	.header-contacts-wrapper>.container>.row {
+		flex-wrap: wrap;
+	}
+	.header-contacts-wrapper,
+	#above-the-fold-section .contacts-wrapper {
+		.phone-wrapper {
+			padding-right: 0;
+			.phone-contents-wrapper {
+				flex-wrap: wrap;
 			}
-			.phone-wrapper,
-			.email-wrapper {
-				width: 100%;
-				margin-bottom: 10px;
-			}
+		}
+		.phone-wrapper,
+		.email-wrapper {
+			width: 100%;
+			margin-bottom: 10px;
 		}
 	}
 }
 
-.not--top #site-header .header-menu-wrapper {
-	background-color: rgba($color_bg_2, 0.9);
-	#menu-header-menu { height: 60px; }
+// Scroll Effects
+.not--top .wrapper-for-mobile-menu {
+	z-index: 666;
+	.header-menu-wrapper {
+		background-color: rgba($color_bg_2, 0.9);
+		#menu-header-menu { height: 60px; }
+	}
 }
 @media (max-width: 1919px) {
-	.not--top #site-header .header-menu-wrapper {
+	.not--top .wrapper-for-mobile-menu .header-menu-wrapper {
 		#menu-header-menu { height: calc(60px * 0.85); }
 	}
 }
