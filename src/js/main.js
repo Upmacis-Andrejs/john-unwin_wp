@@ -28,7 +28,7 @@ $(document).ready(function() {
 		$this_block.siblings('.active').not(this).removeClass('active').find('.content-wrapper').stop(true, true).slideUp();
 		$this.siblings('.content-wrapper').stop(true, true).slideToggle();
 
-		var $this_section = $this.parents('section');;
+		var $this_section = $this.parents('section');
 		var $this_height = $this_section.innerHeight();
 		var $timeout_section_height;
 		function remove_huge() {
@@ -41,6 +41,33 @@ $(document).ready(function() {
 			$timeout_section_height = setTimeout(add_huge, 500);
 		} else {
 			$timeout_section_height = setTimeout(remove_huge, 500);
+		}
+		return false;
+	});
+
+	// Add class "active" to clicked service section item and slide-toggle contents ( in mobile device )
+	$('.default-content-section-block .title-wrapper').click(function() {
+		var $this = $(this);
+		if( $(this).hasClass('slide-toggle') ) {
+			var $this_block = $this.parents('.default-content-section-block');
+			$this_block.toggleClass('active');
+			$this_block.siblings('.active').not(this).removeClass('active').find('.text').stop(true, true).slideUp();
+			$this.siblings('.text').stop(true, true).slideToggle();
+
+			var $this_section = $this.parents('section');
+			var $this_height = $this_section.innerHeight();
+			var $timeout_section_height;
+			function remove_huge() {
+				$this_section.removeClass("huge");
+			}
+			function add_huge() {
+				$this_section.addClass("huge");
+			}
+			if( $this_height > 916 ) {
+				$timeout_section_height = setTimeout(add_huge, 500);
+			} else {
+				$timeout_section_height = setTimeout(remove_huge, 500);
+			}
 		}
 		return false;
 	});
@@ -283,6 +310,14 @@ $(document).ready(function() {
 
 $(window).resize(function() {
 
+	var $tablet_width = 1199;
+	var $mobile_width = 767;
+
+	// Position header navigation and main content according to header contacts section
+	var $header_contacts_height = $('.header-contacts-wrapper').innerHeight();
+	$('#site-content').css('margin-top', $header_contacts_height);
+	$('.wrapper-for-mobile-menu').css('top', $header_contacts_height);
+
 	// Add class to section if it's height is over the limit
 	$('section').each(function() {
 		var $this = $(this);
@@ -295,6 +330,13 @@ $(window).resize(function() {
 			$this.removeClass('huge');
 		}
 	});
+
+	// Allow to slide-toggle service sections contents if less than desired screen width
+	if( $(window).width() <= $mobile_width ) {
+		$('.default-content-section-block').addClass('slide-toggle');
+	} else {
+		$('.default-content-section-block').removeClass ('slide-toggle');
+	}
 
 	// Calculate div width for horizontal scrollable content
 	var totalWidth = 0;

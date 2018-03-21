@@ -15,6 +15,13 @@ $color_bg_1: #0B2644;
 $color_bg_2: #214C89;
 $color_bg_3: #BEC6D3;
 
+// Body show after DOM has been loaded
+body {
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+	&.content-loaded { opacity: 1; }
+}
+
 // Section General CSS
 section,
 .section,
@@ -48,6 +55,7 @@ section,
 		&:after { background-color: $color_bg_1; }
 	}
 }
+
 #site-footer {
 	background-position-y: 100%!important;
 	.section-overlay {
@@ -84,7 +92,7 @@ section.huge {
 				background: scrim-gradient(
 					to bottom,
 					transparent,
-					rgba($color_bg_2, 0.9)
+					$color_bg_2
 				);
 			}
 		}
@@ -93,7 +101,7 @@ section.huge {
 				background: scrim-gradient(
 					to bottom,
 					transparent,
-					rgba($color_bg_1, 0.9)
+					$color_bg_1
 				);
 			}
 		}
@@ -224,6 +232,17 @@ body .title-block-wrapper {
 		}
 	}
 }
+@media( max-width: 1199px ) {
+	body .title-block-wrapper {
+		width: 156px;
+		height: 148px;
+		margin-bottom: 55px;
+		.title-block {
+			height: 118px;
+			padding: 16px;
+		}
+	}
+}
 @media( max-width: 767px ) {
 	body .title-block-wrapper {
 		.title-block {
@@ -327,6 +346,20 @@ body .main-site-logo-wrapper {
 		animation-timing-function: ease-in-out;
 	}
 }
+@media( max-width: 1199px ) {
+	#above-the-fold-section.arrow-down {
+		&:after {
+			bottom: 25px;
+		}
+	}
+}
+@media( max-width: 767px ) {
+	#above-the-fold-section.arrow-down {
+		&:after {
+			content: none;
+		}
+	}
+}
 
 @keyframes bounce {
   0%, 100% {
@@ -345,10 +378,14 @@ body .main-site-logo-wrapper {
 			padding: 42px 22px 36px;
 			background-color: $color_bg_1;
 			text-align: center;
-			#main-site-logo { margin-bottom: 48px; }
+			#main-site-logo {
+				min-width: 200px;
+				margin-bottom: 48px;
+			}
 		}
 		.page-content-wrapper {
 			width: 440px;
+			z-index: 2;
 			.shadow {
 				@extend .block-hor-c;
 				top: auto;
@@ -375,6 +412,40 @@ body .main-site-logo-wrapper {
 	.page-template-default {
 		#above-the-fold-section {
 			padding-top: 68px;
+			padding-bottom: 112px;
+			.page-content-wrapper {
+				width: 100%;
+				.page-content { display: flex; }
+				.shadow { display: none; }
+				#main-site-logo { margin-right: 40px; }
+			}
+			.above-the-fold-wrapper {
+				.wrapper-for-mobile-menu { order: 1; }
+				.page-content-wrapper { order: 2; }
+				.background-map-wrapper { order: 4; }
+				.add-blocks-wrapper {
+					order: 3;
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 767px) {
+	body.page-template-default {
+		#above-the-fold-section {
+			padding-bottom: 0;
+			.page-content {
+				flex-wrap: wrap;
+				#main-site-logo { margin-right: 0!important; }
+				#main-site-logo,
+				.inner {
+					width: 100%;
+				}
+			}
+			.above-the-fold-wrapper {
+				.add-blocks-wrapper { width: 100%; }
+			}
 		}
 	}
 }
@@ -540,11 +611,43 @@ body .main-site-logo-wrapper {
 	// Background Map
 .background-map-wrapper {
 	display: flex;
+	flex-grow: 1;
 	min-height: 850px;
 	margin-top: -175px;
-	flex-grow: 1;
-	.background-map-inner {
-		display: flex;
+}
+@media( max-width: 1199px ) {
+	.background-map-wrapper {
+		min-height: 750px;
+		margin-top: -142px;
+		margin-right: -31px;
+		overflow: visible;
+		.background-map-inner {
+			overflow: visible;
+			img {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: auto;
+				height: 100%;
+				max-width: none;
+			}
+		}
+	}
+}
+@media( max-width: 767px ) {
+	body .background-map-wrapper {
+		min-height: 586px;
+		margin-top: -175px;
+		margin-right: 0;
+		margin-left: 0;
+		.background-map-inner {
+			img {
+				right: auto;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
 	}
 }
 
@@ -608,6 +711,16 @@ body .main-site-logo-wrapper {
 		}
 	}
 }
+@media( max-width: 1199px ) {
+	.above-the-fold-list-wrapper {
+		margin: calc(142px + 44px) 31px 15px auto;
+	}
+}
+@media( max-width: 767px ) {
+	body .above-the-fold-list-wrapper {
+		margin: calc(175px + 25px) 0 15px 0;
+	}
+}
 
 	// Add Blocks Wrapper
 .add-blocks-wrapper {
@@ -642,6 +755,17 @@ body .main-site-logo-wrapper {
 		width: calc(440px * 0.85);
 	}
 }
+@media( max-width: 1199px ) {
+	.add-blocks-wrapper {
+		width: 338px;
+		margin-top: 44px;
+	}
+}
+@media( max-width: 767px ) {
+	.add-blocks-wrapper {
+		width: 100%;
+	}
+}
 
 	// Quote Block
 .quote-block {
@@ -650,6 +774,14 @@ body .main-site-logo-wrapper {
 		li { line-height: 1.34; }
 	}
 	.btn { margin-top: 30px; }
+}
+@media( max-width: 767px ) {
+	.quote-block {
+		ul li:nth-of-type(n+4),
+		.btn {
+			display: none;
+		}
+	}
 }
 
 	// Call Us Block
@@ -993,6 +1125,110 @@ body .block-with-list {
 				.text {
 					right: 0;
 					width: calc(100% - 316px);
+				}
+			}
+		}
+	}
+}
+@media( max-width: 1199px ) {
+	.services_section { padding-bottom: 0; }
+	.services-wrapper {
+		flex-wrap: wrap;
+		.page-content,
+		.right-block {
+			margin-bottom: 60px;
+		}
+		.page-content {
+			min-width: 0;
+			width: 100%;
+			max-width: 576px;
+			margin-right: 0;
+			.icon-wrapper {
+				min-width: 93px;
+				max-width: 93px;
+				.icon:before {
+					font-size: 124px;
+				}
+			}
+		}
+		.right-block {
+			max-width: none;
+			width: 100%;
+			padding-left: 93px;
+			.default-content-section-block {
+				.title {
+					&:before {
+						top: 0;
+					}
+				}
+				.title-wrapper {
+					width: 295px;
+				}
+				.text {
+					width: calc(100% - 295px);
+				}
+				&:first-of-type {
+					.text {
+						top: calc(50% - 42px);
+						bottom: auto;
+						transform: none;
+					}
+				}
+				&:last-of-type {
+					.text {
+						top: auto;
+						bottom: calc(50% - 42px);
+						transform: none;
+					}
+				}
+			}
+		}
+	}
+}
+@media( max-width: 767px ) {
+	body .services_section { padding-bottom: 42px; }
+	body .services-wrapper {
+		margin-bottom: -28px;
+		.page-content,
+		.right-block {
+			margin-bottom: 28px;
+		}
+		.page-content {
+			max-width: none;
+			flex-wrap: wrap;
+			.icon-wrapper {
+				min-width: 100%;
+				max-width: 100%;
+				.icon { margin-bottom: 18px; }
+				.icon:before {
+					font-size: 62px;
+				}
+			}
+			.btn { display: none; }
+		}
+		.right-block {
+			padding-left: 0;
+			.default-content-section-block {
+				.title {
+					&:before {
+						top: -3px;
+					}
+				}
+				.title-wrapper {
+					width: 100%;
+					.decor { display: none; }
+				}
+				.text {
+					width: 100%;
+					position: relative;
+					opacity: 1;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					display: none;
+					margin-top: 26px;
+					transform: none;
 				}
 			}
 		}

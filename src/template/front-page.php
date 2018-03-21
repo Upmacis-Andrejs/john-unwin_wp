@@ -18,6 +18,7 @@
 								</a>
 
 								<?php if( have_rows('above_the_fold_main') ): ?>
+									<div class="inner">
 									<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 									<?php if( get_sub_field('title') ): ?>
 										<h1 class="title"><?php the_sub_field('title'); ?></h1>
@@ -26,6 +27,7 @@
 										<p class="text"><?php the_sub_field('page_content'); ?></p>
 									<?php endif; ?>
 									<?php endwhile; ?>
+									</div>
 								<?php endif; ?>
 							</div>
 

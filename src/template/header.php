@@ -96,21 +96,7 @@
                 <div class="mobile-header-wrapper flex-vert-c w-100">
                     <div class="container">
                         <div class="row flex-vert-c">
-                            <!--<?php if( !is_home() && !is_404() && !is_front_page() ): ?>
-                                <div class="main-site-logo-wrapper">
-                                    <div class="title-block">
-                                        <a id="main-site-logo" href="<?php echo home_url(); ?>">
-                                            <img src="<?php echo get_field('site_logo', 'option')['url']; ?>" alt="Site Logo">
-                                        </a>
-                                    </div>
-                                    <div class="decor-wrapper">
-                                        <div class="decor-1"></div>
-                                        <div class="decor-2"></div>
-                                    </div>
-                                    <div class="decor-line-1"></div>
-                                    <div class="decor-line-2"></div>
-                                </div>
-                            <?php endif; ?>-->
+                            <a class="btn btn-1 get-a-quote-form" id="header-quote-btn" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
                             <a id="mobile-menu-icon" href="#">
                                 <div class="inner">
                                     <span></span>
