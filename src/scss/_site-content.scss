@@ -2453,6 +2453,22 @@ body .block-with-list {
 		opacity: 1;
 		pointer-events: initial;
 	}
+	#close-projects {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: auto;
+		left: auto;
+		font-size: 16px;
+		padding: 20px;
+		z-index: 2012;
+		&:before { color: $color_hc_3; }
+		&:active,
+		&:hover,
+		&:focus {
+			&:before { color: $color_hc_1; }
+		}
+	}
 }
 #projects-popup-cell {
 	padding: 30px 65px;
@@ -2462,6 +2478,7 @@ body .block-with-list {
 	display: inline-block;
 	width: 100%;
 	max-width: 1112px;
+	min-height: 586px;
 	padding: 45px 100px;
 	background-color: $color_ac_4;
 	border-radius: 10px;
@@ -2471,9 +2488,10 @@ body .block-with-list {
 	.arrow {
 		position: absolute;
 		//top: 32%;
-		top: 298px;
+		//top: 298px;
+		top: 0;
 		bottom: auto;
-		padding: 10px;
+		padding: 268px calc(10px + 22px);
 		@extend .icon;
 		font-size: 30px;
 		@extend .text-decor-none;
@@ -2486,15 +2504,15 @@ body .block-with-list {
 	}
 	.arrow-left {
 		right: auto;
-		left: -22px;
-		transform: translate(-100%,-50%) rotate(180deg);
+		left: 0;
+		transform: translate(-100%,0) rotate(180deg);
 		transform-origin: 50% 50%;
 		&:before { @extend .icon-arrow-right:before; }
 	}
 	.arrow-right {
-		right: -22px;
+		right: 0;
 		left: auto;
-		transform: translate(100%,-50%);
+		transform: translate(100%,0);
 		&:before { @extend .icon-arrow-right:before; }
 	}
 	&.active-project {
@@ -2570,44 +2588,62 @@ body .block-with-list {
 @media( max-width: 1199px ) {
 	body .projects-popup {
 		padding: 30px 45px;
-		.arrow-left {
+		min-height: 492px;
+		.arrow {
+			padding: 231px calc(10px + 13px);
+		}
+		/*.arrow-left {
 			left: -13px;
 		}
 		.arrow-right {
 			right: -13px;
-		}
+		}*/
 		.slider-wrapper .lSPager { padding-bottom: 15px; }
 	}
 }
 @media( max-width: 767px ) {
+	body #projects-popup-wrapper {
+		#close-projects { padding: 14px; }
+	}
 	body #body-wrapper #projects-popup-cell {
 	    padding: 30px 45px;
 	}
 	body #body-wrapper .projects-popup {
+		min-height: 334px;
 		padding: 30px;
-		.arrow { font-size: 25px; }
-		.arrow-left {
+		.arrow {
+			font-size: 25px;
+			padding: 154px calc(10px + 5px);
+		}
+		/*.arrow-left {
 			left: -5px;
 		}
 		.arrow-right {
 			right: -5px;
-		}
+		}*/
 		.slider-wrapper .lSPager { padding-bottom: 10px; }
 	}
 }
 @media( max-width: 479px ) {
+	body #projects-popup-wrapper {
+		#close-projects { padding: 25px; }
+	}
 	body #body-wrapper #projects-popup-cell {
 	    padding: 15px;
 	}
 	body #body-wrapper .projects-popup {
+		min-height: 242px;
 		padding: 30px 45px;
+		.arrow {
+			padding: 108px calc(10px + 5px);
+		}
 		.arrow-left {
-			left: 5px;
-			transform: translate(0,-50%) rotate(180deg);
+			left: 0;
+			transform: translate(0,0) rotate(180deg);
 		}
 		.arrow-right {
-			right: 5px;
-			transform: translate(0,-50%);
+			right: 0;
+			transform: translate(0,0);
 		}
 	}
 }

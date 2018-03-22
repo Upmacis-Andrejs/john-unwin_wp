@@ -55,8 +55,8 @@ $(document).ready(function() {
 	$('.careers-block .title-wrapper').click(function() {
 		var $this = $(this);
 		var $this_block = $this.parents('.careers-block');
-		$this_block.siblings('.active').not(this).removeClass('active').find('.content-wrapper').stop(true, true).slideUp();
 		$this_block.toggleClass('active');
+		$this_block.siblings('.active').not(this).removeClass('active').find('.content-wrapper').stop(true, true).slideUp();
 		$this.siblings('.content-wrapper').stop(true, true).slideToggle();
 
 		var $timeout_section_height;
@@ -224,8 +224,10 @@ $(document).ready(function() {
 
 	function add_not_top() {
 		$body.addClass("not--top");
-		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
-		$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
+		if( $window.width() <= $mobile_width ) {
+			var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+			$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
+		}
 	}
 	function remove_not_top() {
 		$body.removeClass("not--top");
@@ -317,6 +319,15 @@ $(document).ready(function() {
 	});
 
 	// Open, Close and Switch Projects Popups
+	$('#close-projects').click(function() {
+		var $html_top = Math.abs(parseInt($('html').css('top'), 10));
+		$('html').css("top",  '');
+		$('#projects-popup-wrapper').removeClass('active');
+		$('.projects-popup').removeClass('active-project');
+		$('html').removeClass('projects-popups-open scrollbar');
+		$(window).scrollTop( $html_top );
+		return false;
+	});
 	$(document).mouseup(function(e) {
 	    var container_1 = $(".projects-popup");
 	    var container_2 = $(".projects-block");
@@ -388,7 +399,8 @@ $(window).resize(function() {
 
 	var $tablet_width = 1199;
 	var $mobile_width = 767;
-	var $window_width = $(window).width();
+	var $window = $(window);
+	var $window_width = $window.width();
 
 	// Position header navigation and main content according to header height
 	var $header_height = $('#site-header').innerHeight();
@@ -422,16 +434,16 @@ $(window).resize(function() {
 
 	function add_not_top() {
 		$body.addClass("not--top");
-		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
-		$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
+		if( $window.width() <= $mobile_width ) {
+			var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+			$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
+		}
 	}
 	function remove_not_top() {
 		$body.removeClass("not--top");
 		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
 		$header_mobile_wrapper.css('transform', 'translateY(0)');
 	}
-	var $timeout_add_not_top;
-	var $timeout_remove_not_top;
 
 	if( $lastY > 50 ) {
 		add_not_top();

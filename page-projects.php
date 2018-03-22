@@ -79,6 +79,7 @@
 <!-- Projects Popup Contents -->
 <?php if( have_rows('projects') ): ?>
 	<div id="projects-popup-wrapper" class="popup-wrapper">
+		<a id="close-projects" class="icon icon-close text-decor-none" href="#"></a>
 		<div id="projects-popup-table" class="popup-table">
 			<div id="projects-popup-cell" class="popup-cell">
 				<?php
@@ -101,7 +102,9 @@
 							    </ul>
 							</div>
 						<?php endif; ?>
-						<p class="description"><?php the_sub_field('description'); ?></p>
+						<?php if( get_sub_field('description') ): ?>
+							<p class="description"><?php the_sub_field('description'); ?></p>
+						<?php endif; ?>
 					</div>
 				<?php endwhile; ?>
 			</div>
