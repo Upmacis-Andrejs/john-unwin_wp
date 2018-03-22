@@ -28,7 +28,7 @@
 
 					<div class="above-the-fold-wrapper flex-vert-t">
 						<?php if( get_field('page_content') ): ?>
-						<div class="page-content editor-wrapper" data-aos="fade-up" data-aos-duration="1300">
+						<div class="page-content editor-wrapper" data-aos="fade-up" data-aos-duration="1300" data-aos-offset="0">
 							<?php the_field('page_content'); ?>
 						</div>
 						<?php endif; ?>

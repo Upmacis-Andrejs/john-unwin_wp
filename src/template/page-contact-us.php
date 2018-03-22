@@ -29,7 +29,7 @@
 					<div class="above-the-fold-wrapper flex-vert-t">
 						<?php if( have_rows('above_the_fold_main') ): ?>
 						<div class="page-content-wrapper">
-							<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
+							<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100" data-aos-offset="0">
 								<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 								<?php if( get_sub_field('title') ): ?>
 									<h1 class="title"><?php the_sub_field('title'); ?></h1>
@@ -45,7 +45,7 @@
 							<?php endif; ?>
 
 							<?php if( get_field('phone', 'option') || get_field('email', 'option') ): ?>
-							<div class="contacts-wrapper" data-aos="fade-down" data-aos-duration="1100">
+							<div class="contacts-wrapper" data-aos="fade-down" data-aos-duration="1100" data-aos-offset="0">
                                 <?php if( get_field('phone', 'option') ): ?>
                                 <a class="phone-wrapper flex-vert-c" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>">
                                     <span class="icon icon-phone"></span>
@@ -72,7 +72,7 @@
 							</div>
 							<?php endif; ?>
 
-							<div class="address-wrapper" data-aos="fade-down" data-aos-duration="1100">
+							<div class="address-wrapper" data-aos="fade-down" data-aos-duration="1100" data-aos-offset="0">
 								<p class="title"><?php _e('Address', 'johnunwin'); ?></p>
 								<a class="address" href="https://www.google.com/maps/dir/?api=1&destination=
 									<?php $address = get_field('address', 'option');

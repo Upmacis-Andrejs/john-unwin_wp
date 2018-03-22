@@ -171,7 +171,7 @@ $(document).ready(function() {
 
 	// Contact Form Success Message for 'Get a Quote' form
 	var $get_quote_form = document.querySelector('.get-a-quote-form-block');
-	$get_quote_form.addEventListener( 'wpcf7submit', function(e) {
+	$get_quote_form.addEventListener( 'wpcf7mailsent', function(e) {
 		var $form = $('.get-a-quote-form-block');
 		var $form_inner = $form.find('.get-a-quote-form-inner');
 		var $form_inner_width = $form_inner.innerWidth();

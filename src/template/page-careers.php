@@ -30,7 +30,7 @@
 
 						<div class="left-block">
 						<?php if( have_rows('above_the_fold_main') ): ?>
-						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
+						<div class="page-content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100" data-aos-offset="0">
 							<?php while( have_rows('above_the_fold_main') ) : the_row(); ?>
 								<?php if( get_sub_field('title') ): ?>
 									<h1 class="title"><?php the_sub_field('title'); ?></h1>
@@ -46,7 +46,7 @@
 						<?php if( have_rows('careers') ): ?>
 							<div class="careers-wrapper">
 							<?php while( have_rows('careers') ) : the_row(); ?>
-								<div class="careers-block" data-aos="fade-down" data-aos-duration="1100">
+								<div class="careers-block" data-aos="fade-down" data-aos-duration="1100" data-aos-offset="0">
 									<a class="title-wrapper" href="#">
 										<h4 class="title"><?php the_sub_field('title'); ?></h4>
 									</a>
