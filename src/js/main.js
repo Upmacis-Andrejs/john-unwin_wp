@@ -55,8 +55,8 @@ $(document).ready(function() {
 	$('.careers-block .title-wrapper').click(function() {
 		var $this = $(this);
 		var $this_block = $this.parents('.careers-block');
-		$this_block.toggleClass('active');
 		$this_block.siblings('.active').not(this).removeClass('active').find('.content-wrapper').stop(true, true).slideUp();
+		$this_block.toggleClass('active');
 		$this.siblings('.content-wrapper').stop(true, true).slideToggle();
 
 		var $timeout_section_height;
@@ -237,7 +237,8 @@ $(document).ready(function() {
 
 	if( $lastY > 50 ) {
 		add_not_top();
-
+	} else {
+		remove_not_top();
 	}
 
 	$(window).on('scroll', function() {
@@ -251,12 +252,8 @@ $(document).ready(function() {
 		$lastY = $currentY;
 		if ( $document.scrollTop() > 50 && y == 'down' && !$('.not--top').length ) {
 			$timeout_add_not_top = setTimeout(add_not_top, 150);
-			var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
-			$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
 		} else if ( $document.scrollTop() <= 100 && y == 'up' ) {
 			$timeout_remove_not_top = setTimeout(remove_not_top, 150);
-			var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
-			$header_mobile_wrapper.css('transform', 'translateY(0)');
 		}
 
 	});
@@ -411,12 +408,36 @@ $(window).resize(function() {
 		var $this_height = $this.innerHeight();
 		alert($this_height);
 		if( $this_height > 916 ) {
-			alert('yes');
 			$this.addClass('huge');
 		} else {
 			$this.removeClass('huge');
 		}
 	});
+
+	// Adjust header position according to scroll position
+	var $lastY = $window.scrollTop();
+	var $body = $("body");
+	var $header_contacts_wrapper = $('.header-contacts-wrapper');
+	var $header_mobile_wrapper = $('#site-header,.wrapper-for-mobile-menu');
+
+	function add_not_top() {
+		$body.addClass("not--top");
+		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+		$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
+	}
+	function remove_not_top() {
+		$body.removeClass("not--top");
+		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+		$header_mobile_wrapper.css('transform', 'translateY(0)');
+	}
+	var $timeout_add_not_top;
+	var $timeout_remove_not_top;
+
+	if( $lastY > 50 ) {
+		add_not_top();
+	} else {
+		remove_not_top();
+	}
 
 	// Calculate div width for horizontal scrollable content
 	var totalWidth = 0;

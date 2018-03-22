@@ -314,7 +314,31 @@ body .main-site-logo-wrapper {
 }
 @media( max-width: 1199px ) {
 	body .main-site-logo-wrapper {
+		width: calc(285px * 0.7);
+		height: calc(230px * 0.7);
 		margin-top: 68px;
+		margin-bottom: calc(85px * 0.7)!important;
+		.title-block { height: calc(187px * 0.7); }
+		.decor-1,
+		.decor-2,
+		.title-block {
+			padding: calc(24px * 0.7);
+		}
+		.decor-wrapper {
+			height: calc(83px * 0.7);
+			bottom: calc(-40px * 0.7);
+		}
+		.decor-1,
+		.decor-2 {
+			bottom: calc(83px * 0.7);
+		}
+		.decor-line-1,
+		.decor-line-2 {
+			width: calc(142px * 0.7);
+			bottom: calc(50px * 0.7);
+		}
+		.decor-line-1 { right: calc(50% - 0.6px); }
+		.decor-line-2 { left: calc(50% - 0.6px); }
 	}
 }
 @media( max-width: 767px ) {
