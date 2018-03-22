@@ -49,15 +49,17 @@
                                 <?php if( get_field('phone', 'option') ): ?>
                                 <a class="phone-wrapper flex-vert-c" href="tel:<?php $phone = get_field('phone', 'option'); echo str_replace(' ', '', $phone); ?>">
                                     <span class="icon icon-phone"></span>
-                                    <?php if( have_rows('emergency_phone_text', 'option') ): ?>
-                                    <h4 class="text flex-vert-c">
-                                        <?php while( have_rows('emergency_phone_text', 'option') ) : the_row(); ?>
-                                        <span class="bold"><?php the_sub_field('bold_text', 'option'); ?></span>
-                                        <span class="normal"><?php the_sub_field('normal_text', 'option'); ?></span>
-                                        <?php endwhile;?>
-                                    </h4>
-                                    <?php endif; ?>
-                                    <h4 class="phone bold"><?php echo $phone; ?></h4>
+                                    <div class="phone-contents-wrapper flex-vert-c">
+	                                    <?php if( have_rows('emergency_phone_text', 'option') ): ?>
+	                                    <h4 class="text flex-vert-c">
+	                                        <?php while( have_rows('emergency_phone_text', 'option') ) : the_row(); ?>
+	                                        <span class="bold"><?php the_sub_field('bold_text', 'option'); ?></span>
+	                                        <span class="normal"><?php the_sub_field('normal_text', 'option'); ?></span>
+	                                        <?php endwhile;?>
+	                                    </h4>
+	                                    <?php endif; ?>
+	                                    <h4 class="phone bold"><?php echo $phone; ?></h4>
+	                                </div>
                                 </a>
                                 <?php endif; ?>
 

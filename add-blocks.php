@@ -1,6 +1,6 @@
 <?php if( have_rows('add_blocks') ): ?>
-	<div class="add-blocks-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
-    <?php while ( have_rows('add_blocks') ) : the_row(); ?>
+	<div class="add-blocks-wrapper" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100"><?php while ( have_rows('add_blocks') ) : the_row(); ?>
+
 
 	<?php /* Get a Quote Block */ if ( get_sub_field('quote_block') == 'true' ): ?>
 	<div class="block quote-block">
@@ -41,33 +41,25 @@
 
 	<?php /* Media Block */ if( have_rows('media_block') ): ?>
 		<?php while( have_rows('media_block') ) : the_row(); ?>
-			<?php if( get_sub_field('image') && get_sub_field('choose_media_type') == 'image' ): ?>
-			<div class="block media-block">
+			<?php if( get_sub_field('image') && get_sub_field('choose_media_type') == 'image' ): ?><div class="block media-block">
 				<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>">
-			</div>
-			<?php endif; ?>
+			</div><?php endif; ?>
 
-			<?php if( get_sub_field('video_from_external_resources') && get_sub_field('choose_media_type') == 'video_external' ): ?>
-			<div class="block media-block">
+			<?php if( get_sub_field('video_from_external_resources') && get_sub_field('choose_media_type') == 'video_external' ): ?><div class="block media-block">
 				<div class="wrapper">
 					<?php the_sub_field('video_from_external_resources'); ?>
 				</div>
-			</div>
-			<?php endif; ?>
+			</div><?php endif; ?>
 
-			<?php if( get_sub_field('video_from_local_library') && get_sub_field('choose_media_type') == 'video_local' ): ?>
-			<div class="block media-block">
+			<?php if( get_sub_field('video_from_local_library') && get_sub_field('choose_media_type') == 'video_local' ): ?><div class="block media-block">
 				<div class="wrapper">
 					<video preload="metadata" controls>
 						<source src="<?php echo get_sub_field('video_from_local_library')['url']; ?>#t=0.5">
 					</video>
 				</div>
-			</div>
-			<?php endif; ?>
+			</div><?php endif; ?>
 		<?php endwhile; ?>
 	<?php endif; ?>
-
-
-	<?php endwhile; ?>
-	</div>
+	
+	<?php endwhile; ?></div>
 <?php endif; ?>

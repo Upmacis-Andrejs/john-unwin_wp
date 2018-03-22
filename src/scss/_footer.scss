@@ -95,3 +95,109 @@ $color_bg_3: #BEC6D3;
 
 	.sintec-wrapper { margin-left: 50px; }
 }
+#footer-row-1 { .right-wrapper { display: none; } }
+
+@media( max-width: 1199px ) {
+	#site-footer {
+		padding-top: 48px;
+		.footer-row-wrapper { flex-wrap: wrap; }
+		.footer-menu-wrapper,
+		.footer-contacts-wrapper,
+		.footer-row-wrapper .right-wrapper,
+		.footer-row-wrapper .left-wrapper {
+			width: 100%;
+		}
+		.footer-row-wrapper .right-wrapper,
+		.footer-contacts-wrapper {
+			padding-left: 0;
+		}
+		#footer-row-1 .footer-row-wrapper {
+			.footer-menu-wrapper {
+				order: 3;
+				margin-top: 20px;
+			}
+			.footer-contacts-wrapper {
+				order: 1;
+				.block { margin-bottom: 24px; }
+			}
+			.right-wrapper {
+				order: 2;
+				display: flex;
+			}
+			.address-block,
+			.email-block {
+				width: 40%;
+				min-width: 40%;
+			}
+			.email-block,
+			.phone-block {
+				padding-right: 20px;
+			}
+			.phone-block {
+				width: 20%;
+				min-width: 20%;
+			}
+		}
+		#footer-row-2 .footer-row-wrapper {
+			margin-top: 24px;
+			.right-wrapper {
+				display: none;
+			}
+		}
+	}
+}
+
+@media( max-width: 767px ) {
+	body #site-footer {
+		#footer-row-1 .footer-row-wrapper {
+			.footer-menu-wrapper {
+				order: 2;
+				li,
+				li a {
+					width: 100%;
+				}
+				li a {
+					padding-right: 0;
+					padding-left: 0;
+					&:after { content: none; }
+				}
+			}
+			.footer-contacts-wrapper {
+				order: 1;
+				flex-wrap: wrap;
+				margin-bottom: -8px;
+				.block { margin-bottom: 8px; }
+			}
+			.right-wrapper {
+				order: 3;
+				margin-top: 30px;
+			}
+			.address-block,
+			.email-block,
+			.phone-block {
+				width: 100%;
+				min-width: 100%;
+				padding-right: 0;
+			}
+			.socials-wrapper { margin-left: 0; }
+		}
+	}
+	#footer-row-2 .footer-row-wrapper {
+		flex-wrap: wrap;
+		.left-wrapper {
+			flex-wrap: wrap;
+			margin-top: -8px;
+			.copyrights,
+			.developer {
+				width: 100%;
+				margin-top: 5px;
+				margin-right: 0;
+			}
+			.copyrights {
+				max-width: 266px;
+				line-height: 2;
+			}
+		}
+	}
+}
+

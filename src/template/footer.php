@@ -65,6 +65,33 @@
 								</div>
 								<?php endif; ?>
 							</div>
+
+							<div class="right-wrapper flex-vert-c">
+								<div class="socials-wrapper">
+									<?php if( get_field('twitter_link', 'option') ): ?>
+									<a class="link" href="<?php the_field('twitter_link', 'option'); ?>" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/twitter.svg" alt="Twitter Logo">
+									</a>
+									<?php endif; ?>
+
+									<?php if( get_field('facebook_link', 'option') ): ?>
+									<a class="link" href="<?php the_field('facebook_link', 'option'); ?>" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/facebook.svg" alt="Facebook Logo">
+									</a>
+									<?php endif; ?>
+
+									<?php if( get_field('yell_link', 'option') ): ?>
+									<a class="link" href="<?php the_field('yell_link', 'option'); ?>" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/yell.svg" alt="Yell Logo">
+									</a>
+									<?php endif; ?>
+								</div>
+								<div class="sintec-wrapper">
+									<a class="link" href="http://google.com" target="_blank" rel="nofollow">
+										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sintec.svg" style="width: 107px; height: 20px;" alt="Sintec Logo">
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row" id="footer-row-2">
