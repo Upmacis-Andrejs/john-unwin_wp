@@ -44,6 +44,7 @@ $color_bg_3: #BEC6D3;
 	bottom: auto;
 	left: 0;
 	z-index: 2;
+	transition: transform 0.8s ease-in-out;
 }
 .header-menu-wrapper {
 	transition: background-color 0.15s ease-in-out;
@@ -360,6 +361,12 @@ $color_bg_3: #BEC6D3;
 	.header-menu-wrapper {
 		background-color: rgba($color_bg_2, 0.9);
 	}
+	&.mobile-menu-open {
+		.mobile-header-wrapper,
+		.header-menu-wrapper {
+			background-color: rgba($color_bg_2, 1);
+		}
+	}
 }
 @media (max-width: 1919px) {
 	.not--top .wrapper-for-mobile-menu .header-menu-wrapper {
@@ -367,5 +374,5 @@ $color_bg_3: #BEC6D3;
 	}
 }
 @media( max-width: 767px ) {
-	.not--top #site-header { transform: translateY(-94px); }
+	//.not--top #site-header { transform: translateY(-94px); }
 }

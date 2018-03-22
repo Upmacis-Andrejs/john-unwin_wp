@@ -28,21 +28,28 @@ $(document).ready(function() {
 	// Slide-toggle mobile menu
 	$('#mobile-menu-icon').click(function() {
 		$('.wrapper-for-mobile-menu').stop(true, true).slideToggle();
+		$('body').toggleClass('mobile-menu-open');
 		return false;
 	});
 
-	/*$(document).mouseup(function(e) {
-	    var container_1 = $("#site-header");
-	    var container_2 = $(".wrapper-for-mobile-menu");
+	$(document).on('mouseup', function(e) {
+		if ( $('.mobile-menu-open').length ) {
+		    var container_1 = $("#site-header");
+		    var container_2 = $(".wrapper-for-mobile-menu");
+		    var container_3 = $('#mobile-menu-icon');
 
-	    if (!container_1.is(e.target) // if the target of the click isn't the container...
-	        && container_1.has(e.target).length === 0 // ... nor a descendant of the container
-	        && !container_2.is(e.target) // and if the target of the click isn't the container...
-	        && container_2.has(e.target).length === 0) // ... nor a descendant of the container
-	    {
-			$('.wrapper-for-mobile-menu').stop(true, true).slideUp();
-	    }
-	});*/
+		    if (!container_1.is(e.target) // if the target of the click isn't the container...
+		        && container_1.has(e.target).length === 0 // ... nor a descendant of the container
+		        && !container_2.is(e.target) // and if the target of the click isn't the container...
+		        && container_2.has(e.target).length === 0 // ... nor a descendant of the container
+		        && !container_3.is(e.target) // and if the target of the click isn't the container...
+		        && container_3.has(e.target).length === 0) // ... nor a descendant of the container
+		    {
+				$('.wrapper-for-mobile-menu').stop(true, true).slideUp();
+				$('body').removeClass('mobile-menu-open');
+		    }
+		}
+	});
 
 	// Add class "active" to clicked career item and slide-toggle contents
 	$('.careers-block .title-wrapper').click(function() {
@@ -52,67 +59,83 @@ $(document).ready(function() {
 		$this_block.siblings('.active').not(this).removeClass('active').find('.content-wrapper').stop(true, true).slideUp();
 		$this.siblings('.content-wrapper').stop(true, true).slideToggle();
 
-		var $this_section = $this.parents('section');
-		var $this_height = $this_section.innerHeight();
 		var $timeout_section_height;
-		function remove_huge() {
-			$this_section.removeClass("huge");
+		var $this_section = $this.parents('section');
+		function manage_huge() {
+			if( $this_section.innerHeight() > 916 ) {
+				$this_section.addClass("huge");
+			} else {
+				$this_section.removeClass("huge");
+			}
 		}
-		function add_huge() {
-			$this_section.addClass("huge");
-		}
-		if( $this_height > 916 ) {
-			$timeout_section_height = setTimeout(add_huge, 500);
-		} else {
-			$timeout_section_height = setTimeout(remove_huge, 500);
-		}
+		$timeout_section_height = setTimeout(manage_huge, 500);
+
 		return false;
 	});
 
 	$(document).mouseup(function(e) {
 	    var container_1 = $(".careers-block");
+		var $timeout_section_height;
+		var $this_section = $('.page-template-page-careers #above-the-fold-section');
+		function manage_huge() {
+			if( $this_section.innerHeight() > 916 ) {
+				$this_section.addClass("huge");
+			} else {
+				$this_section.removeClass("huge");
+			}
+		}
 
 	    if (!container_1.is(e.target) // if the target of the click isn't the container...
 	        && container_1.has(e.target).length === 0) // ... nor a descendant of the container
 	    {
 			$('.careers-block .content-wrapper').stop(true, true).slideUp();
 			container_1.removeClass('active');
+			$timeout_section_height = setTimeout(manage_huge, 500);
 	    }
 	});
 
 	// Add class "active" to clicked service section item and slide-toggle contents ( in mobile device )
-	$('.default-content-section-block .title-wrapper').click(function() {
+	$(document).on('click', '.default-content-section-block .title-wrapper', function() {
 		var $this = $(this);
-		var $this_block = $this.parents('.default-content-section-block');
-		$this_block.toggleClass('active');
-		$this_block.siblings('.active').not(this).removeClass('active').find('.text').stop(true, true).slideUp();
-		$this.siblings('.text').stop(true, true).slideToggle();
 
-		var $this_section = $this.parents('section');
-		var $this_height = $this_section.innerHeight();
 		var $timeout_section_height;
-		function remove_huge() {
-			$this_section.removeClass("huge");
+		var $this_section = $this.parents('section');
+		function manage_huge() {
+			if( $this_section.innerHeight() > 916 ) {
+				$this_section.addClass("huge");
+			} else {
+				$this_section.removeClass("huge");
+			}
 		}
-		function add_huge() {
-			$this_section.addClass("huge");
-		}
-		if( $this_height > 916 ) {
-			$timeout_section_height = setTimeout(add_huge, 500);
-		} else {
-			$timeout_section_height = setTimeout(remove_huge, 500);
-		}
+	 	if( $(window).width() <= $mobile_width ) {
+			var $this_block = $this.parents('.default-content-section-block');
+			$this_block.toggleClass('active');
+			$this_block.siblings('.active').not(this).removeClass('active').find('.text').stop(true, true).slideUp();
+			$this.siblings('.text').stop(true, true).slideToggle();
+			$timeout_section_height = setTimeout(manage_huge, 500);
+	 	}
+
 		return false;
 	});
 
 	$(document).mouseup(function(e) {
 	    var container_1 = $(".default-content-section-block");
+		var $timeout_section_height;
+		var $this_section = $('.services_section');
+		function manage_huge() {
+			if( $this_section.innerHeight() > 916 ) {
+				$this_section.addClass("huge");
+			} else {
+				$this_section.removeClass("huge");
+			}
+		}
 
 	    if (!container_1.is(e.target) // if the target of the click isn't the container...
 	        && container_1.has(e.target).length === 0) // ... nor a descendant of the container
 	    {
 			$('.default-content-section-block .text').stop(true, true).slideUp();
 			container_1.removeClass('active');
+			$timeout_section_height = setTimeout(manage_huge, 500);
 	    }
 	});
 
@@ -196,21 +219,28 @@ $(document).ready(function() {
 	var $lastY = $window.scrollTop();
 	var $document = $(document);
 	var $body = $("body");
+	var $header_contacts_wrapper = $('.header-contacts-wrapper');
+	var $header_mobile_wrapper = $('#site-header,.wrapper-for-mobile-menu');
 
 	function add_not_top() {
 		$body.addClass("not--top");
+		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+		$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
 	}
 	function remove_not_top() {
 		$body.removeClass("not--top");
+		var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+		$header_mobile_wrapper.css('transform', 'translateY(0)');
 	}
 	var $timeout_add_not_top;
 	var $timeout_remove_not_top;
 
 	if( $lastY > 50 ) {
 		add_not_top();
+
 	}
 
-	$(window).scroll(function() {
+	$(window).on('scroll', function() {
 
 		var $currentY = $window.scrollTop();
 		if ( $currentY > $lastY ) {
@@ -219,10 +249,14 @@ $(document).ready(function() {
 			var y = 'up';
 		}
 		$lastY = $currentY;
-		if ( $document.scrollTop() > 50 && y == 'down' ) {
+		if ( $document.scrollTop() > 50 && y == 'down' && !$('.not--top').length ) {
 			$timeout_add_not_top = setTimeout(add_not_top, 150);
+			var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+			$header_mobile_wrapper.css('transform', 'translateY(-'+$header_contacts_wrapper_h+'px)');
 		} else if ( $document.scrollTop() <= 100 && y == 'up' ) {
 			$timeout_remove_not_top = setTimeout(remove_not_top, 150);
+			var $header_contacts_wrapper_h = $header_contacts_wrapper.innerHeight();
+			$header_mobile_wrapper.css('transform', 'translateY(0)');
 		}
 
 	});
