@@ -141,7 +141,9 @@ figure,
 input,
 label,
 button, .btn,
-table, .table {
+table, .table,
+div,
+span {
   padding: 0;
   margin: 0;
 }
@@ -573,6 +575,7 @@ img,
   .popup-table {
     display: table;
     width: 100%;
+    height: 100vh;
     min-height: 100vh;
   }
   .popup-cell {

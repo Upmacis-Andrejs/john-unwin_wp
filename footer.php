@@ -183,175 +183,178 @@
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>
-		<script>
-			  // Google Maps API script
-			/* -------------------------------------------------------------------------------------- */
-			  /*
-			  *  new_map
-			  *
-			  *  This function will render a Google Map onto the selected jQuery element
-			  *
-			  *  @type  function
-			  *  @date  8/11/2013
-			  *  @since 4.3.0
-			  *
-			  *  @param $el (jQuery element)
-			  *  @return  n/a
-			  */
 
-			  function new_map( $el ) {
-			    
-			    // var
-			    var $markers = $el.find('.marker');
-			    
-			    
-			    // vars
-			    var args = {
-			      zoom    : 16,
-			      center    : new google.maps.LatLng(0, 0),
-			      mapTypeId : google.maps.MapTypeId.ROADMAP,
-			      disableDefaultUI: true,
-			      zoomControl: true,
-			      // gestureHandling: 'greedy',
-			      // gestureHandling: 'none',
-			    };
-			                
-			    // create map
-			    var map = new google.maps.Map( $el[0], args);
-			    
-			    
-			    // add a markers reference
-			    map.markers = [];
-			    
-			    
-			    // add markers
-			    $markers.each(function(){
-			      
-			        add_marker( $(this), map );
-			      
-			    });
-			    
-			    
-			    // center map
-			    center_map( map );
-			    
-			    
-			    // return
-			    return map;
-			    
-			  }
+		<?php /* Scripts for google maps */ if( is_page_template('page-contact-us.php') ): ?>
+			<script>
+				  // Google Maps API script
+				/* -------------------------------------------------------------------------------------- */
+				  /*
+				  *  new_map
+				  *
+				  *  This function will render a Google Map onto the selected jQuery element
+				  *
+				  *  @type  function
+				  *  @date  8/11/2013
+				  *  @since 4.3.0
+				  *
+				  *  @param $el (jQuery element)
+				  *  @return  n/a
+				  */
 
-			  /*
-			  *  center_map
-			  *
-			  *  This function will center the map, showing all markers attached to this map
-			  *
-			  *  @type  function
-			  *  @date  8/11/2013
-			  *  @since 4.3.0
-			  *
-			  *  @param map (Google Map object)
-			  *  @return  n/a
-			  */
+				  function new_map( $el ) {
+				    
+				    // var
+				    var $markers = $el.find('.marker');
+				    
+				    
+				    // vars
+				    var args = {
+				      zoom    : 16,
+				      center    : new google.maps.LatLng(0, 0),
+				      mapTypeId : google.maps.MapTypeId.ROADMAP,
+				      disableDefaultUI: true,
+				      zoomControl: true,
+				      // gestureHandling: 'greedy',
+				      // gestureHandling: 'none',
+				    };
+				                
+				    // create map
+				    var map = new google.maps.Map( $el[0], args);
+				    
+				    
+				    // add a markers reference
+				    map.markers = [];
+				    
+				    
+				    // add markers
+				    $markers.each(function(){
+				      
+				        add_marker( $(this), map );
+				      
+				    });
+				    
+				    
+				    // center map
+				    center_map( map );
+				    
+				    
+				    // return
+				    return map;
+				    
+				  }
 
-			  function center_map( map ) {
-			    // vars
-			    var bounds = new google.maps.LatLngBounds();
+				  /*
+				  *  center_map
+				  *
+				  *  This function will center the map, showing all markers attached to this map
+				  *
+				  *  @type  function
+				  *  @date  8/11/2013
+				  *  @since 4.3.0
+				  *
+				  *  @param map (Google Map object)
+				  *  @return  n/a
+				  */
 
-			    // loop through all markers and create bounds
-			    $.each( map.markers, function( i, marker ){
+				  function center_map( map ) {
+				    // vars
+				    var bounds = new google.maps.LatLngBounds();
 
-			      var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+				    // loop through all markers and create bounds
+				    $.each( map.markers, function( i, marker ){
 
-			      bounds.extend( latlng );
+				      var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
 
-			    });
+				      bounds.extend( latlng );
 
-			      // only 1 marker?
-			      if( map.markers.length == 1 ) {
-			        // set center of map
-			          map.setCenter( bounds.getCenter() );
-			          map.setZoom( 16 );
-			      } else {
-			        // fit to bounds
-			        map.fitBounds( bounds );
+				    });
 
-			          google.maps.event.removeListener(listener); 
-			      }
+				      // only 1 marker?
+				      if( map.markers.length == 1 ) {
+				        // set center of map
+				          map.setCenter( bounds.getCenter() );
+				          map.setZoom( 16 );
+				      } else {
+				        // fit to bounds
+				        map.fitBounds( bounds );
 
-			  }
+				          google.maps.event.removeListener(listener); 
+				      }
 
-			  /*
-			  *  add_marker
-			  *
-			  *  This function will add a marker to the selected Google Map
-			  *
-			  *  @type  function
-			  *  @date  8/11/2013
-			  *  @since 4.3.0
-			  *
-			  *  @param $marker (jQuery element)
-			  *  @param map (Google Map object)
-			  *  @return  n/a
-			  */
+				  }
 
-			  function add_marker( $marker, map ) {
+				  /*
+				  *  add_marker
+				  *
+				  *  This function will add a marker to the selected Google Map
+				  *
+				  *  @type  function
+				  *  @date  8/11/2013
+				  *  @since 4.3.0
+				  *
+				  *  @param $marker (jQuery element)
+				  *  @param map (Google Map object)
+				  *  @return  n/a
+				  */
 
-			    // var
-			    var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+				  function add_marker( $marker, map ) {
 
-			    // create marker
-			    var marker = new google.maps.Marker({
-			      position  : latlng,
-			      map     : map,
-			    });
+				    // var
+				    var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 
-			    // add to array
-			    map.markers.push( marker );
+				    // create marker
+				    var marker = new google.maps.Marker({
+				      position  : latlng,
+				      map     : map,
+				    });
 
-			    // if marker contains HTML, add it to an infoWindow
-			    if( $marker.html() )
-			    {
-			      // create info window
-			      var infowindow = new google.maps.InfoWindow({
-			        content   : $marker.html()
-			      });
+				    // add to array
+				    map.markers.push( marker );
 
-			      // show info window when marker is clicked
-			      google.maps.event.addListener(marker, 'click', function() {
+				    // if marker contains HTML, add it to an infoWindow
+				    if( $marker.html() )
+				    {
+				      // create info window
+				      var infowindow = new google.maps.InfoWindow({
+				        content   : $marker.html()
+				      });
 
-			        //infowindow.open( map, marker );
-			        window.location.href = this.url;
+				      // show info window when marker is clicked
+				      google.maps.event.addListener(marker, 'click', function() {
 
-			      });
-			    }
+				        //infowindow.open( map, marker );
+				        window.location.href = this.url;
 
-			  }
+				      });
+				    }
 
-			  /*
-			  *  document ready
-			  *
-			  *  This function will render each map when the document is ready (page has loaded)
-			  *
-			  *  @type  function
-			  *  @date  8/11/2013
-			  *  @since 5.0.0
-			  *
-			  *  @param n/a
-			  *  @return  n/a
-			  */
-			  // global var
-			  var map = null;
+				  }
 
-			  function initMap() {
-			    // create map
-			      map = new_map( $('#acf-map') );
-			  }
+				  /*
+				  *  document ready
+				  *
+				  *  This function will render each map when the document is ready (page has loaded)
+				  *
+				  *  @type  function
+				  *  @date  8/11/2013
+				  *  @since 5.0.0
+				  *
+				  *  @param n/a
+				  *  @return  n/a
+				  */
+				  // global var
+				  var map = null;
 
-			/* -------------------------------------------------------------------------------------- */
-			  // /Google Maps API script			  
-		</script>
-		<?php $google_maps_api_key = get_field('google_maps_api_key', 'option'); ?>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&callback=initMap"></script>
+				  function initMap() {
+				    // create map
+				      map = new_map( $('#acf-map') );
+				  }
+
+				/* -------------------------------------------------------------------------------------- */
+				  // /Google Maps API script			  
+			</script>
+			<?php $google_maps_api_key = get_field('google_maps_api_key', 'option'); ?>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&callback=initMap"></script>
+		<?php endif; ?>
 	</body>
 </html>

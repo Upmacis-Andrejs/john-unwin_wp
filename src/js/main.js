@@ -135,7 +135,6 @@ $(document).ready(function() {
 			}
 		}
 		$timeout_section_height = setTimeout(manage_huge, 500);
-
 		return false;
 	});
 
@@ -180,7 +179,6 @@ $(document).ready(function() {
 			$this.siblings('.text').stop(true, true).slideToggle();
 			$timeout_section_height = setTimeout(manage_huge, 500);
 	 	}
-
 		return false;
 	});
 
@@ -492,6 +490,16 @@ $(window).resize(function() {
 		}
 	});
 
+	// Set height to teammate image blocks
+	var $team_block_w = $('.team-block').innerWidth();
+	var $team_block_h = Math.round($team_block_w);
+	$('.team-block .img-wrapper').css('height', $team_block_h);
+
+	// Set height to projects image blocks
+	var $projects_block_w = $('.projects-block').innerWidth();
+	var $projects_block_h = Math.round($projects_block_w * 0.712);
+	$('.projects-block .inner').css('height', $projects_block_h);
+
 	// Adjust header position according to scroll position
 	var $lastY = $window.scrollTop();
 	var $body = $("body");
@@ -527,10 +535,9 @@ $(window).resize(function() {
 	var $setWidth = totalWidth + $history_padding_r + $history_padding_l;
 	$("#history-inner-wrapper").css("width", $setWidth);
 
+	// Calculate div width for vertical multi column layout
 	var $testimonials_wrapper = $('.testimonials-wrapper');
 	var $testimonial_block = $('.testimonial-block');
-
-	// Calculate div width for vertical multi column layout
 	var totalHeight = 0;
 	$testimonial_block.each(function() {
 	    totalHeight += parseInt($(this).outerHeight(true), 10);
@@ -556,9 +563,9 @@ $(window).resize(function() {
 		$testimonials_wrapper.css('height', '');
 	} else {
 		if ( setHeight < setHeightReverse ) {
-			$testimonials_wrapper.css('height', setHeight);
+			$testimonials_wrapper.css('height', parseInt(setHeight + 5));
 		} else {
-			$testimonials_wrapper.css('height', setHeightReverse);
+			$testimonials_wrapper.css('height', parseInt(setHeightReverse + 5));
 		}
 	}
 
