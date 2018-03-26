@@ -79,9 +79,9 @@
 <!-- Projects Popup Contents -->
 <?php if( have_rows('projects') ): ?>
 	<div id="projects-popup-wrapper" class="popup-wrapper">
-		<a id="close-projects" class="icon icon-close text-decor-none" href="#"></a>
 		<div id="projects-popup-table" class="popup-table">
 			<div id="projects-popup-cell" class="popup-cell">
+				<a id="close-projects" class="icon icon-close text-decor-none" href="#"></a>
 				<?php
 					$block_no = 0;
 					while( have_rows('projects') ) : the_row(); $block_no++; ?>

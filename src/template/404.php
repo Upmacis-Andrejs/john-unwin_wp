@@ -1,10 +1,13 @@
 <?php get_header(); ?>
 
 	<main id="site-content">
-		<!-- section -->
-		<section>
+		<!-- Above The Fold Section -->
+		<section id="above-the-fold-section">
+
 			<div class="container">
 				<div class="row">
+
+					<?php /* Add Wrapper for Mobile Menu */ get_template_part('wrapper-for-mobile-menu'); ?>
 
 					<!-- article -->
 					<article id="post_404">

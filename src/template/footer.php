@@ -166,6 +166,19 @@
 
 			<?php endif; ?>
 
+			<!-- cookies -->
+			<div class="cookies-wrapper">
+				<div class="js-cookie-consent cookie-consent z-999" id="cookies">
+					<div class="flex-hor-c" id="cookies-cont">
+						<div class="flex-vert-c">
+						  <p class="cookies-text inline-block"><?php _e('This website uses cookies to enhance user experience. By continuing using this site, you agree to cookie usage.', 'johnunwin'); ?></p>
+						  <a class="` js-cookie-consent-agree cookie-consent__agree text-decor-none" id="cookies-close" href="#"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of cookies -->  
+
 		</div>
 		<!-- /wrapper -->
 

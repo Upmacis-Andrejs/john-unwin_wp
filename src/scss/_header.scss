@@ -376,3 +376,22 @@ $color_bg_3: #BEC6D3;
 @media( max-width: 767px ) {
 	//.not--top #site-header { transform: translateY(-94px); }
 }
+
+// Additional CSS for 404 page
+.error404 {
+	.wrapper-for-mobile-menu {
+		z-index: 666;
+		.header-menu-wrapper {
+			#menu-header-menu { height: 60px; }
+		}
+	}
+	.mobile-header-wrapper,
+	.header-menu-wrapper {
+		background-color: rgba($color_bg_2, 1)!important;
+	}
+}
+@media (max-width: 1919px) {
+	.error404 .wrapper-for-mobile-menu .header-menu-wrapper {
+		#menu-header-menu { height: calc(60px * 0.85); }
+	}
+}

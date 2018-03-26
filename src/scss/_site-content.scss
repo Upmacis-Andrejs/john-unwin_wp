@@ -1229,9 +1229,9 @@ body .block-with-list {
 					.title {
 						color: $color_ac_4;
 						text-decoration: underline;
-						&:before {
-							@extend .icon-minus:before;
+						.decor-plus {
 							color: $color_ac_4;
+							&:before { @extend .icon-minus:before; }
 						}
 					}
 					.decor {
@@ -1250,9 +1250,9 @@ body .block-with-list {
 				text-transform: none;
 				text-decoration: none;
 				transition: color 0.1s ease-in-out;
-				&:before {
+				.decor-plus {
 					@extend .icon;
-					@extend .icon-plus:before;
+					@extend .text-decor-none;
 					position: absolute;
 					top: 2px;
 					right: auto;
@@ -1260,6 +1260,7 @@ body .block-with-list {
 					bottom: auto;
 					font-size: 32px;
 					transition: color 0.1s ease-in-out;
+					&:before { @extend .icon-plus:before; }
 				}
 				&:after {
 					@extend .icon-minus:before;

@@ -70,7 +70,7 @@
 						    if( get_row_layout() == 'default_content_section' ): ?>
 						    <div class="default-content-section-block" data-aos="fade-left" data-aos-delay="<?php echo (100 + $services_count * 150) ?>" data-aos-duration="600" data-aos-offset="10">
 						    	<div class="title-wrapper" href="#">
-							    	<h4 class="title"><?php the_sub_field('title'); ?></h4>
+							    	<h4 class="title"><span class="decor-plus"></span><?php the_sub_field('title'); ?></h4>
 							    	<div class="decor"></div>
 							    </div>
 								<?php while( have_rows('section_content') ) : the_row(); ?>
