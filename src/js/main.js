@@ -343,6 +343,9 @@ $(document).ready(function() {
 
 	    emulatetouch: true,
 	    cursordragontouch: true,
+
+		scrollspeed: 0, // scrolling speed
+		mousescrollstep: 20 // scrolling speed with mouse wheel (pixel)
 	});
 	$(".nicescroll-cursors").wrapInner("<div class='cursor-inner'></div>");
 
@@ -500,6 +503,16 @@ $(window).resize(function() {
 	var $projects_block_h = Math.round($projects_block_w * 0.712);
 	$('.projects-block .inner').css('height', $projects_block_h);
 
+	// Set height to map
+	var $map_block_w = $('#google-maps-section').innerWidth();
+	if( $window_width < 1440 ) {
+		var $map_block_h = Math.round($map_block_w * 0.33);
+		$('#google-maps-section').css('height', $map_block_h);
+	} else {
+		var $map_block_h = Math.round($map_block_w * 0.26);
+		$('#google-maps-section').css('height', $map_block_h);
+	}
+
 	// Adjust header position according to scroll position
 	var $lastY = $window.scrollTop();
 	var $body = $("body");
@@ -561,11 +574,14 @@ $(window).resize(function() {
 
 	if( $window_width <= $tablet_width ) {
 		$testimonials_wrapper.css('height', '');
+		AOS.refresh();
 	} else {
 		if ( setHeight < setHeightReverse ) {
 			$testimonials_wrapper.css('height', parseInt(setHeight + 5));
+			AOS.refresh();
 		} else {
 			$testimonials_wrapper.css('height', parseInt(setHeightReverse + 5));
+			AOS.refresh();
 		}
 	}
 

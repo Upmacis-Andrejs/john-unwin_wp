@@ -127,15 +127,6 @@ section.huge {
 		left: 0;
 		width: 100%;
 	  	z-index: 2;
-		.title {
-			//margin-top: 10px;
-			font-size: 16px;
-			letter-spacing: 0;
-			text-transform: uppercase;
-			line-height: 1.25;
-			color: $color_bg_1;
-			text-align: center;
-		}
 	}
 	.decor-wrapper {
 		position: absolute;
@@ -193,16 +184,6 @@ section.huge {
 		);
 	}
 }
-@media( max-width: 767px ) {
-	.title-block-wrapper,
-	.main-site-logo-wrapper {
-		.title-block {
-			.title {
-				font-size: 11px;
-			}
-		}
-	}
-}
 body .title-block-wrapper {
 	width: 167px;
 	height: 160px;
@@ -234,9 +215,10 @@ body .title-block-wrapper {
 			//margin-top: 10px;
 			font-size: 16px;
 			text-transform: uppercase;
-			line-height: 1.25;
+			line-height: 20px;
 			color: $color_bg_1;
 			text-align: center;
+			letter-spacing: 0;
 		}
 	}
 }
@@ -278,6 +260,7 @@ body .title-block-wrapper {
 			height: 74px;
 			.title {
 				font-size: 11px;
+				line-height: 14px;
 			}
 		}
 	}
@@ -541,7 +524,8 @@ body .main-site-logo-wrapper {
 .page-template-page-services {
 	#above-the-fold-section {
 		&>.container {
-			padding-bottom: 145px;
+			//padding-bottom: 145px;
+			padding-bottom: 86px;
 		}
 		.main-site-logo-wrapper { margin-bottom: 50px; }
 	}
@@ -795,7 +779,9 @@ body .main-site-logo-wrapper {
 	.title {
 		margin-bottom: 9px;
 		text-transform: none;
-		line-height: 1.25;
+		font-size: 20px;
+		//line-height: 1.25;
+		line-height: 25px;
 	}
 	ul {
 		padding-right: 16px;
@@ -916,7 +902,11 @@ body .main-site-logo-wrapper {
 .quote-block {
 	ul {
 		margin-top: 15px;
-		li { line-height: 1.34; }
+		li {
+			font-size: 15px;
+			line-height: 20px;
+			//line-height: 1.34;
+		}
 	}
 	.btn { margin-top: 30px; }
 }
@@ -1070,7 +1060,9 @@ body .block-with-list {
 			padding-right: 18px;
 			align-self: flex-end;
 			font-weight: 700;
-			line-height: 1.333;
+			font-size: 15px;
+			//line-height: 1.333;
+			line-height: 20px;
 			color: $color_hc_2;
 			text-transform: uppercase;
 			@extend .text-decor-none;
@@ -1195,7 +1187,8 @@ body .block-with-list {
 		}
 		.additional-text {
 			font-size: 16px;
-			line-height: 1.56;
+			//line-height: 1.56;
+			line-height: 25px;
 			color: $color_hc_1;
 			text-transform: none;
 		}
@@ -1246,7 +1239,9 @@ body .block-with-list {
 				padding-right: 8px;
 				margin-left: 47px;
 				color: $color_hc_4;
-				line-height: 1.2;
+				font-size: 30px;
+				//line-height: 1.2;
+				line-height: 36px;
 				text-transform: none;
 				text-decoration: none;
 				transition: color 0.1s ease-in-out;
@@ -1265,6 +1260,18 @@ body .block-with-list {
 				&:after {
 					@extend .icon-minus:before;
 					@extend .visuallyhidden;
+				}
+			}
+			@media( max-width: 1919px ) {
+				.title {
+					font-size: 25px;
+					line-height: 30px;
+				}
+			}
+			@media( max-width: 767px ) {
+				.title {
+					font-size: 22px;
+					line-height: 26px;
 				}
 			}
 			.text {
@@ -1436,7 +1443,8 @@ body .block-with-list {
 			.title {
 				font-size: 25px;
 				letter-spacing: 0;
-				line-height: 1.2;
+				//line-height: 1.2;
+				line-height: 30px;
 			}
 			.text,
 			.list {
@@ -1446,7 +1454,11 @@ body .block-with-list {
 		.block-with-list {
 			ul {
 				list-style-type: none;
-				li { line-height: 1.34; }
+				li {
+					font-size: 15px;
+					//line-height: 1.34;
+					line-height: 20px;
+				}
 			}
 		}
 	}
@@ -1458,7 +1470,10 @@ body .block-with-list {
 			width: calc(440px * 0.85);
 		}
 		.right-block .block {
-			.title { font-size: calc(25px * 0.85); }
+			.title {
+				font-size: 21px;
+				line-height: 25px;
+			}
 		}
 	}
 }
@@ -1510,7 +1525,11 @@ body .block-with-list {
 		width: calc(20% - 30px);
 		margin: 0 15px 41px;
 		text-align: center;
-		p { line-height: 1.333; }
+		p {
+			font-size: 15px;
+			//line-height: 1.333;
+			line-height: 20px;
+		}
 		.img-wrapper {
 			width: 100%;
 			//padding-bottom: 100%;
@@ -1537,7 +1556,9 @@ body .block-with-list {
 			}
 		}
 		.name {
-			line-height: 1.25;
+			font-size: 20px;
+			line-height: 25px;
+			//line-height: 1.25;
 		}
 	}
 }
@@ -1795,7 +1816,7 @@ body .block-with-list {
 
 // Map Section
 #google-maps-section {
-	padding-top: 26%;
+	//padding-top: 26%;
 	min-height: 255px;
 	#acf-map {
 		@extend .block-fit-parent;
@@ -1806,7 +1827,7 @@ body .block-with-list {
 }
 @media (max-width: 1439px) {
 	#google-maps-section {
-		padding-top: 33%;
+		//padding-top: 33%;
 	}
 }
 
@@ -2211,7 +2232,9 @@ body .block-with-list {
 				margin-left: 47px;
 				text-transform: none;
 				letter-spacing: 0;
-				line-height: 1.2;
+				font-size: 30px;
+				line-height: 36px;
+				//line-height: 1.2;
 				&:before {
 					@extend .icon;
 					@extend .icon-plus:before;
@@ -2227,6 +2250,18 @@ body .block-with-list {
 				&:after {
 					@extend .icon-minus:before;
 					@extend .visuallyhidden;
+				}
+			}
+			@media( max-width: 1919px ) {
+				.title {
+					font-size: 25px;
+					line-height: 30px;
+				}
+			}
+			@media( max-width: 767px ) {
+				.title {
+					font-size: 22px;
+					line-height: 26px;
 				}
 			}
 			&:hover,
@@ -2344,7 +2379,6 @@ body .block-with-list {
 		.contents-wrapper {
 			@extend .flex-vert-b;
 			display: flex!important;
-			padding: 19px 23px;
 			color: $color_ac_4;
 			.icon {
 				position: absolute;
@@ -2369,8 +2403,15 @@ body .block-with-list {
 				z-index: 3;
 			}
 			.title {
+				position: absolute;
+				top: auto;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				padding: 19px 23px;
 				font-size: 16px;
-				line-height: 1.25;
+				line-height: 20px;
+				//line-height: 1.25;
 				z-index: 4;
 				@extend .line-clamp;
 				@extend .line-clamp-3;
