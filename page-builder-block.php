@@ -57,7 +57,7 @@
 									<h5 class="additional-text"><?php the_sub_field('atf_additional_text'); ?></h5>
 								<?php endif; ?>
 								<?php endwhile; ?>
-								<a class="btn btn-1" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
+								<a class="btn btn-1 get-a-quote-form" href="#"><?php _e('Get a Quote', 'johnunwin'); ?></a>
 							</div>
 						</div>
 						<?php endif; ?>
