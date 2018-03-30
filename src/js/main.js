@@ -209,14 +209,22 @@ $(document).ready(function() {
 
 	// Toggl contact form
 	$(".get-a-quote-form, a[href='#get-a-quote-form']").click(function() {
-		$(".get-a-quote-form-block").toggleClass('hidden');
+		var $form = $('.get-a-quote-form-block');
+		$form.toggleClass('hidden');
+		if( $("body").hasClass('get-a-quote-form-open') ) {
+		    $form.find('.wpcf7').removeClass('hidden');
+		    $form.find('.success-message').addClass('hidden');
+		}
 		$("body").toggleClass("get-a-quote-form-open");
 		return false;
 	});
 
 	$("#close-quote-form").click(function() {
-		$(".get-a-quote-form-block").addClass('hidden');	
-		$("body").removeClass("get-a-quote-form-open");        
+		var $form = $('.get-a-quote-form-block');
+		$form.addClass('hidden');
+		$("body").removeClass("get-a-quote-form-open");
+	    $form.find('.wpcf7').removeClass('hidden');
+	    $form.find('.success-message').addClass('hidden');
 		return false;
 	});
 
@@ -229,8 +237,11 @@ $(document).ready(function() {
 	        && !container_2.is(e.target) // and if the target of the click isn't the container...
 	        && container_2.has(e.target).length === 0) // ... nor a descendant of the container
 	    {
-			$(".get-a-quote-form-block").addClass('hidden');	
-			$("body").removeClass("get-a-quote-form-open");        
+			var $form = $('.get-a-quote-form-block');
+			$form.addClass('hidden');
+			$("body").removeClass("get-a-quote-form-open");
+		    $form.find('.wpcf7').removeClass('hidden');
+		    $form.find('.success-message').addClass('hidden');
 	    }
 	});
 
