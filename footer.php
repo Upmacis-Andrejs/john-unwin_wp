@@ -87,7 +87,7 @@
 									<?php endif; ?>
 								</div>
 								<div class="sintec-wrapper">
-									<a class="link" href="http://google.com" target="_blank" rel="nofollow">
+									<a class="link" href="<?php the_field('sintec_link', 'option'); ?>" target="_blank" rel="nofollow">
 										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sintec.svg" style="width: 107px; height: 20px;" alt="Sintec Logo">
 									</a>
 								</div>
@@ -130,7 +130,7 @@
 									<?php endif; ?>
 								</div>
 								<div class="sintec-wrapper">
-									<a class="link" href="http://google.com" target="_blank" rel="nofollow">
+									<a class="link" href="<?php the_field('sintec_link', 'option'); ?>" target="_blank" rel="nofollow">
 										<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/sintec.svg" style="width: 107px; height: 20px;" alt="Sintec Logo">
 									</a>
 								</div>
