@@ -733,6 +733,14 @@ body .main-site-logo-wrapper {
 	flex-grow: 1;
 	min-height: 850px;
 	margin-top: -175px;
+	.map-gif {
+	    top: 53.5%;
+	    max-height: 110%;
+	    position: absolute;
+	    max-width: 107%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+	}
 	.background-map-inner { display: flex!important; }
 }
 @media( max-width: 1199px ) {
@@ -743,7 +751,7 @@ body .main-site-logo-wrapper {
 		overflow: visible;
 		.background-map-inner {
 			overflow: visible;
-			img {
+			/*img {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -751,7 +759,7 @@ body .main-site-logo-wrapper {
 				left: auto;
 				height: 100%;
 				max-width: none;
-			}
+			}*/
 		}
 	}
 }
@@ -762,11 +770,11 @@ body .main-site-logo-wrapper {
 		margin-right: 0;
 		margin-left: 0;
 		.background-map-inner {
-			img {
+			/*img {
 				right: auto;
 				left: 50%;
 				transform: translateX(-50%);
-			}
+			}*/
 		}
 	}
 }
