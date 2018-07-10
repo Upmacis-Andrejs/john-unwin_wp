@@ -82,6 +82,7 @@ $(document).ready(function() {
        $('#cookies-close').click(function() {
            $('#cookies').remove();
            createCookie('seen-cookie-message','yes',cookieExpiry,cookiePath);
+           return false;
        });
 
    })();
@@ -497,7 +498,6 @@ $(window).resize(function() {
 	$('section').each(function() {
 		var $this = $(this);
 		var $this_height = $this.innerHeight();
-		alert($this_height);
 		if( $this_height > 916 ) {
 			$this.addClass('huge');
 		} else {
@@ -568,21 +568,18 @@ $(window).resize(function() {
 	    totalHeight += parseInt($(this).outerHeight(true), 10);
 	});
 	var halfHeight = totalHeight / 2;
-	//alert(halfHeight);
 
 	var setHeight = 0;
 	$testimonial_block.each(function() {
 	    setHeight += parseInt($(this).outerHeight(true), 10);
 	    if ( setHeight > halfHeight ) { return false; }
 	});
-	//alert(setHeight);
 
 	var setHeightReverse = 0;
 	$($testimonial_block.get().reverse()).each(function() {
 	    setHeightReverse += parseInt($(this).outerHeight(true), 10);
 	    if ( setHeightReverse > halfHeight ) { return false; }
 	});
-	//alert(setHeightReverse);
 
 	if( $window_width <= $tablet_width ) {
 		$testimonials_wrapper.css('height', '');
