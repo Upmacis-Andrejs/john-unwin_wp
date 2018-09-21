@@ -68,7 +68,7 @@ var css = {
     require('postcss-assets')({
       loadPaths: ['images/'],
       basePath: dir.build,
-      baseUrl: '/wp-content/themes/rkmachinery/'
+      baseUrl: '/wp-content/themes/johnunwin/'
     }),
     require('postcss-easing-gradients'),
     require('autoprefixer')({
